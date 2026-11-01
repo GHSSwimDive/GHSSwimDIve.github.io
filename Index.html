@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RedHawk Swim & Dive Weekly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: a red masthead band, a lane-rope divider, then one readable column per issue; schedule as day cards like a meet heat sheet. */
+:root{
+  --red:#B3122E; --red-ink:#8E0E24; --red-soft:#FBE9EC;
+  --bg:#F5F6F7; --surface:#FFFFFF; --fg:#1C2126; --muted:#5B6570; --line:#DDE1E5;
+  --gray:#6B7682; --gray-soft:#EEF0F2;
+  --gold:#FFE58A; --gold-ink:#5A4300;
+  --blue-soft:#E6F0FA; --blue-ink:#1E4E7E;
+  --green-soft:#E5F4EA; --green-ink:#1F6B3A;
+  --amber-soft:#FDF0DC; --amber-ink:#8A5300;
+  --on-red:#FFFFFF;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Segoe UI",Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --red:#E0465F; --red-ink:#F4889A; --red-soft:#3A1820;
+  --bg:#121518; --surface:#1B1F23; --fg:#E8EBEE; --muted:#A0A9B2; --line:#2E343A;
+  --gray:#9AA4AE; --gray-soft:#242A30;
+  --gold:#5A4A12; --gold-ink:#FFE7A0;
+  --blue-soft:#18293A; --blue-ink:#9CC6EE;
+  --green-soft:#16301F; --green-ink:#94D6A9;
+  --amber-soft:#3A2A12; --amber-ink:#F2C27A;
+  --on-red:#FFFFFF; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --red:#E0465F; --red-ink:#F4889A; --red-soft:#3A1820;
+  --bg:#121518; --surface:#1B1F23; --fg:#E8EBEE; --muted:#A0A9B2; --line:#2E343A;
+  --gray:#9AA4AE; --gray-soft:#242A30;
+  --gold:#5A4A12; --gold-ink:#FFE7A0;
+  --blue-soft:#18293A; --blue-ink:#9CC6EE;
+  --green-soft:#16301F; --green-ink:#94D6A9;
+  --amber-soft:#3A2A12; --amber-ink:#F2C27A;
+  --on-red:#FFFFFF; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--red-ink)}
+a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* Masthead */
+.mast{background:#B3122E;color:#fff}
+.mast .wrap{padding-block:28px 22px;display:flex;flex-direction:column;gap:6px}
+.eyebrow{font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;font-size:14px;font-weight:600;opacity:.85}
+.mast h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,8vw,64px);line-height:.95;margin:0;text-transform:uppercase;letter-spacing:.01em}
+.mast h1 span{display:block;font-size:.5em;font-weight:600;letter-spacing:.06em;opacity:.9}
+.lanerope{height:10px;background:repeating-linear-gradient(90deg,#B3122E 0 22px,#FFFFFF 22px 44px,#8D97A1 44px 66px,#FFFFFF 66px 88px);border-block:2px solid #1C2126}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.nav .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding-block:10px}
+.tab{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:16px;background:none;border:0;color:var(--muted);padding:6px 10px;border-radius:6px;cursor:pointer}
+.tab[aria-current="true"]{color:var(--red-ink);background:var(--red-soft)}
+.nav .spacer{flex:1}
+.nav label{font-size:13px;color:var(--muted)}
+select{font:inherit;font-size:15px;padding:6px 8px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg);max-width:100%}
+
+main .wrap{padding-block:28px 56px;display:flex;flex-direction:column;gap:28px}
+
+/* Issue head */
+.issue-head{display:flex;flex-direction:column;gap:6px}
+.kicker{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:15px;color:var(--red-ink)}
+.issue-head h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,6vw,46px);line-height:1;margin:0;text-wrap:balance}
+.draft{background:var(--gold);color:var(--gold-ink);border-radius:8px;padding:10px 14px;font-size:15px}
+.draft b{font-weight:700}
+mark{background:var(--gold);color:var(--gold-ink);padding:0 4px;border-radius:3px}
+.prose p{margin:0 0 14px;max-width:65ch}
+.prose p:last-child{margin-bottom:0}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.stat b{font-family:var(--display);font-weight:800;font-size:42px;line-height:1;color:var(--red);font-variant-numeric:tabular-nums}
+.stat span{font-size:14px;color:var(--muted);line-height:1.35}
+
+section h3{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:22px;margin:0 0 10px;display:flex;align-items:center;gap:10px}
+section h3::after{content:"";flex:1;height:2px;background:var(--line)}
+
+/* Shout-outs */
+.shouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;list-style:none;padding:0;margin:0}
+.shouts li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.shouts .who{font-weight:700}
+.sgroup{display:flex;flex-direction:column;gap:8px}
+.sgroup+.sgroup{margin-top:14px}
+.slabel{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:17px;color:var(--fg);margin:0}
+.snames{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;list-style:none;margin:0;padding:0}
+.snames li{font-family:var(--display);font-weight:800;font-size:24px;line-height:1.1;letter-spacing:.02em;color:#fff;border-radius:8px;padding:7px 12px;text-align:center;overflow-wrap:anywhere}
+.snames.red li{background:#B3122E}
+.snames.gray li{background:#5F6A75}
+.shouts .why{font-size:15px;color:var(--muted);line-height:1.4}
+
+/* Schedule */
+.days{display:flex;flex-direction:column;gap:10px}
+.day{display:grid;grid-template-columns:88px 1fr;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.day.meet{border-color:var(--red)}
+.day .d{background:var(--gray-soft);padding:12px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0}
+.day.meet .d{background:var(--red);color:var(--on-red)}
+.day .d .dow{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:20px;letter-spacing:.04em;line-height:1}
+.day .d .dt{font-size:13px;opacity:.85;font-variant-numeric:tabular-nums}
+.day .d .flag{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.08em;margin-top:4px}
+.items{list-style:none;margin:0;padding:10px 14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.item{display:flex;flex-direction:column;gap:2px}
+.item .row{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline}
+.time{font-weight:700;font-variant-numeric:tabular-nums}
+.what{font-weight:500}
+.chip{font-family:var(--display);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;padding:1px 8px;border-radius:999px;white-space:nowrap}
+.c-pool{background:var(--blue-soft);color:var(--blue-ink)}
+.c-weights{background:var(--gray-soft);color:var(--fg)}
+.c-dive{background:var(--green-soft);color:var(--green-ink)}
+.c-home{background:var(--red);color:var(--on-red)}
+.c-away{background:var(--red-soft);color:var(--red-ink)}
+.c-off{background:var(--amber-soft);color:var(--amber-ink)}
+.c-event{background:var(--gold);color:var(--gold-ink)}
+.notes{margin:2px 0 0;padding-left:18px;font-size:15px;color:var(--muted);line-height:1.45}
+
+/* Callouts & links */
+.callout{background:var(--red-soft);border-radius:10px;padding:16px 18px}
+.callout h4{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px;font-size:18px;color:var(--red-ink)}
+.callout p{margin:0 0 8px}.callout p:last-child{margin:0}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:17px;padding:10px 16px;border-radius:8px;border:2px solid var(--red);color:var(--red-ink);background:var(--surface);cursor:pointer}
+.btn.primary{background:var(--red);color:var(--on-red)}
+.btn.ph{border-style:dashed;border-color:var(--gold-ink);color:var(--gold-ink);background:var(--gold)}
+.signoff{border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:15px;line-height:1.5}
+.signoff strong{color:var(--fg);font-family:var(--display);font-size:22px;text-transform:uppercase;letter-spacing:.04em;display:block}
+.copybar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:14px;color:var(--muted)}
+.copybar textarea{width:100%;min-height:160px;font:13px/1.4 ui-monospace,Menlo,Consolas,monospace;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--surface);color:var(--fg)}
+
+/* Guide */
+.guide section{display:flex;flex-direction:column;gap:10px}
+.guide ol,.guide ul{margin:0;padding-left:22px;max-width:65ch}
+.guide li{margin-bottom:6px}
+.events{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px 18px;list-style:none;padding:0;margin:0;counter-reset:ev}
+.events li{counter-increment:ev;display:flex;gap:10px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--line);margin:0}
+.events li::before{content:counter(ev);font-family:var(--display);font-weight:800;color:var(--red);min-width:22px;font-variant-numeric:tabular-nums}
+.events li.brk{color:var(--muted);font-style:italic}
+.events li.brk::before{content:"—"}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:15px}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:center}
+th{background:var(--gray-soft);font-family:var(--display);text-transform:uppercase;letter-spacing:.05em}
+.muted{color:var(--muted)}
+.meets{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.meets li{display:grid;grid-template-columns:96px 1fr auto;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.meets li.champ{border-color:var(--red)}
+.meets .when{display:flex;flex-direction:column;line-height:1.2}
+.meets .when b{font-family:var(--display);font-weight:800;font-size:20px;text-transform:uppercase}
+.meets .when span{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.meets .name{font-weight:600;min-width:0}
+.meets .name small{display:block;font-weight:400;color:var(--muted);font-size:14px}
+.month{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-size:15px;margin:8px 0 0}
+.week{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.week div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15px;line-height:1.4}
+.week b{font-family:var(--display);text-transform:uppercase;letter-spacing:.05em;display:block;font-size:17px}
+.past{opacity:.5}
+@media (max-width:480px){.meets li{grid-template-columns:72px 1fr}.meets li .chip{grid-column:2;justify-self:start}}
+@media (max-width:480px){.day{grid-template-columns:70px 1fr}.day .d .dow{font-size:17px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+
+<header class="mast">
+  <div class="wrap">
+    <div class="eyebrow">Goshen High School · RedHawks</div>
+    <h1>Swim &amp; Dive <span>The Weekly</span></h1>
+  </div>
+</header>
+<div class="lanerope" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Newsletter">
+  <div class="wrap">
+    <button class="tab" id="tab-issue" type="button">This Week</button>
+    <button class="tab" id="tab-season" type="button">Season</button>
+    <button class="tab" id="tab-guide" type="button">Meet Guide</button>
+    <span class="spacer"></span>
+    <label for="issue-pick">Issue</label>
+    <select id="issue-pick"></select>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap" id="view"></div>
+</main>
+
+<script src="data.js"></script>
+<script>
+/* ===== Issues: newest first. Text supports **bold**, [label](https://link) and [[fill-in]] (shows highlighted). ===== */
+const ISSUES = (window.NEWSLETTER && window.NEWSLETTER.issues) || [];
+
+const TAGS={pool:"Pool",weights:"Weights",dive:"Divers",home:"Home meet",away:"Away",off:"No practice",event:"Event"};
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function inl(s){
+  let t=esc(s);
+  t=t.replace(/\[\[(.+?)\]\]/g,'<mark>$1</mark>');
+  t=t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  t=t.replace(/\[([^\]]+)\]\((https:\/\/[^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  return t;
+}
+function plain(s){return String(s).replace(/\[\[(.+?)\]\]/g,'[$1]').replace(/\*\*(.+?)\*\*/g,'$1').replace(/\[([^\]]+)\]\((https:\/\/[^)\s]+)\)/g,'$1: $2')}
+
+function renderIssue(is){
+  let h=`<div class="issue-head"><div class="kicker">${esc(is.kicker)}</div><h2>${inl(is.title)}</h2></div>`;
+  if(is.draft) h+=`<div class="draft"><b>Draft.</b> ${inl(is.draft)}</div>`;
+  h+=`<div class="prose">${is.intro.map(p=>`<p>${inl(p)}</p>`).join("")}</div>`;
+  if(is.stats.length) h+=`<div class="stats">${is.stats.map(s=>`<div class="stat"><b>${esc(s.n)}</b><span>${inl(s.l)}</span></div>`).join("")}</div>`;
+  is.sections.forEach(s=>{h+=`<section><h3>${esc(s.h)}</h3><div class="prose">${s.body.map(p=>`<p>${inl(p)}</p>`).join("")}</div></section>`});
+  if(is.shoutGroups) h+=`<section><h3>Shout-outs</h3>${is.shoutGroups.map(g=>`<div class="sgroup"><p class="slabel">${esc(g.label)}</p><ul class="snames ${g.style}">${g.names.map(n=>`<li>${esc(n)}</li>`).join("")}</ul></div>`).join("")}</section>`;
+  if(is.shouts.length) h+=`<section><h3>${esc(is.shoutTitle||"Shout-outs")}</h3><ul class="shouts">${is.shouts.map(s=>`<li><span class="who">${inl(s.who)}</span><span class="why">${inl(s.why)}</span></li>`).join("")}</ul></section>`;
+  (is.callouts||[]).forEach(c=>{h+=`<div class="callout"><h4>${esc(c.h)}</h4>${c.items.map(i=>`<p>${inl(i)}</p>`).join("")}</div>`});
+  if(is.schedule.length){
+    h+=`<section><h3>Weekly schedule</h3><div class="days">${is.schedule.map(d=>`
+      <div class="day${d.meet?" meet":""}"><div class="d"><span class="dow">${esc(d.dow)}</span>${d.date?`<span class="dt">${esc(d.date)}</span>`:""}${d.flag?`<span class="flag">${esc(d.flag)}</span>`:""}</div>
+      <ul class="items">${d.items.map(it=>`<li class="item"><div class="row"><span class="time">${inl(it.time)}</span><span class="what">${inl(it.what)}</span><span class="chip c-${it.tag}">${esc(TAGS[it.tag]||it.tag)}</span></div><div class="muted" style="font-size:15px">${inl(it.where||"")}</div>${it.notes?`<ul class="notes">${it.notes.map(n=>`<li>${inl(n)}</li>`).join("")}</ul>`:""}</li>`).join("")}</ul></div>`).join("")}</div></section>`;
+  }
+  const btns=[...is.survey.map(s=>({...s,primary:true})),...is.links];
+  if(btns.length) h+=`<section><h3>${is.survey.length?"Survey &amp; links":"Links"}</h3><div class="btns">${btns.map(b=>b.url?`<a class="btn${b.primary?" primary":""}" href="${esc(b.url)}" target="_blank" rel="noopener">${esc(b.label)} ↗</a>`:`<span class="btn ph">${esc(b.label)}: add link</span>`).join("")}</div></section>`;
+  h+=`<div class="signoff"><strong>Let's go RedHawks!</strong>Laura Rupp · GCS Aquatics Director · Goshen High School Athletics<br>lrupp@goshenschools.org · 574-538-3201</div>`;
+  h+=`<div class="copybar"><button class="btn" type="button" id="copy-btn">Copy text version</button><span id="copy-msg">Plain text for Parent Square or Final Forms.</span><textarea id="copy-area" hidden readonly aria-label="Plain text version"></textarea></div>`;
+  return h;
+}
+
+function issueText(is){
+  const L=[is.kicker.toUpperCase(),plain(is.title),""];
+  is.intro.forEach(p=>L.push(plain(p),""));
+  if(is.stats.length){is.stats.forEach(s=>L.push(`• ${s.n} – ${plain(s.l)}`));L.push("")}
+  is.sections.forEach(s=>{L.push(s.h.toUpperCase());s.body.forEach(p=>L.push(plain(p),""))});
+  if(is.shoutGroups){L.push("SHOUT-OUTS");is.shoutGroups.forEach(g=>{L.push(g.label);L.push("   "+g.names.join(", "))});L.push("")}
+  if(is.shouts.length){L.push((is.shoutTitle||"Shout-outs").toUpperCase());is.shouts.forEach(s=>L.push(`• ${plain(s.who)} – ${plain(s.why)}`));L.push("")}
+  (is.callouts||[]).forEach(c=>{L.push(c.h.toUpperCase());c.items.forEach(i=>L.push("• "+plain(i)));L.push("")});
+  if(is.schedule.length){L.push("WEEKLY SCHEDULE");is.schedule.forEach(d=>{L.push(`${d.dow}${d.date?" "+d.date:""}${d.flag?" – "+d.flag:""}`);d.items.forEach(it=>{L.push(`   ${plain(it.time)}  ${plain(it.what)}${it.where?" ("+plain(it.where)+")":""}`);(it.notes||[]).forEach(n=>L.push("      – "+plain(n)))})});L.push("")}
+  is.survey.forEach(s=>L.push(`${s.label}: ${s.url||"[link]"}`));
+  is.links.forEach(s=>L.push(`${s.label}: ${s.url}`));
+  L.push("","Let's Go RedHawks!","Laura Rupp","Goshen High School Athletics");
+  return L.join("\n");
+}
+
+const GUIDE=`
+<div class="issue-head"><div class="kicker">For new families &amp; athletes</div><h2>How a swim &amp; dive meet works</h2></div>
+<div class="guide" style="display:flex;flex-direction:column;gap:28px">
+<section><h3>Getting there</h3><ul>
+<li><strong>Home meets on a school day:</strong> athletes come to the pool like a normal practice and help set up.</li>
+<li><strong>Away meets on a school day:</strong> we meet in the GHS cafeteria after school and ride the bus. Bring a snack for the wait.</li>
+<li>Weekday away meets leave from and return to GHS. Saturday meets leave from and return to the Aquatic Center.</li>
+<li>We ride the bus home together after away meets. That's when athletes get their Subway meal.</li>
+</ul></section>
+<section><h3>Diving comes first</h3><ul>
+<li>Each school can enter 3 girls and 3 boys. Each diver performs <strong>6 dives</strong> in a dual meet.</li>
+<li>All girls do dive 1, then all boys do dive 1, then round 2, and so on until all 6 rounds are done.</li>
+<li>The first dive must come from the <strong>category of the week</strong>. The other 5 must cover 4 of the 5 categories: forward, back, inward, twist and reverse.</li>
+<li>Three judges score each dive. The scores are added, then multiplied by the dive's degree of difficulty (DD). Highest total after 6 rounds wins.</li>
+<li><strong>Please stay quiet</strong> from the moment a diver is on the board until they surface, and <strong>no flash photography</strong>, for the diver's safety.</li>
+<li>Diving can take 20 minutes to over an hour depending on how many divers there are.</li>
+</ul></section>
+<section><h3>Then swimming</h3><p class="muted" style="margin:0">Conference (NLC) meets have a mandatory 40-minute warm-up after diving; non-conference meets may shorten it to 30. Swimming runs about 1.5 hours. Only 3 athletes per school can score in each event.</p>
+<ol class="events">
+<li>200 Medley Relay</li><li>200 Freestyle</li><li>200 IM</li><li>50 Freestyle</li>
+<li class="brk">10–15 minute break (where diving officially sits)</li>
+<li>100 Butterfly</li><li>100 Freestyle</li><li>500 Freestyle</li><li>200 Free Relay</li><li>100 Backstroke</li><li>100 Breaststroke</li><li>400 Free Relay</li>
+</ol>
+<p class="muted" style="margin:0;font-size:15px">Each event is swum girls, then boys.</p></section>
+<section><h3>Conference (NLC) championship</h3><ul>
+<li>Teams: Concord, Goshen, Mishawaka, Northridge, NorthWood, Plymouth, Warsaw, Wawasee.</li>
+<li>Up to 3 entries per individual event and 2 relays per relay event.</li>
+<li><strong>Thursday evening:</strong> swimming prelims only, 3 heats per event. The fastest 16 return Saturday.</li>
+<li><strong>Saturday morning:</strong> diving prelims at 9:00 AM, 11 dives total: 5 dives, a warm-up break, 3 more, another warm-up, and the final 3 during swim finals after the 50 free.</li>
+<li><strong>Saturday 1:00 PM:</strong> swimming finals, 2 heats per event: consolation (9th–16th), then the top 8. Awards follow each event.</li>
+</ul>
+<div class="tablewrap"><table><thead><tr><th>Place</th>${[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16].map(n=>`<th>${n}</th>`).join("")}</tr></thead><tbody>
+<tr><th>Individual</th>${[20,17,16,15,14,13,12,11,9,7,6,5,4,3,2,1].map(n=>`<td>${n}</td>`).join("")}</tr>
+<tr><th>Relay</th>${[40,34,32,30,28,26,24,22].map(n=>`<td>${n}</td>`).join("")}${"<td>–</td>".repeat(8)}</tr></tbody></table></div></section>
+<section><h3>Sectionals &amp; State</h3><p style="margin:0;max-width:65ch">Sectional looks very much like the NLC meet, with a few more teams. To reach the State meet:</p><ul>
+<li><strong>Swimmers:</strong> win the event, or meet the state-cut time in sectional finals. If that doesn't fill all 32 spots, the next-fastest times from across the state fill the rest.</li>
+<li><strong>Divers:</strong> the top 4 at each sectional go to a Regional dive meet, and only the top 8 at Regionals go to State.</li>
+</ul></section>
+<section><h3>Help at home meets</h3><p style="margin:0;max-width:65ch">Home meets run on parent help, especially in the concession stand and as lane timers. We also need people to run the timing system and scoring, and we'll train you. Workers get in free.</p><div class="btns"><span class="btn ph">Meet worker sign-up: add link</span></div></section>
+</div>`;
+
+/* ===== Season dates (from the 2026-27 calendar). d = YYYY-MM-DD ===== */
+const SEASON = (window.NEWSLETTER && window.NEWSLETTER.season) || {meets:[],keydates:[]};
+const MEETS = SEASON.meets || [];
+const KEYDATES = SEASON.keydates || [];
+function fmt(d){const x=new Date(d+"T12:00:00");return{dow:x.toLocaleDateString("en-US",{weekday:"short"}),md:x.toLocaleDateString("en-US",{month:"short",day:"numeric"}),mon:x.toLocaleDateString("en-US",{month:"long",year:"numeric"}),past:x<new Date(new Date().toDateString())}}
+function renderSeason(){
+  let h=`<div class="issue-head"><div class="kicker">2026-27 Season</div><h2>Meets &amp; key dates</h2></div>
+  <section><h3>A normal week</h3><div class="week">
+   <div><b>Mon &amp; Wed</b>3:45–6:00 PM practice</div>
+   <div><b>Tue &amp; Thu</b>6:00–7:00 AM weights (optional)<br>3:45–6:00 PM practice</div>
+   <div><b>Friday</b>6:00–7:30 AM swimmers<br>3:45–5:30 PM divers</div>
+   <div><b>Saturday</b>7:00–10:00 AM most weeks; meets on others</div>
+  </div><p class="muted" style="margin:8px 0 0;font-size:15px">The weekly newsletter always has the exact schedule for that week.</p></section>
+  <section><h3>Meets</h3><ul class="meets">`;
+  let last="";
+  MEETS.forEach(m=>{const f=fmt(m.d);if(f.mon!==last){h+=`</ul><p class="month">${f.mon}</p><ul class="meets">`;last=f.mon}
+    h+=`<li class="${m.c?"champ":""}${f.past?" past":""}"><div class="when"><b>${f.dow}</b><span>${f.md} · ${esc(m.t)}</span></div><div class="name">${esc(m.n)}${m.s?`<small>${esc(m.s)}</small>`:""}</div><span class="chip c-${m.tag}">${m.tag==="home"?"Home":"Away"}</span></li>`});
+  h+=`</ul></section><section><h3>Other key dates</h3><ul class="meets">`;
+  KEYDATES.forEach(k=>{const f=fmt(k.d);h+=`<li class="${f.past?"past":""}" style="grid-template-columns:96px 1fr"><div class="when"><b>${f.dow}</b><span>${f.md}</span></div><div class="name" style="font-weight:500">${esc(k.n)}</div></li>`});
+  h+=`</ul></section><p class="muted" style="font-size:15px;margin:0">Meets marked "to be confirmed" may still change. I'll post updates in the weekly newsletter.</p>`;
+  return h;
+}
+
+const view=document.getElementById("view"), pick=document.getElementById("issue-pick");
+pick.innerHTML=ISSUES.map((is,i)=>`<option value="${is.id}">${esc(is.kicker)}${i===0?" (latest)":""}</option>`).join("");
+
+function route(){
+  const h=decodeURIComponent(location.hash.slice(1));
+  const guide=h==="guide", season=h==="season";
+  document.getElementById("tab-guide").setAttribute("aria-current",guide);
+  document.getElementById("tab-season").setAttribute("aria-current",season);
+  document.getElementById("tab-issue").setAttribute("aria-current",!guide&&!season);
+  if(guide){view.innerHTML=GUIDE;return}
+  if(season){view.innerHTML=renderSeason();return}
+  const is=ISSUES.find(x=>"issue-"+x.id===h)||ISSUES[0];
+  pick.value=is.id;
+  view.innerHTML=renderIssue(is);
+  document.getElementById("copy-btn").addEventListener("click",()=>{
+    const txt=issueText(is), area=document.getElementById("copy-area"), msg=document.getElementById("copy-msg");
+    area.value=txt;
+    const fallback=()=>{area.hidden=false;area.focus();area.select();msg.textContent="Select all in the box below and copy."};
+    try{navigator.clipboard.writeText(txt).then(()=>{msg.textContent="Copied. Paste it into your message."},fallback)}catch(e){fallback()}
+  });
+}
+function go(hash){if(location.hash==="#"+hash)route();else location.hash=hash}
+document.getElementById("tab-guide").onclick=()=>go("guide");
+document.getElementById("tab-season").onclick=()=>go("season");
+document.getElementById("tab-issue").onclick=()=>go("issue-"+pick.value);
+pick.onchange=()=>go("issue-"+pick.value);
+window.addEventListener("hashchange",()=>{route();window.scrollTo(0,0)});
+route();
+</script>
+
+</body>
+</html>
