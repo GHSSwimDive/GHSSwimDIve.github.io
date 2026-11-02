@@ -186,6 +186,9 @@ th{background:var(--gray-soft);font-family:var(--display);text-transform:upperca
 .fields input{font:inherit;font-weight:400;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .wk-picked{font-size:15px;color:var(--muted)}
+.wk-who{display:grid;grid-template-columns:minmax(110px,30%) 1fr;gap:12px;padding:10px 14px;border-top:1px solid var(--line);font-size:15px}
+.wk-who .jn{font-weight:600}
+.wk-who .jn small{display:block;font-weight:400;color:var(--muted);font-size:13px}
 .wk-msg{border-radius:8px;padding:10px 14px;font-size:15px}
 .wk-msg.ok{background:var(--green-soft);color:var(--green-ink)}
 .wk-msg.err{background:var(--red-soft);color:var(--red-ink)}
@@ -359,7 +362,7 @@ function loadJobs(){
 function paintWorkers(){if(location.hash==="#workers")view.innerHTML=renderWorkers(),wireWorkers()}
 function renderWorkers(){
   let h=`<div class="issue-head"><div class="kicker">Parents &amp; families</div><h2>Help at home meets</h2></div>
-  <div class="prose wk-intro"><p>Home meets run on parent help. Pick any jobs you can do below, add your name, and you're signed up. Workers get into the meet free, and no experience is needed for timing.</p></div>
+  <div class="prose wk-intro"><p>Home meets run on parent help. Pick any jobs you can do below, add your name, and you're signed up. Workers get into the meet free, and no experience is needed for timing.</p><p><a href="#workers" id="wk-jump">Already signed up? See who's on the list ↓</a></p></div>
   <section><h3>The jobs</h3><div class="jobkey">${Object.entries(JOB_INFO).map(([k,v])=>`<div><b>${esc(k)}</b>${esc(v)}</div>`).join("")}</div></section>`;
   if(WK.error==="setup") return h+`<div class="callout"><h4>Sign-ups open soon</h4><p>Check back shortly, or let Coach Rupp know at practice which meets you can help with.</p></div>`;
   if(WK.error) return h+`<div class="callout"><h4>${WK.error==="slow"?"Still loading…":"Couldn't load the sign-up list"}</h4><p>${WK.error==="slow"?"This is taking longer than usual.":"Check your connection and try again."}</p><div class="btns"><button class="btn" type="button" id="wk-retry">Try again</button></div></div>`;
@@ -382,14 +385,19 @@ function renderWorkers(){
     <label for="wk-phone">Phone<input id="wk-phone" type="tel" autocomplete="tel"></label>
    </div>
    <div class="hp" aria-hidden="true"><label for="wk-website">Website<input id="wk-website" tabindex="-1" autocomplete="off"></label></div>
-   <p class="muted" style="margin:0;font-size:14px">We only use your contact info to reach you about the meet. It's never shown on this page.</p>
+   <p class="muted" style="margin:0;font-size:14px">We only use your contact info to reach you about the meet. Your phone and email are never shown on this page. Your first name and last initial appear in the sign-up list below.</p>
    ${WK.msg?`<div class="wk-msg ${WK.msg.ok?"ok":"err"}" role="status">${WK.msg.html}</div>`:""}
    <div class="btns"><button class="btn primary" type="submit" id="wk-send">Sign me up</button></div></form>`;
+  if(WK.jobs.some(j=>Array.isArray(j.names))) h+=`<section id="wk-who"><h3>Who's signed up</h3><p class="muted" style="margin:0 0 10px;font-size:15px">Check here to see if you're on the list. Something wrong? Let Coach Rupp know.</p><div class="days">${groups.map(g=>{
+    const parts=g.event.split(": "),when=parts.length>1?parts[0]:"",title=parts.length>1?parts.slice(1).join(": "):g.event;
+    return `<div class="wk-event"><div class="wk-head"><b>${esc(title)}</b><span>${esc(when)}</span></div>${g.jobs.map(j=>{const n=j.names||[];
+      return `<div class="wk-who"><span class="jn">${esc(j.job)}<small>${j.needed?`${j.filled} of ${j.needed}`:j.filled+" signed up"}</small></span><span class="${n.length?"":"muted"}">${n.length?n.map(esc).join(", "):"No one yet"}</span></div>`}).join("")}</div>`}).join("")}</div></section>`;
   return h;
 }
 function updatePicked(){const p=document.getElementById("wk-picked"),b=document.getElementById("wk-send");if(!p)return;const n=WK.picked.size;p.textContent=n?`${n} job${n>1?"s":""} picked.`:"Check at least one job above.";b.disabled=!n||WK.sending;b.textContent=WK.sending?"Signing you up…":"Sign me up"}
 function wireWorkers(){
   const r=document.getElementById("wk-retry");if(r)r.onclick=loadJobs;
+  const jmp=document.getElementById("wk-jump"),who=document.getElementById("wk-who");if(jmp){if(!who)jmp.parentNode.remove();else jmp.onclick=e=>{e.preventDefault();who.scrollIntoView({behavior:"smooth"})}}
   document.querySelectorAll(".wk-job input").forEach(cb=>cb.onchange=()=>{cb.checked?WK.picked.add(cb.dataset.key):WK.picked.delete(cb.dataset.key);updatePicked()});
   const f=document.getElementById("wk-form");if(!f)return;updatePicked();
   f.onsubmit=e=>{e.preventDefault();if(WK.sending)return;
