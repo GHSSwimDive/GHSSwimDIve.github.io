@@ -163,6 +163,33 @@ th{background:var(--gray-soft);font-family:var(--display);text-transform:upperca
 .week div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15px;line-height:1.4}
 .week b{font-family:var(--display);text-transform:uppercase;letter-spacing:.05em;display:block;font-size:17px}
 .past{opacity:.5}
+.wk-intro{display:flex;flex-direction:column;gap:8px}
+.jobkey{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.jobkey div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15px;line-height:1.4}
+.jobkey b{font-family:var(--display);text-transform:uppercase;letter-spacing:.05em;display:block;font-size:17px}
+.wk-event{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.wk-head{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;padding:10px 14px;background:var(--gray-soft)}
+.wk-head b{font-family:var(--display);font-weight:800;font-size:20px;text-transform:uppercase;letter-spacing:.02em}
+.wk-head span{font-size:14px;color:var(--muted)}
+.wk-job{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:10px 14px;border-top:1px solid var(--line);cursor:pointer}
+.wk-job.full{cursor:default;opacity:.6}
+.wk-job input{width:22px;height:22px;accent-color:var(--red);margin:0}
+.wk-job .jn{font-weight:600}
+.wk-job .jn small{display:block;font-weight:400;color:var(--muted);font-size:14px}
+.wk-count{display:flex;flex-direction:column;align-items:flex-end;gap:4px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:86px}
+.bar{width:86px;height:6px;border-radius:3px;background:var(--gray-soft);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--red)}
+.wk-form{background:var(--surface);border:2px solid var(--red);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.wk-form h4{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:20px;margin:0}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.fields label{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:600}
+.fields input{font:inherit;font-weight:400;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.wk-picked{font-size:15px;color:var(--muted)}
+.wk-msg{border-radius:8px;padding:10px 14px;font-size:15px}
+.wk-msg.ok{background:var(--green-soft);color:var(--green-ink)}
+.wk-msg.err{background:var(--red-soft);color:var(--red-ink)}
+.btn[disabled]{opacity:.5;cursor:default}
 @media (max-width:480px){.meets li{grid-template-columns:72px 1fr}.meets li .chip{grid-column:2;justify-self:start}}
 @media (max-width:480px){.day{grid-template-columns:70px 1fr}.day .d .dow{font-size:17px}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
@@ -184,6 +211,7 @@ th{background:var(--gray-soft);font-family:var(--display);text-transform:upperca
     <button class="tab" id="tab-issue" type="button">This Week</button>
     <button class="tab" id="tab-season" type="button">Season</button>
     <button class="tab" id="tab-guide" type="button">Meet Guide</button>
+    <button class="tab" id="tab-workers" type="button">Meet Workers</button>
     <span class="spacer"></span>
     <label for="issue-pick">Issue</label>
     <select id="issue-pick"></select>
@@ -285,7 +313,7 @@ const GUIDE=`
 <li><strong>Swimmers:</strong> win the event, or meet the state-cut time in sectional finals. If that doesn't fill all 32 spots, the next-fastest times from across the state fill the rest.</li>
 <li><strong>Divers:</strong> the top 4 at each sectional go to a Regional dive meet, and only the top 8 at Regionals go to State.</li>
 </ul></section>
-<section><h3>Help at home meets</h3><p style="margin:0;max-width:65ch">Home meets run on parent help, especially in the concession stand and as lane timers. We also need people to run the timing system and scoring, and we'll train you. Workers get in free.</p><div class="btns"><span class="btn ph">Meet worker sign-up: add link</span></div></section>
+<section><h3>Help at home meets</h3><p style="margin:0;max-width:65ch">Home meets run on parent help, especially in the concession stand and as lane timers. We also need people to run the timing system and scoring, and we'll train you. Workers get in free.</p><div class="btns"><a class="btn primary" href="#workers">Sign up to help</a></div></section>
 </div>`;
 
 /* ===== Season dates (from the 2026-27 calendar). d = YYYY-MM-DD ===== */
@@ -311,15 +339,89 @@ function renderSeason(){
   return h;
 }
 
+/* ===== Meet workers: live job list from the team tracker ===== */
+const JOB_INFO={
+ "Timer":"Sit at the end of a lane and time each race with a stopwatch and a backup button. No experience needed. We'll show you how.",
+ "Concession stand":"Sell snacks and drinks during the meet.",
+ "Computer timer":"Run the timing system computer. We'll train you.",
+ "Computer scorer":"Run the scoring software. We'll train you."
+};
+const SEASON_YEAR=2026;
+function eventDate(ev){const m=String(ev).match(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(\d{1,2})/);if(!m)return null;const mi="JanFebMarAprMayJunJulAugSepOctNovDec".indexOf(m[1])/3;return new Date((mi>=6?SEASON_YEAR:SEASON_YEAR+1),mi,+m[2],23,59)}
+let WK={jobs:null,error:"",picked:new Set(),sending:false,msg:null};
+function workerApi(){return (window.NEWSLETTER&&window.NEWSLETTER.workerApi)||""}
+function loadJobs(){
+  const api=workerApi(); if(!api){WK.error="setup";paintWorkers();return}
+  WK.error="";WK.jobs=null;paintWorkers();
+  const t=setTimeout(()=>{if(!WK.jobs){WK.error="slow";paintWorkers()}},15000);
+  fetch(api,{method:"GET",credentials:"omit"}).then(r=>r.json()).then(d=>{clearTimeout(t);if(!d.ok)throw 0;WK.jobs=d.jobs;WK.error="";paintWorkers()}).catch(()=>{clearTimeout(t);WK.error="load";paintWorkers()});
+}
+function paintWorkers(){if(location.hash==="#workers")view.innerHTML=renderWorkers(),wireWorkers()}
+function renderWorkers(){
+  let h=`<div class="issue-head"><div class="kicker">Parents &amp; families</div><h2>Help at home meets</h2></div>
+  <div class="prose wk-intro"><p>Home meets run on parent help. Pick any jobs you can do below, add your name, and you're signed up. Workers get into the meet free, and no experience is needed for timing.</p></div>
+  <section><h3>The jobs</h3><div class="jobkey">${Object.entries(JOB_INFO).map(([k,v])=>`<div><b>${esc(k)}</b>${esc(v)}</div>`).join("")}</div></section>`;
+  if(WK.error==="setup") return h+`<div class="callout"><h4>Sign-ups open soon</h4><p>Check back shortly, or let Coach Rupp know at practice which meets you can help with.</p></div>`;
+  if(WK.error) return h+`<div class="callout"><h4>${WK.error==="slow"?"Still loading…":"Couldn't load the sign-up list"}</h4><p>${WK.error==="slow"?"This is taking longer than usual.":"Check your connection and try again."}</p><div class="btns"><button class="btn" type="button" id="wk-retry">Try again</button></div></div>`;
+  if(!WK.jobs) return h+`<p class="muted">Loading open spots…</p>`;
+  const now=new Date(), groups=[], idx={};
+  WK.jobs.forEach(j=>{const d=eventDate(j.event);if(d&&d<now)return;if(!(j.event in idx)){idx[j.event]=groups.length;groups.push({event:j.event,group:j.group,date:d,note:j.note,jobs:[]})}groups[idx[j.event]].jobs.push(j)});
+  groups.sort((a,b)=>(a.date||0)-(b.date||0));
+  if(!groups.length) return h+`<div class="callout"><h4>No open jobs right now</h4><p>Check back as more meets are added.</p></div>`;
+  h+=`<section><h3>Open spots</h3><div class="days">${groups.map(g=>{
+    const parts=g.event.split(": "),when=parts.length>1?parts[0]:"",title=parts.length>1?parts.slice(1).join(": "):g.event;
+    return `<div class="wk-event"><div class="wk-head"><b>${esc(title)}</b><span>${esc(when)}${g.group&&g.group!=="Home meet"?" · "+esc(g.group):""}${g.note?" · "+esc(g.note):""}</span></div>${g.jobs.map(j=>{
+      const left=j.needed?Math.max(j.needed-j.filled,0):null, full=left===0, pct=j.needed?Math.min(100,Math.round(j.filled/j.needed*100)):0, id="wk-"+btoa(unescape(encodeURIComponent(j.key))).replace(/[^a-z0-9]/gi,"");
+      return `<label class="wk-job${full?" full":""}" for="${id}"><input type="checkbox" id="${id}" data-key="${esc(j.key)}" ${full?"disabled":""} ${WK.picked.has(j.key)?"checked":""}><span class="jn">${esc(j.job)}${j.note&&j.note!==g.note?`<small>${esc(j.note)}</small>`:""}</span><span class="wk-count">${full?"Full":left===null?"Open":`${left} of ${j.needed} open`}${j.needed?`<span class="bar"><i style="width:${pct}%"></i></span>`:""}</span></label>`}).join("")}</div>`}).join("")}</div></section>`;
+  h+=`<form class="wk-form" id="wk-form" novalidate><h4>Your info</h4>
+   <p class="wk-picked" id="wk-picked"></p>
+   <div class="fields">
+    <label for="wk-parent">Your name<input id="wk-parent" autocomplete="name" required></label>
+    <label for="wk-athlete">Swimmer or diver's name<input id="wk-athlete" required></label>
+    <label for="wk-email">Email<input id="wk-email" type="email" autocomplete="email"></label>
+    <label for="wk-phone">Phone<input id="wk-phone" type="tel" autocomplete="tel"></label>
+   </div>
+   <div class="hp" aria-hidden="true"><label for="wk-website">Website<input id="wk-website" tabindex="-1" autocomplete="off"></label></div>
+   <p class="muted" style="margin:0;font-size:14px">We only use your contact info to reach you about the meet. It's never shown on this page.</p>
+   ${WK.msg?`<div class="wk-msg ${WK.msg.ok?"ok":"err"}" role="status">${WK.msg.html}</div>`:""}
+   <div class="btns"><button class="btn primary" type="submit" id="wk-send">Sign me up</button></div></form>`;
+  return h;
+}
+function updatePicked(){const p=document.getElementById("wk-picked"),b=document.getElementById("wk-send");if(!p)return;const n=WK.picked.size;p.textContent=n?`${n} job${n>1?"s":""} picked.`:"Check at least one job above.";b.disabled=!n||WK.sending;b.textContent=WK.sending?"Signing you up…":"Sign me up"}
+function wireWorkers(){
+  const r=document.getElementById("wk-retry");if(r)r.onclick=loadJobs;
+  document.querySelectorAll(".wk-job input").forEach(cb=>cb.onchange=()=>{cb.checked?WK.picked.add(cb.dataset.key):WK.picked.delete(cb.dataset.key);updatePicked()});
+  const f=document.getElementById("wk-form");if(!f)return;updatePicked();
+  f.onsubmit=e=>{e.preventDefault();if(WK.sending)return;
+    const v=id=>document.getElementById(id).value.trim();
+    const body={parent:v("wk-parent"),athlete:v("wk-athlete"),email:v("wk-email"),phone:v("wk-phone"),website:v("wk-website"),jobs:[...WK.picked]};
+    const show=(ok,html)=>{WK.msg={ok,html};const vals={};["wk-parent","wk-athlete","wk-email","wk-phone"].forEach(i=>vals[i]=v(i));paintWorkers();Object.entries(vals).forEach(([i,x])=>{const el=document.getElementById(i);if(el)el.value=x});const m=document.querySelector(".wk-msg");if(m)m.scrollIntoView({block:"center"})};
+    if(!body.parent||!body.athlete)return show(false,"Please add your name and your swimmer or diver's name.");
+    if(!body.email&&!body.phone)return show(false,"Please add an email or phone number so we can reach you.");
+    WK.sending=true;updatePicked();
+    fetch(workerApi(),{method:"POST",credentials:"omit",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(body)})
+     .then(r=>r.json()).then(d=>{WK.sending=false;
+       if(!d.ok)return show(false,esc(d.error||"Something went wrong. Please try again."));
+       WK.picked.clear();
+       const list=(d.added||[]).map(a=>`<li>${esc(a.event)}: ${esc(a.job)}</li>`).join("");
+       const fullNote=d.full&&d.full.length?`<p style="margin:6px 0 0">Already full, so not added: ${esc(d.full.join("; "))}.</p>`:"";
+       WK.msg={ok:true,html:`<strong>Thank you! You're signed up for:</strong><ul style="margin:6px 0 0;padding-left:20px">${list}</ul>${fullNote}<p style="margin:6px 0 0">Coach Rupp will be in touch with details before the meet.</p>`};
+       fetch(workerApi(),{credentials:"omit"}).then(r=>r.json()).then(x=>{if(x.ok)WK.jobs=x.jobs}).finally(()=>{paintWorkers();const m=document.querySelector(".wk-msg");if(m)m.scrollIntoView({block:"center"})});
+     }).catch(()=>{WK.sending=false;show(false,"Couldn't send your sign-up. Check your connection and try again.")});
+  };
+}
+
 const view=document.getElementById("view"), pick=document.getElementById("issue-pick");
 pick.innerHTML=ISSUES.map((is,i)=>`<option value="${is.id}">${esc(is.kicker)}${i===0?" (latest)":""}</option>`).join("");
 
 function route(){
   const h=decodeURIComponent(location.hash.slice(1));
-  const guide=h==="guide", season=h==="season";
+  const guide=h==="guide", season=h==="season", workers=h==="workers";
   document.getElementById("tab-guide").setAttribute("aria-current",guide);
   document.getElementById("tab-season").setAttribute("aria-current",season);
-  document.getElementById("tab-issue").setAttribute("aria-current",!guide&&!season);
+  document.getElementById("tab-workers").setAttribute("aria-current",workers);
+  document.getElementById("tab-issue").setAttribute("aria-current",!guide&&!season&&!workers);
+  if(workers){WK.msg=null;if(WK.jobs&&!WK.error)paintWorkers();else loadJobs();return}
   if(guide){view.innerHTML=GUIDE;return}
   if(season){view.innerHTML=renderSeason();return}
   const is=ISSUES.find(x=>"issue-"+x.id===h)||ISSUES[0];
@@ -335,6 +437,7 @@ function route(){
 function go(hash){if(location.hash==="#"+hash)route();else location.hash=hash}
 document.getElementById("tab-guide").onclick=()=>go("guide");
 document.getElementById("tab-season").onclick=()=>go("season");
+document.getElementById("tab-workers").onclick=()=>go("workers");
 document.getElementById("tab-issue").onclick=()=>go("issue-"+pick.value);
 pick.onchange=()=>go("issue-"+pick.value);
 window.addEventListener("hashchange",()=>{route();window.scrollTo(0,0)});

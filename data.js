@@ -1,5 +1,6 @@
 /* Newsletter content. Newest issue first. Updated weekly. */
 window.NEWSLETTER = {
+ "workerApi": "",
  "issues": [
   {
    "id": "2026-11-02",
