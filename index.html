@@ -163,6 +163,20 @@ th{background:var(--gray-soft);font-family:var(--display);text-transform:upperca
 .week div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15px;line-height:1.4}
 .week b{font-family:var(--display);text-transform:uppercase;letter-spacing:.05em;display:block;font-size:17px}
 .past{opacity:.5}
+main .qlwrap{padding-block:16px 0;display:flex;flex-direction:row;flex-wrap:wrap;gap:8px}
+.ql{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:15px;padding:7px 12px;border-radius:999px;background:var(--red-soft);color:var(--red-ink);border:1px solid transparent}
+.ql:hover{border-color:var(--red)}
+.leaf-crew{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.leaf-head{background:var(--red);color:var(--on-red);padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.leaf-head b{font-family:var(--display);font-weight:800;font-size:24px;text-transform:uppercase;letter-spacing:.02em;line-height:1.05}
+.leaf-head span{font-size:15px}
+.leaf-note{padding:10px 14px;font-size:15px;color:var(--muted);border-bottom:1px solid var(--line)}
+.leaf-tbl{width:100%;border-collapse:collapse;font-size:15px}
+.leaf-tbl th,.leaf-tbl td{border:0;border-bottom:1px solid var(--line);padding:8px 14px;text-align:left;vertical-align:top}
+.leaf-tbl th{background:var(--gray-soft);font-family:var(--display);text-transform:uppercase;letter-spacing:.05em;font-size:14px}
+.leaf-tbl td:first-child{font-weight:600;width:45%}
+.leaf-tbl td small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+.leaf-tbl tr:last-child td{border-bottom:0}
 .wk-intro{display:flex;flex-direction:column;gap:8px}
 .jobkey{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
 .jobkey div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15px;line-height:1.4}
@@ -215,6 +229,7 @@ th{background:var(--gray-soft);font-family:var(--display);text-transform:upperca
     <button class="tab" id="tab-season" type="button">Season</button>
     <button class="tab" id="tab-guide" type="button">Meet Guide</button>
     <button class="tab" id="tab-workers" type="button">Meet Workers</button>
+    <button class="tab" id="tab-leaf" type="button" hidden>Leaf Raking</button>
     <span class="spacer"></span>
     <label for="issue-pick">Issue</label>
     <select id="issue-pick"></select>
@@ -222,6 +237,7 @@ th{background:var(--gray-soft);font-family:var(--display);text-transform:upperca
 </nav>
 
 <main>
+  <div class="wrap qlwrap" id="quicklinks" hidden></div>
   <div class="wrap" id="view"></div>
 </main>
 
@@ -326,6 +342,7 @@ const KEYDATES = SEASON.keydates || [];
 function fmt(d){const x=new Date(d+"T12:00:00");return{dow:x.toLocaleDateString("en-US",{weekday:"short"}),md:x.toLocaleDateString("en-US",{month:"short",day:"numeric"}),mon:x.toLocaleDateString("en-US",{month:"long",year:"numeric"}),past:x<new Date(new Date().toDateString())}}
 function renderSeason(){
   let h=`<div class="issue-head"><div class="kicker">2026-27 Season</div><h2>Meets &amp; key dates</h2></div>
+  <div class="btns"><a class="btn primary" href="season-calendar.pdf" target="_blank" rel="noopener">Full season calendar (PDF) ↗</a></div>
   <section><h3>A normal week</h3><div class="week">
    <div><b>Mon &amp; Wed</b>3:45–6:00 PM practice</div>
    <div><b>Tue &amp; Thu</b>6:00–7:00 AM weights (optional)<br>3:45–6:00 PM practice</div>
@@ -419,16 +436,38 @@ function wireWorkers(){
   };
 }
 
+/* ===== Quick links + leaf raking ===== */
+const NL=window.NEWSLETTER||{};
+function todayISO(){const t=new Date();return t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0")}
+function renderQuickLinks(){
+  const box=document.getElementById("quicklinks");
+  const links=(NL.quickLinks||[]).filter(l=>!l.until||todayISO()<=l.until).filter(l=>l.url!=="#leaf"||NL.leafRaking);
+  if(!links.length){box.hidden=true;return}
+  box.innerHTML=links.map(l=>{const ext=/^https?:/.test(l.url)||/\.pdf$/.test(l.url);return `<a class="ql" href="${esc(l.url)}"${ext?' target="_blank" rel="noopener"':""}>${esc(l.label)}${ext?" ↗":""}</a>`}).join("");
+  box.hidden=false;
+}
+function renderLeaf(){
+  const L=NL.leafRaking;
+  if(!L) return `<div class="issue-head"><div class="kicker">Leaf raking</div><h2>No crews scheduled right now</h2></div>`;
+  let h=`<div class="issue-head"><div class="kicker">Leaf raking · ${esc(L.weekend)}${L.updated?" · updated "+esc(L.updated):""}</div><h2>Where to go this weekend</h2></div>
+  <div class="prose"><p>Here's each crew, where they're raking, and what each athlete is bringing. Leaf raking is optional, and athletes who help earn credit toward their team fees. Questions or changes? Contact Coach Rupp.</p></div>`;
+  h+=`<div class="days">${L.crews.map(c=>{const perWhen=c.athletes.some(a=>a.when);return `<div class="leaf-crew"><div class="leaf-head"><b>${esc(c.area)}</b><span>${esc(c.address)} · ${esc(c.when)}</span></div>${c.note?`<div class="leaf-note">${esc(c.note)}</div>`:""}
+   <div class="tablewrap"><table class="leaf-tbl"><thead><tr><th>Athlete</th><th>Bringing</th></tr></thead><tbody>${c.athletes.map(a=>`<tr><td>${esc(a.name)}${perWhen&&a.when?`<small>${esc(a.when)}</small>`:""}</td><td>${esc(a.bring)}</td></tr>`).join("")}</tbody></table></div></div>`}).join("")}</div>`;
+  return h;
+}
+
 const view=document.getElementById("view"), pick=document.getElementById("issue-pick");
 pick.innerHTML=ISSUES.map((is,i)=>`<option value="${is.id}">${esc(is.kicker)}${i===0?" (latest)":""}</option>`).join("");
 
 function route(){
   const h=decodeURIComponent(location.hash.slice(1));
-  const guide=h==="guide", season=h==="season", workers=h==="workers";
+  const guide=h==="guide", season=h==="season", workers=h==="workers", leaf=h==="leaf";
+  document.getElementById("tab-leaf").setAttribute("aria-current",leaf);
   document.getElementById("tab-guide").setAttribute("aria-current",guide);
   document.getElementById("tab-season").setAttribute("aria-current",season);
   document.getElementById("tab-workers").setAttribute("aria-current",workers);
-  document.getElementById("tab-issue").setAttribute("aria-current",!guide&&!season&&!workers);
+  document.getElementById("tab-issue").setAttribute("aria-current",!guide&&!season&&!workers&&!leaf);
+  if(leaf){view.innerHTML=renderLeaf();return}
   if(workers){WK.msg=null;if(WK.jobs&&!WK.error)paintWorkers();else loadJobs();return}
   if(guide){view.innerHTML=GUIDE;return}
   if(season){view.innerHTML=renderSeason();return}
@@ -446,6 +485,9 @@ function go(hash){if(location.hash==="#"+hash)route();else location.hash=hash}
 document.getElementById("tab-guide").onclick=()=>go("guide");
 document.getElementById("tab-season").onclick=()=>go("season");
 document.getElementById("tab-workers").onclick=()=>go("workers");
+document.getElementById("tab-leaf").onclick=()=>go("leaf");
+document.getElementById("tab-leaf").hidden=!NL.leafRaking;
+renderQuickLinks();
 document.getElementById("tab-issue").onclick=()=>go("issue-"+pick.value);
 pick.onchange=()=>go("issue-"+pick.value);
 window.addEventListener("hashchange",()=>{route();window.scrollTo(0,0)});
