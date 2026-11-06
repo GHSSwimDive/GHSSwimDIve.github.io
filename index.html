@@ -167,6 +167,9 @@ main .qlwrap{padding-block:16px 0;display:flex;flex-direction:row;flex-wrap:wrap
 .ql{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:16px;padding:9px 14px;border-radius:999px;background:#1F5FAD;color:#fff;border:2px solid #1F5FAD;box-shadow:0 1px 2px rgba(0,0,0,.15)}
 .ql:hover{background:#174A88;border-color:#174A88}
 .ql:focus-visible{outline:3px solid #9CC6EE;outline-offset:2px}
+.ql.new{background:#0E8A84;border-color:#0E8A84}
+.ql.new:hover{background:#0A6D68;border-color:#0A6D68}
+.ql .newtag{background:#fff;color:#0A6D68;font-size:11px;padding:2px 6px;border-radius:999px;letter-spacing:.06em}
 .leaf-crew{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .leaf-head{background:var(--red);color:var(--on-red);padding:12px 14px;display:flex;flex-direction:column;gap:2px}
 .leaf-head b{font-family:var(--display);font-weight:800;font-size:24px;text-transform:uppercase;letter-spacing:.02em;line-height:1.05}
@@ -446,7 +449,7 @@ function renderQuickLinks(){
   const box=document.getElementById("quicklinks");
   const links=(NL.quickLinks||[]).filter(l=>!l.until||todayISO()<=l.until).filter(l=>l.url!=="#leaf"||NL.leafRaking);
   if(!links.length){box.hidden=true;return}
-  box.innerHTML=links.map(l=>{const ext=/^https?:/.test(l.url)||/\.pdf$/.test(l.url);return `<a class="ql" href="${esc(l.url)}"${ext?' target="_blank" rel="noopener"':""}>${esc(l.label)}${ext?" ↗":""}</a>`}).join("");
+  box.innerHTML=links.map(l=>{const ext=/^https?:/.test(l.url)||/\.pdf$/.test(l.url);return `<a class="ql${l.style==="new"?" new":""}" href="${esc(l.url)}"${ext?' target="_blank" rel="noopener"':""}>${l.style==="new"?'<span class="newtag">NEW</span>':""}${esc(l.label)}${ext?" ↗":""}</a>`}).join("");
   box.hidden=false;
 }
 function renderLeaf(){

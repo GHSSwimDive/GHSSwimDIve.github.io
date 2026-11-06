@@ -1,6 +1,6 @@
 /* Newsletter content. Newest issue first. Updated weekly. */
 window.NEWSLETTER = {
- "quickLinks": [{"label": "Full season calendar (PDF)", "url": "season-calendar.pdf"}, {"label": "Team store", "url": "https://sportsarama.chipply.com/goshenswimdive/?action=viewall"}, {"label": "Family Form", "url": "https://script.google.com/macros/s/AKfycbx2zj2MAZBCN9IS2_hAADbkijjFz7f_qNfAcU7bycoJ6QLPmQo_BTaIic40uNd3oW0-/exec?p=family"}, {"label": "Swim-A-Thon pledges", "url": "https://app.99pledges.com/fund/ghsswimdiv1?home_v2=true", "until": "2026-11-21"}, {"label": "Leaf raking crews", "url": "#leaf"}],
+ "quickLinks": [{"label": "Full season calendar (PDF)", "url": "season-calendar.pdf"}, {"label": "Family Form", "url": "https://script.google.com/macros/s/AKfycbx2zj2MAZBCN9IS2_hAADbkijjFz7f_qNfAcU7bycoJ6QLPmQo_BTaIic40uNd3oW0-/exec?p=family"}, {"label": "Swim-A-Thon pledges", "url": "https://app.99pledges.com/fund/ghsswimdiv1?home_v2=true", "until": "2026-11-21"}, {"label": "Team store", "url": "https://sportsarama.chipply.com/goshenswimdive/?action=viewall", "style": "new"}],
  "leafRaking": {
  "weekend": "Nov 6–8",
  "updated": "Nov 6",
@@ -14,7 +14,8 @@ window.NEWSLETTER = {
    "athletes": [
     {
      "name": "Andria Sarmiento",
-     "bring": "Rake"
+     "bring": "Rake",
+     "leader": true
     },
     {
      "name": "Ava Durnell",
@@ -22,7 +23,8 @@ window.NEWSLETTER = {
     },
     {
      "name": "Jessica Perez",
-     "bring": "Leaf blower, Work gloves"
+     "bring": "Leaf blower, Work gloves",
+     "leader": true
     },
     {
      "name": "Lauren Wohlford",
@@ -54,47 +56,41 @@ window.NEWSLETTER = {
    "area": "Gorham Woods",
    "address": "101 Gorham Rd",
    "when": "Sat, Nov 7 · meet at 9:45 AM",
-   "note": "First visit. We'll come back a second time.",
+   "note": "First visit. We'll come back a second time. Frida can work with this crew or be dropped off by JP to join the girls at 12th Street.",
    "team": "2 electric leaf blowers (corded), 1–2 rakes and tarps",
    "athletes": [
     {
      "name": "Arek Gamble",
-     "when": "Morning → afternoon",
      "bring": "Rake, Leaf blower, Tarp. Prefers own equipment"
     },
     {
      "name": "Caleb Gal",
-     "when": "Morning → afternoon",
      "bring": "Rake (maybe leaf blower)"
     },
     {
      "name": "Frida Vela",
-     "when": "Morning → afternoon · or with the girls at 12th Street (JP drop-off)",
      "bring": "Rake, Leaf blower, Tarp"
     },
     {
      "name": "Jeanpierre Vela",
-     "when": "Morning → afternoon",
-     "bring": "Rake, Leaf blower"
+     "bring": "Rake, Leaf blower",
+     "leader": true
     },
     {
      "name": "Joseph Wyse-Fisher",
-     "when": "Morning → afternoon",
      "bring": "Rake, Tarp"
     },
     {
      "name": "Julian Uribe-Angel",
-     "when": "Morning → afternoon",
      "bring": "Leaf blower, Tarp"
     },
     {
      "name": "Liam Post",
-     "when": "Morning → afternoon",
-     "bring": "Rake, Leaf blower, Tarp, Leaf bags, Work gloves, Truck/trailer"
+     "bring": "Rake, Leaf blower, Tarp, Leaf bags, Work gloves, Truck/trailer",
+     "leader": true
     },
     {
      "name": "Mauro Sanchez-Perez",
-     "when": "Morning",
      "bring": "None (can help)"
     }
    ]
