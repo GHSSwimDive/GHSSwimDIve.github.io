@@ -49,7 +49,15 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(
 
 /* Masthead */
 .mast{background:#B3122E;color:#fff}
-.mast .wrap{padding-block:28px 22px;display:flex;flex-direction:column;gap:6px}
+.banner{background:#B3122E;line-height:0}
+.banner img{display:block;width:100%;max-width:1200px;height:auto;margin:0 auto}
+.mast{overflow:hidden}
+.mast .wrap{padding-block:24px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mast .wrap{position:relative}
+.mast-text{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1 1 auto;position:relative;z-index:1}
+.mast h1{white-space:nowrap}
+.mast-art{flex:0 0 auto;width:min(380px,42%);height:auto;margin-block:-8px -20px}
+@media (max-width:640px){.mast-art{position:absolute;right:max(8px,env(safe-area-inset-right,0px));bottom:-14px;width:52%;margin:0;opacity:.45;z-index:0}.mast h1{white-space:normal}}
 .eyebrow{font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;font-size:14px;font-weight:600;opacity:.85}
 .mast h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,8vw,64px);line-height:.95;margin:0;text-transform:uppercase;letter-spacing:.01em}
 .mast h1 span{display:block;font-size:.5em;font-weight:600;letter-spacing:.06em;opacity:.9}
@@ -221,10 +229,40 @@ main .qlwrap{padding-block:16px 0;display:flex;flex-direction:row;flex-wrap:wrap
 <body>
 
 
+<div class="banner"><img src="banner.jpg" alt="Goshen Community Schools Aquatic Center: a RedHawks swimmer on deck and a swimmer racing freestyle" width="989" height="285"></div>
 <header class="mast">
   <div class="wrap">
-    <div class="eyebrow">Goshen High School · RedHawks</div>
-    <h1>Swim &amp; Dive <span>The Weekly</span></h1>
+    <div class="mast-text">
+      <div class="eyebrow">Goshen High School · RedHawks</div>
+      <h1>Swim &amp; Dive <span>The Weekly</span></h1>
+    </div>
+    <svg class="mast-art" viewBox="0 0 360 160" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M168 52 Q196 -8 236 4" stroke-width="2" stroke-dasharray="1 8" opacity=".55"/>
+        <g opacity=".95">
+          <path d="M240 2 L248 24" stroke-width="7"/>
+          <path d="M248 24 Q252 44 266 60" stroke-width="10"/>
+          <circle cx="273" cy="68" r="7.5" fill="#fff" stroke="none"/>
+          <path d="M262 58 L289 103" stroke-width="5.5"/>
+          <path d="M268 54 L291 101" stroke-width="5.5"/>
+        </g>
+        <g opacity=".9">
+          <path d="M280 116 q4 -10 8 0 M290 112 q4 -14 8 0 M300 116 q4 -10 8 0" stroke-width="2.5"/>
+        </g>
+        <g opacity=".95">
+          <circle cx="118" cy="113" r="8" fill="#fff" stroke="none"/>
+                    <path d="M106 118 Q118 70 160 104" stroke-width="7"/>
+          <path d="M160 104 L168 110" stroke-width="5"/>
+          <circle cx="66" cy="110" r="3" fill="#fff" stroke="none" opacity=".7"/>
+          <circle cx="56" cy="104" r="2.2" fill="#fff" stroke="none" opacity=".6"/>
+          <circle cx="74" cy="102" r="2" fill="#fff" stroke="none" opacity=".6"/>
+          <circle cx="48" cy="112" r="1.6" fill="#fff" stroke="none" opacity=".5"/>
+        </g>
+        <path d="M0 122 q15 -8 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" stroke-width="3" opacity=".75"/>
+        <path d="M0 138 q15 -8 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" stroke-width="2.5" opacity=".4"/>
+        <path d="M0 152 q15 -8 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" stroke-width="2" opacity=".2"/>
+      </g>
+    </svg>
   </div>
 </header>
 <div class="lanerope" aria-hidden="true"></div>
