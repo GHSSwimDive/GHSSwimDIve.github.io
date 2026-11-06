@@ -9,7 +9,7 @@ window.NEWSLETTER = {
    "area": "12th Street",
    "address": "1007 & 1013 S 12th St",
    "when": "Sat, Nov 7 · meet at 9:45 AM",
-   "note": "Two houses side by side. Lots of leaves, but an open area, so it should go fast.",
+   "note": "Two houses side by side. Lots of leaves, but an open area, so it should go fast. Frida Vela may join this crew (JP can drop her off).",
    "team": "2 electric leaf blowers (corded), 1–2 rakes and tarps",
    "athletes": [
     {
@@ -23,6 +23,10 @@ window.NEWSLETTER = {
     {
      "name": "Jessica Perez",
      "bring": "Leaf blower, Work gloves"
+    },
+    {
+     "name": "Lauren Wohlford",
+     "bring": "Rake, Work gloves"
     },
     {
      "name": "Melany Quiroz Juarez",
@@ -65,7 +69,7 @@ window.NEWSLETTER = {
     },
     {
      "name": "Frida Vela",
-     "when": "Morning → afternoon",
+     "when": "Morning → afternoon · or with the girls at 12th Street (JP drop-off)",
      "bring": "Rake, Leaf blower, Tarp"
     },
     {
@@ -79,9 +83,9 @@ window.NEWSLETTER = {
      "bring": "Rake, Tarp"
     },
     {
-     "name": "Lauren Wohlford",
+     "name": "Julian Uribe-Angel",
      "when": "Morning → afternoon",
-     "bring": "Rake, Work gloves"
+     "bring": "Leaf blower, Tarp"
     },
     {
      "name": "Liam Post",
