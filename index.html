@@ -178,6 +178,8 @@ main .qlwrap{padding-block:16px 0;display:flex;flex-direction:row;flex-wrap:wrap
 .leaf-tbl td:first-child{font-weight:600;width:45%}
 .leaf-tbl td small{display:block;font-weight:400;color:var(--muted);font-size:13px}
 .leaf-tbl tr:last-child td{border-bottom:0}
+.leaf-team{padding:10px 14px;font-size:15px;border-bottom:1px solid var(--line);background:var(--gray-soft)}
+.leaf-tag{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;background:var(--red-soft);color:var(--red-ink);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;vertical-align:1px}
 .wk-intro{display:flex;flex-direction:column;gap:8px}
 .jobkey{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
 .jobkey div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15px;line-height:1.4}
@@ -452,8 +454,8 @@ function renderLeaf(){
   if(!L) return `<div class="issue-head"><div class="kicker">Leaf raking</div><h2>No crews scheduled right now</h2></div>`;
   let h=`<div class="issue-head"><div class="kicker">Leaf raking · ${esc(L.weekend)}${L.updated?" · updated "+esc(L.updated):""}</div><h2>Where to go this weekend</h2></div>
   <div class="prose"><p>Here's each crew, where they're raking, and what each athlete is bringing. Leaf raking is optional, and athletes who help earn credit toward their team fees. Questions or changes? Contact Coach Rupp.</p></div>`;
-  h+=`<div class="days">${L.crews.map(c=>{const perWhen=c.athletes.some(a=>a.when);return `<div class="leaf-crew"><div class="leaf-head"><b>${esc(c.area)}</b><span>${esc(c.address)} · ${esc(c.when)}</span></div>${c.note?`<div class="leaf-note">${esc(c.note)}</div>`:""}
-   <div class="tablewrap"><table class="leaf-tbl"><thead><tr><th>Athlete</th><th>Bringing</th></tr></thead><tbody>${c.athletes.map(a=>`<tr><td>${esc(a.name)}${perWhen&&a.when?`<small>${esc(a.when)}</small>`:""}</td><td>${esc(a.bring)}</td></tr>`).join("")}</tbody></table></div></div>`}).join("")}</div>`;
+  h+=`<div class="days">${L.crews.map(c=>{const perWhen=c.athletes.some(a=>a.when);return `<div class="leaf-crew"><div class="leaf-head"><b>${esc(c.area)}</b><span>${esc(c.address)} · ${esc(c.when)}</span></div>${c.note?`<div class="leaf-note">${esc(c.note)}</div>`:""}${c.team?`<div class="leaf-team"><b>Team equipment coming:</b> ${esc(c.team)}</div>`:""}
+   <div class="tablewrap"><table class="leaf-tbl"><thead><tr><th>Athlete</th><th>Bringing</th></tr></thead><tbody>${c.athletes.map(a=>`<tr><td>${esc(a.name)}${a.leader?`<span class="leaf-tag">Crew leader</span>`:""}${perWhen&&a.when?`<small>${esc(a.when)}</small>`:""}</td><td>${esc(a.bring)}</td></tr>`).join("")}</tbody></table></div></div>`}).join("")}</div>`;
   return h;
 }
 

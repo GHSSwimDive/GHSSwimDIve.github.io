@@ -1,15 +1,16 @@
 /* Newsletter content. Newest issue first. Updated weekly. */
 window.NEWSLETTER = {
- "quickLinks": [{"label": "Full season calendar (PDF)", "url": "season-calendar.pdf"}, {"label": "Family Form", "url": "https://script.google.com/macros/s/AKfycbx2zj2MAZBCN9IS2_hAADbkijjFz7f_qNfAcU7bycoJ6QLPmQo_BTaIic40uNd3oW0-/exec?p=family"}, {"label": "Swim-A-Thon pledges", "url": "https://app.99pledges.com/fund/ghsswimdiv1?home_v2=true", "until": "2026-11-21"}, {"label": "Leaf raking crews", "url": "#leaf"}],
+ "quickLinks": [{"label": "Full season calendar (PDF)", "url": "season-calendar.pdf"}, {"label": "Team store", "url": "https://sportsarama.chipply.com/goshenswimdive/?action=viewall"}, {"label": "Family Form", "url": "https://script.google.com/macros/s/AKfycbx2zj2MAZBCN9IS2_hAADbkijjFz7f_qNfAcU7bycoJ6QLPmQo_BTaIic40uNd3oW0-/exec?p=family"}, {"label": "Swim-A-Thon pledges", "url": "https://app.99pledges.com/fund/ghsswimdiv1?home_v2=true", "until": "2026-11-21"}, {"label": "Leaf raking crews", "url": "#leaf"}],
  "leafRaking": {
  "weekend": "Nov 6–8",
- "updated": "Nov 5",
+ "updated": "Nov 6",
  "crews": [
   {
    "area": "12th Street",
    "address": "1007 & 1013 S 12th St",
-   "when": "Sat, Nov 7 · morning",
+   "when": "Sat, Nov 7 · meet at 9:45 AM",
    "note": "Two houses side by side. Lots of leaves, but an open area, so it should go fast.",
+   "team": "2 electric leaf blowers (corded), 1–2 rakes and tarps",
    "athletes": [
     {
      "name": "Andria Sarmiento",
@@ -24,16 +25,16 @@ window.NEWSLETTER = {
      "bring": "Leaf blower, Work gloves"
     },
     {
+     "name": "Melany Quiroz Juarez",
+     "bring": "Leaf blower"
+    },
+    {
      "name": "Naomi Gaytan",
      "bring": "None (can help)"
     },
     {
      "name": "Natalie Gaytan",
      "bring": "Work gloves"
-    },
-    {
-     "name": "Selah Miller",
-     "bring": "Rake, Leaf blower, Tarp, Leaf bags, Work gloves"
     },
     {
      "name": "Sophie Chavoyo-López",
@@ -48,8 +49,9 @@ window.NEWSLETTER = {
   {
    "area": "Gorham Woods",
    "address": "101 Gorham Rd",
-   "when": "Sat, Nov 7 · morning",
+   "when": "Sat, Nov 7 · meet at 9:45 AM",
    "note": "First visit. We'll come back a second time.",
+   "team": "2 electric leaf blowers (corded), 1–2 rakes and tarps",
    "athletes": [
     {
      "name": "Arek Gamble",
@@ -90,11 +92,6 @@ window.NEWSLETTER = {
      "name": "Mauro Sanchez-Perez",
      "when": "Morning",
      "bring": "None (can help)"
-    },
-    {
-     "name": "Morgan Weddell",
-     "when": "Morning",
-     "bring": "Rake, Leaf blower, Tarp"
     }
    ]
   }
