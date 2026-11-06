@@ -100,6 +100,77 @@ window.NEWSLETTER = {
  "workerApi": "https://script.google.com/macros/s/AKfycbw4O038bKHbrOf7jVuoG1xJKRNbRgHLvJfHO1ib_bhji-evfAPRPaZYySJULLCC2nYyvw/exec",
  "issues": [
   {
+   "id": "2026-11-09",
+   "draft": true,
+   "season": "2026-27",
+   "kicker": "Week of Nov 9, 2026 · Boys Week 1",
+   "title": "[Draft] Week of Nov 9",
+   "intro": [
+    "(Recap and preview go here once Laura sends her notes.)"
+   ],
+   "stats": [],
+   "sections": [],
+   "surveyCorner": {
+    "title": "Survey Corner",
+    "intro": "Thanks to everyone who filled out last week's survey! Here's some of what you told us.",
+    "blocks": [
+     {
+      "h": "Walk-out song nominations for our first home meet",
+      "items": [
+       "Let's Get It Started",
+       "Thunderstruck",
+       "Back in Black",
+       "All I Do Is Win",
+       "Who Run the World (Girls)",
+       "Can't Stop",
+       "Superstar",
+       "Macarena",
+       "Wii Theme Song",
+       "Just Keep Swimming"
+      ]
+     },
+     {
+      "h": "Your anchor words for the week",
+      "items": [
+       {
+        "t": "Focused",
+        "n": 3
+       },
+       {
+        "t": "Positive",
+        "n": 3
+       },
+       "Disciplined",
+       "Determined",
+       "Patient",
+       "Peaceful",
+       "1% Better",
+       "Contagious Positivity"
+      ]
+     }
+    ],
+    "tip": {
+     "stat": "6 of 14",
+     "statLabel": "of you got 8+ hours of sleep on 2 or fewer nights",
+     "h": "Sleep is training too",
+     "body": [
+      "Teens need **8 to 10 hours** of sleep a night. Sleep is when your muscles recover and your body actually gets faster from the work you put in at practice. Less sleep means less energy, slower times and more sick days."
+     ],
+     "list": [
+      "**Do the bedtime math.** For a 6:00 AM practice, you're probably up around 5:15. Count back 8 hours and you should be asleep by **9:15 PM** the night before.",
+      "**Phone down 30 minutes before bed.** Charge it across the room, not on your pillow.",
+      "**Keep the same bedtime** on school nights, even when there's no morning practice.",
+      "**Short on sleep?** A 20-minute nap after school helps more than an energy drink."
+     ]
+    }
+   },
+   "shouts": [],
+   "callouts": [],
+   "schedule": [],
+   "survey": [],
+   "links": []
+  },
+  {
    "id": "2026-11-02",
    "season": "2026-27",
    "kicker": "Week of Nov 2, 2026 · Girls Week 2",
