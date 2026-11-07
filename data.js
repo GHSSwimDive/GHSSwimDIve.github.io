@@ -1,15 +1,16 @@
 /* Newsletter content. Newest issue first. Updated weekly. */
 window.NEWSLETTER = {
+ "alert": {"h": "Leaf raking change for today", "text": "The Gorham Woods job is canceled. **All athletes report to the 12th Street houses (1007 & 1013 S 12th St) at 9:45 AM.** A few will be sent to one more house nearby from there.", "link": "#leaf", "linkLabel": "See the crew list", "until": "2026-11-07"},
  "quickLinks": [{"label": "Family Form", "url": "https://script.google.com/macros/s/AKfycbx2zj2MAZBCN9IS2_hAADbkijjFz7f_qNfAcU7bycoJ6QLPmQo_BTaIic40uNd3oW0-/exec?p=family"}, {"label": "Swim-A-Thon pledges", "url": "https://app.99pledges.com/fund/ghsswimdiv1?home_v2=true", "until": "2026-11-21"}, {"label": "Team store", "url": "https://sportsarama.chipply.com/goshenswimdive/?action=viewall", "style": "new"}],
  "leafRaking": {
  "weekend": "Nov 6–8",
- "updated": "Nov 6",
+ "updated": "Sat, Nov 7, 8:50 AM",
  "crews": [
   {
    "area": "12th Street",
    "address": "1007 & 1013 S 12th St",
    "when": "Sat, Nov 7 · meet at 9:45 AM",
-   "note": "Two houses side by side. Lots of leaves, but an open area, so it should go fast. Frida Vela may join this crew (JP can drop her off).",
+   "note": "Everyone meets here this morning. Two houses side by side, so there's room for all of us. Coaches will send a small group from here to one more house just around the corner.",
    "team": "2 electric leaf blowers (corded), 1–2 rakes and tarps",
    "athletes": [
     {
@@ -18,8 +19,25 @@ window.NEWSLETTER = {
      "leader": true
     },
     {
+     "name": "Arek Gamble",
+     "bring": "Rake, Leaf blower, Tarp. Prefers own equipment"
+    },
+    {
      "name": "Ava Durnell",
      "bring": "Rake"
+    },
+    {
+     "name": "Caleb Gal",
+     "bring": "Rake (maybe leaf blower)"
+    },
+    {
+     "name": "Frida Vela",
+     "bring": "Rake, Leaf blower, Tarp"
+    },
+    {
+     "name": "Jeanpierre Vela",
+     "bring": "Rake, Leaf blower",
+     "leader": true
     },
     {
      "name": "Jessica Perez",
@@ -27,8 +45,25 @@ window.NEWSLETTER = {
      "leader": true
     },
     {
+     "name": "Joseph Wyse-Fisher",
+     "bring": "Rake, Tarp"
+    },
+    {
+     "name": "Julian Uribe-Angel",
+     "bring": "Leaf blower, Tarp"
+    },
+    {
      "name": "Lauren Wohlford",
      "bring": "Rake, Work gloves"
+    },
+    {
+     "name": "Liam Post",
+     "bring": "Rake, Leaf blower, Tarp, Leaf bags, Work gloves, Truck/trailer",
+     "leader": true
+    },
+    {
+     "name": "Mauro Sanchez-Perez",
+     "bring": "None (can help)"
     },
     {
      "name": "Melany Quiroz Juarez",
@@ -51,51 +86,9 @@ window.NEWSLETTER = {
      "bring": "Rake, Leaf blower, Tarp, Leaf bags"
     }
    ]
-  },
-  {
-   "area": "Gorham Woods",
-   "address": "101 Gorham Rd",
-   "when": "Sat, Nov 7 · meet at 9:45 AM",
-   "note": "First visit. We'll come back a second time. Frida can work with this crew or be dropped off by JP to join the girls at 12th Street.",
-   "team": "2 electric leaf blowers (corded), 1–2 rakes and tarps",
-   "athletes": [
-    {
-     "name": "Arek Gamble",
-     "bring": "Rake, Leaf blower, Tarp. Prefers own equipment"
-    },
-    {
-     "name": "Caleb Gal",
-     "bring": "Rake (maybe leaf blower)"
-    },
-    {
-     "name": "Frida Vela",
-     "bring": "Rake, Leaf blower, Tarp"
-    },
-    {
-     "name": "Jeanpierre Vela",
-     "bring": "Rake, Leaf blower",
-     "leader": true
-    },
-    {
-     "name": "Joseph Wyse-Fisher",
-     "bring": "Rake, Tarp"
-    },
-    {
-     "name": "Julian Uribe-Angel",
-     "bring": "Leaf blower, Tarp"
-    },
-    {
-     "name": "Liam Post",
-     "bring": "Rake, Leaf blower, Tarp, Leaf bags, Work gloves, Truck/trailer",
-     "leader": true
-    },
-    {
-     "name": "Mauro Sanchez-Perez",
-     "bring": "None (can help)"
-    }
-   ]
   }
- ]
+ ],
+ "change": "Change for today: the Gorham Woods job is canceled. All athletes report to the 12th Street houses."
 },
  "workerApi": "https://script.google.com/macros/s/AKfycbw4O038bKHbrOf7jVuoG1xJKRNbRgHLvJfHO1ib_bhji-evfAPRPaZYySJULLCC2nYyvw/exec",
  "issues": [
