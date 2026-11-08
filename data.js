@@ -2,14 +2,14 @@
 window.NEWSLETTER = {
  "quickLinks": [{"label": "Family Form", "url": "https://script.google.com/macros/s/AKfycbx2zj2MAZBCN9IS2_hAADbkijjFz7f_qNfAcU7bycoJ6QLPmQo_BTaIic40uNd3oW0-/exec?p=family"}, {"label": "Swim-A-Thon pledges", "url": "https://app.99pledges.com/fund/ghsswimdiv1?home_v2=true", "until": "2026-11-21"}, {"label": "Team store", "url": "https://sportsarama.chipply.com/goshenswimdive/?action=viewall", "style": "new"}],
  "leafRaking": {
- "weekend": "Nov 6–8",
- "updated": "Sat, Nov 7, 8:50 AM",
+ "weekend": "Nov 13–15",
+ "updated": "Sun, Nov 8",
  "crews": [
   {
-   "area": "12th Street",
-   "address": "1007 & 1013 S 12th St",
-   "when": "Sat, Nov 7 · meet at 9:45 AM",
-   "note": "Everyone meets here this morning. Two houses side by side, so there's room for all of us. Coaches will send a small group from here to one more house just around the corner.",
+   "area": "Gorham Road · Morning crew",
+   "address": "202 & 216 Gorham Rd",
+   "when": "Sat, Nov 14 · meet at 9:45 AM",
+   "note": "Two neighboring houses. Start at 202 (big yard), then move to 216 (just the fenced-in area). Pile leaves along the road, and don't block or pile behind the mailboxes.",
    "team": "2 electric leaf blowers (corded), 1–2 rakes and tarps",
    "athletes": [
     {
@@ -18,30 +18,13 @@ window.NEWSLETTER = {
      "leader": true
     },
     {
-     "name": "Arek Gamble",
-     "bring": "Rake, Leaf blower, Tarp. Prefers own equipment"
-    },
-    {
-     "name": "Ava Durnell",
-     "bring": "Rake"
-    },
-    {
-     "name": "Caleb Gal",
-     "bring": "Rake (maybe leaf blower)"
-    },
-    {
-     "name": "Frida Vela",
-     "bring": "Rake, Leaf blower, Tarp"
-    },
-    {
      "name": "Jeanpierre Vela",
      "bring": "Rake, Leaf blower",
      "leader": true
     },
     {
-     "name": "Jessica Perez",
-     "bring": "Leaf blower, Work gloves",
-     "leader": true
+     "name": "Ava Durnell",
+     "bring": "Rake"
     },
     {
      "name": "Joseph Wyse-Fisher",
@@ -52,42 +35,78 @@ window.NEWSLETTER = {
      "bring": "Leaf blower, Tarp"
     },
     {
-     "name": "Lauren Wohlford",
-     "bring": "Rake, Work gloves"
-    },
-    {
-     "name": "Liam Post",
-     "bring": "Rake, Leaf blower, Tarp, Leaf bags, Work gloves, Truck/trailer",
-     "leader": true
-    },
-    {
      "name": "Mauro Sanchez-Perez",
      "bring": "None (can help)"
+    },
+    {
+     "name": "Megan Lagunas",
+     "bring": "Rake, Leaf blower"
     },
     {
      "name": "Melany Quiroz Juarez",
      "bring": "Leaf blower"
     },
     {
-     "name": "Naomi Gaytan",
-     "bring": "None (can help)"
-    },
-    {
      "name": "Natalie Gaytan",
      "bring": "Work gloves"
     },
     {
-     "name": "Sophie Chavoyo-López",
-     "bring": "None (can help)"
+     "name": "Selah Miller",
+     "bring": "Rake, Leaf blower, Tarp, Leaf bags, Work gloves"
+    }
+   ]
+  },
+  {
+   "area": "Gorham Road · Afternoon crew",
+   "address": "202 & 216 Gorham Rd",
+   "when": "Sat, Nov 14 · afternoon (Coach Rupp will confirm the time)",
+   "note": "Pick up where the morning crew leaves off. Selah stays on from the morning to lead. If we don't finish, we'll come back Sunday.",
+   "athletes": [
+    {
+     "name": "Selah Miller",
+     "bring": "Rake, Leaf blower, Tarp, Leaf bags, Work gloves",
+     "leader": true
+    },
+    {
+     "name": "Kellan Snapp",
+     "bring": "Rake, Leaf blower, Leaf bags, Work gloves (own equipment)"
+    },
+    {
+     "name": "Renee Welling",
+     "bring": "Rake"
     },
     {
      "name": "Susanna Stutzman",
      "bring": "Rake, Leaf blower, Tarp, Leaf bags"
     }
    ]
+  },
+  {
+   "area": "Flexible",
+   "address": "Gorham Rd",
+   "when": "Sat, Nov 14 · time to be confirmed",
+   "note": "You said your schedule varies. Coach Rupp will let you know which shift to join.",
+   "athletes": [
+    {
+     "name": "Evelyn Post",
+     "bring": "Rake, Tarp"
+    },
+    {
+     "name": "Frida Vela",
+     "bring": "Rake, Leaf blower, Tarp"
+    },
+    {
+     "name": "Jasmine Cowells Hernandez",
+     "bring": "Rake, Work gloves"
+    }
+   ]
   }
  ],
- "change": "Change for today: the Gorham Woods job is canceled. All athletes report to the 12th Street houses."
+ "upcoming": [
+  "**Nov 20–22:** Canal Street, plus any Gorham Road houses we don't finish.",
+  "**Nov 27–29** (after Saturday's meet): any Gorham Road leftovers, plus Coach Caleb's family's house in Middlebury."
+ ],
+ "notes": "Swimming in the Rays meet this weekend? No problem, just skip this one."
 },
  "workerApi": "https://script.google.com/macros/s/AKfycbw4O038bKHbrOf7jVuoG1xJKRNbRgHLvJfHO1ib_bhji-evfAPRPaZYySJULLCC2nYyvw/exec",
  "issues": [
