@@ -196,6 +196,8 @@ main .qlwrap{padding-block:16px 0;display:flex;flex-direction:row;flex-wrap:wrap
 .ql{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:16px;padding:9px 14px;border-radius:999px;background:#1F5FAD;color:#fff;border:2px solid #1F5FAD;box-shadow:0 1px 2px rgba(0,0,0,.15)}
 .ql:hover{background:#174A88;border-color:#174A88}
 .ql:focus-visible{outline:3px solid #9CC6EE;outline-offset:2px}
+.ql.survey{background:var(--red);border-color:var(--red)}
+.ql.survey:hover{filter:brightness(.9)}
 .ql.new{background:#0E8A84;border-color:#0E8A84}
 .ql.new:hover{background:#0A6D68;border-color:#0A6D68}
 .ql .newtag{background:#fff;color:#0A6D68;font-size:11px;padding:2px 6px;border-radius:999px;letter-spacing:.06em}
@@ -313,8 +315,8 @@ function renderIssue(is){
       <div class="day${d.meet?" meet":""}"><div class="d"><span class="dow">${esc(d.dow)}</span>${d.date?`<span class="dt">${esc(d.date)}</span>`:""}${d.flag?`<span class="flag">${esc(d.flag)}</span>`:""}</div>
       <ul class="items">${d.items.map(it=>`<li class="item"><div class="row"><span class="time">${inl(it.time)}</span><span class="what">${inl(it.what)}</span><span class="chip c-${it.tag}">${esc(TAGS[it.tag]||it.tag)}</span></div><div class="muted" style="font-size:15px">${inl(it.where||"")}</div>${it.notes?`<ul class="notes">${it.notes.map(n=>`<li>${inl(n)}</li>`).join("")}</ul>`:""}</li>`).join("")}</ul></div>`).join("")}</div></section>`;
   }
-  const btns=[...is.survey.map(s=>({...s,primary:true})),...is.links];
-  if(btns.length) h+=`<section><h3>${is.survey.length?"Survey &amp; links":"Links"}</h3><div class="btns">${btns.map(b=>b.url?`<a class="btn${b.primary?" primary":""}" href="${esc(b.url)}" target="_blank" rel="noopener">${esc(b.label)} ↗</a>`:`<span class="btn ph">${esc(b.label)}: add link</span>`).join("")}</div></section>`;
+  const btns=[...is.links];
+  if(btns.length) h+=`<section><h3>Links</h3><div class="btns">${btns.map(b=>b.url?`<a class="btn${b.primary?" primary":""}" href="${esc(b.url)}" target="_blank" rel="noopener">${esc(b.label)} ↗</a>`:`<span class="btn ph">${esc(b.label)}: add link</span>`).join("")}</div></section>`;
   h+=`<div class="signoff"><strong>Let's go RedHawks!</strong>Laura Rupp · GCS Aquatics Director · Goshen High School Athletics<br>lrupp@goshenschools.org · 574-538-3201</div>`;
   h+=`<div class="copybar"><button class="btn" type="button" id="copy-btn">Copy text version</button><span id="copy-msg">Plain text for Parent Square or Final Forms.</span><textarea id="copy-area" hidden readonly aria-label="Plain text version"></textarea></div>`;
   return h;
@@ -491,8 +493,11 @@ function renderQuickLinks(){
   renderAlert();
   const box=document.getElementById("quicklinks");
   const links=(NL.quickLinks||[]).filter(l=>!l.until||todayISO()<=l.until).filter(l=>l.url!=="#leaf"||NL.leafRaking);
+  /* This week's athlete survey goes first, from the newest issue, so the link changes on its own each week. */
+  const cur=(typeof ISSUES!=="undefined"&&ISSUES[0])||null;
+  ((cur&&cur.survey)||[]).filter(x=>x.url).slice().reverse().forEach(x=>links.unshift({label:x.label,url:x.url,style:"survey"}));
   if(!links.length){box.hidden=true;return}
-  box.innerHTML=links.map(l=>{const ext=/^https?:/.test(l.url)||/\.pdf$/.test(l.url);return `<a class="ql${l.style==="new"?" new":""}" href="${esc(l.url)}"${ext?' target="_blank" rel="noopener"':""}>${l.style==="new"?'<span class="newtag">NEW</span>':""}${esc(l.label)}${ext?" ↗":""}</a>`}).join("");
+  box.innerHTML=links.map(l=>{const ext=/^https?:/.test(l.url)||/\.pdf$/.test(l.url);return `<a class="ql${l.style==="new"?" new":""}${l.style==="survey"?" survey":""}" href="${esc(l.url)}"${ext?' target="_blank" rel="noopener"':""}>${l.style==="new"?'<span class="newtag">NEW</span>':""}${esc(l.label)}${ext?" ↗":""}</a>`}).join("");
   box.hidden=false;
 }
 function renderLeaf(){

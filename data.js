@@ -113,7 +113,6 @@ window.NEWSLETTER = {
  "issues": [
   {
    "id": "2026-11-09",
-   "draft": "Families can't see this issue yet. It goes live when the draft line is removed.",
    "season": "2026-27",
    "kicker": "Week of Nov 9, 2026 · Boys Week 1",
    "title": "Building momentum",
