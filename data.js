@@ -113,15 +113,37 @@ window.NEWSLETTER = {
  "issues": [
   {
    "id": "2026-11-09",
-   "draft": true,
+   "draft": "Families can't see this issue yet. It goes live when the draft line is removed.",
    "season": "2026-27",
    "kicker": "Week of Nov 9, 2026 · Boys Week 1",
-   "title": "[Draft] Week of Nov 9",
+   "title": "Building momentum",
    "intro": [
-    "(Recap and preview go here once Laura sends her notes.)"
+    "We wrapped up our second full week with continued progress! The swimmers worked on body position drills, added all four strokes, tackled race pace sets, and completed their **second test set** before finishing the week with starts. Our divers have completed **at least 11 different dives** and continue to work on their approaches.",
+    "Overall, we're a bit ahead of where we were at this point last year, and our goal is to keep that momentum going!"
    ],
    "stats": [],
-   "sections": [],
+   "sections": [
+    {
+     "h": "Welcome, boys!",
+     "body": [
+      "This week, we welcome the boys to practice! They'll start with their own skill progressions, and we'll bring the teams together quickly."
+     ]
+    },
+    {
+     "h": "Leaf raking: thank you!",
+     "body": [
+      "Thank you to the **10 athletes** who joined us for leaf raking this weekend! We completed two houses and helped at Ava's, with most athletes earning about **2.5 hours**.",
+      "To keep things fair, all leaf raking donations go into one pool and are shared based on the hours each athlete works, no matter which house they work at. Athletes can see their hours on the **Team App** now, and the dollar credit will come off their team fee once the totals are in."
+     ]
+    },
+    {
+     "h": "Yard signs & team store",
+     "body": [
+      "To give the boys time to order, I'll submit the yard sign order on **Monday, November 16**. We expect signs to arrive faster than last season. If your family would like one, the ordering link is still available in the store.",
+      "The team store is also open for fans! Click through the options, since many items come in more than one design. We've worked to keep prices reasonable and hope everyone finds something they'll enjoy wearing to support Goshen Swim & Dive!"
+     ]
+    }
+   ],
    "surveyCorner": {
     "title": "Survey Corner",
     "intro": "Thanks to everyone who filled out last week's survey! Here's some of what you told us.",
