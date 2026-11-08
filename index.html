@@ -179,7 +179,9 @@ main #sitealert{padding-block:16px 0}
 .sc-block{display:flex;flex-direction:column;gap:8px}
 .sc-chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .sc-chips li{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:15px;font-weight:500}
-.sc-chips li b{color:var(--red);font-weight:700}
+.sc-chips li b{font-weight:700}
+.sc-chips li.top{background:var(--red);border-color:var(--red);color:#fff;font-weight:800;font-size:17px}
+.sc-chips li.top b{color:#fff;opacity:.85}
 .sc-tip{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;background:var(--blue-soft);color:var(--fg);border-radius:12px;padding:16px 18px}
 .sc-stat{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:96px}
 .sc-stat b{white-space:nowrap;font-family:var(--display);font-weight:800;font-size:44px;line-height:1;color:var(--blue-ink);font-variant-numeric:tabular-nums}
@@ -299,7 +301,7 @@ function renderIssue(is){
   is.sections.forEach(s=>{h+=`<section><h3>${esc(s.h)}</h3><div class="prose">${s.body.map(p=>`<p>${inl(p)}</p>`).join("")}</div></section>`});
   if(is.surveyCorner){const sc=is.surveyCorner;
     h+=`<section class="sc"><h3>${esc(sc.title||"Survey Corner")}</h3>${sc.intro?`<p class="sc-intro">${inl(sc.intro)}</p>`:""}
-    ${(sc.blocks||[]).map(b=>`<div class="sc-block"><p class="slabel">${esc(b.h)}</p><ul class="sc-chips">${b.items.map(x=>`<li>${esc(x.t||x)}${x.n>1?` <b>×${x.n}</b>`:""}</li>`).join("")}</ul></div>`).join("")}
+    ${(sc.blocks||[]).map(b=>`<div class="sc-block"><p class="slabel">${esc(b.h)}</p><ul class="sc-chips">${b.items.map(x=>`<li${x.n>1?' class="top"':""}>${esc(x.t||x)}${x.n>1?` <b>×${x.n}</b>`:""}</li>`).join("")}</ul></div>`).join("")}
     ${sc.tip?`<div class="sc-tip"><div class="sc-stat"><b>${esc(sc.tip.stat)}</b><span>${inl(sc.tip.statLabel)}</span></div><div class="sc-body"><h4>${esc(sc.tip.h)}</h4>${sc.tip.body.map(p=>`<p>${inl(p)}</p>`).join("")}${sc.tip.list?`<ul>${sc.tip.list.map(p=>`<li>${inl(p)}</li>`).join("")}</ul>`:""}</div></div>`:""}</section>`}
   if(is.shoutGroups) h+=`<section><h3>Shout-outs</h3>${is.shoutGroups.map(g=>`<div class="sgroup"><p class="slabel">${esc(g.label)}</p><ul class="snames ${g.style}">${g.names.map(n=>`<li>${esc(n)}</li>`).join("")}</ul></div>`).join("")}</section>`;
   if(is.shouts.length) h+=`<section><h3>${esc(is.shoutTitle||"Shout-outs")}</h3><ul class="shouts">${is.shouts.map(s=>`<li><span class="who">${inl(s.who)}</span><span class="why">${inl(s.why)}</span></li>`).join("")}</ul></section>`;

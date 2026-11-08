@@ -1,6 +1,5 @@
 /* Newsletter content. Newest issue first. Updated weekly. */
 window.NEWSLETTER = {
- "alert": {"h": "Leaf raking change for today", "text": "The Gorham Woods job is canceled. **All athletes report to the 12th Street houses (1007 & 1013 S 12th St) at 9:45 AM.** A few will be sent to one more house nearby from there.", "link": "#leaf", "linkLabel": "See the crew list", "until": "2026-11-07"},
  "quickLinks": [{"label": "Family Form", "url": "https://script.google.com/macros/s/AKfycbx2zj2MAZBCN9IS2_hAADbkijjFz7f_qNfAcU7bycoJ6QLPmQo_BTaIic40uNd3oW0-/exec?p=family"}, {"label": "Swim-A-Thon pledges", "url": "https://app.99pledges.com/fund/ghsswimdiv1?home_v2=true", "until": "2026-11-21"}, {"label": "Team store", "url": "https://sportsarama.chipply.com/goshenswimdive/?action=viewall", "style": "new"}],
  "leafRaking": {
  "weekend": "Nov 6–8",
@@ -142,20 +141,7 @@ window.NEWSLETTER = {
       ]
      }
     ],
-    "tip": {
-     "stat": "6 of 14",
-     "statLabel": "of you got 8+ hours of sleep on 2 or fewer nights",
-     "h": "Sleep is training too",
-     "body": [
-      "Teens need **8 to 10 hours** of sleep a night. Sleep is when your muscles recover and your body actually gets faster from the work you put in at practice. Less sleep means less energy, slower times and more sick days."
-     ],
-     "list": [
-      "**Do the bedtime math.** For a 6:00 AM practice, you're probably up around 5:15. Count back 8 hours and you should be asleep by **9:15 PM** the night before.",
-      "**Phone down 30 minutes before bed.** Charge it across the room, not on your pillow.",
-      "**Keep the same bedtime** on school nights, even when there's no morning practice.",
-      "**Short on sleep?** A 20-minute nap after school helps more than an energy drink."
-     ]
-    }
+    "tip": {"stat": "6", "statLabel": "of you got 8+ hours of sleep on only 2 nights or fewer last week", "h": "Sleep is training too", "body": ["Teens need **8 to 10 hours** of sleep a night. Sleep is when your muscles recover and your body actually gets faster from the work you put in at practice. Less sleep means less energy, slower times and more sick days."], "list": ["**Set your sleep window.** Start getting ready for bed by **9:30** and be asleep by **10:30** every school night.", "**Build a routine and stick to it.** Do the same few things every night, like pack your swim bag, shower, set out breakfast. Your body learns it's time to wind down.", "**Early practice tomorrow?** Before 6:00 AM weights or Friday morning swim, aim for the 9:30 end of that window.", "**Phone down 30 minutes before bed.** Charge it across the room, not on your pillow."]}
    },
    "shouts": [],
    "callouts": [],
