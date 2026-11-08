@@ -7,9 +7,9 @@ window.NEWSLETTER = {
  "crews": [
   {
    "area": "Gorham Road · Morning crew",
-   "address": "202 & 216 Gorham Rd",
+   "address": "101, 202 & 216 Gorham Rd",
    "when": "Sat, Nov 14 · meet at 9:45 AM",
-   "note": "Two neighboring houses. Start at 202 (big yard), then move to 216 (just the fenced-in area). Pile leaves along the road, and don't block or pile behind the mailboxes.",
+   "note": "Three houses close together on Gorham Road. Coach Rupp will split the crew between houses when you arrive. At 216, just the fenced-in area. Pile leaves along the road, and don't block or pile behind the mailboxes.",
    "team": "2 electric leaf blowers (corded), 1–2 rakes and tarps",
    "athletes": [
     {
@@ -20,7 +20,8 @@ window.NEWSLETTER = {
     {
      "name": "Jeanpierre Vela",
      "bring": "Rake, Leaf blower",
-     "leader": true
+     "leader": true,
+     "when": "Leaves by 11:30 for the Rays meet"
     },
     {
      "name": "Ava Durnell",
@@ -58,7 +59,7 @@ window.NEWSLETTER = {
   },
   {
    "area": "Gorham Road · Afternoon crew",
-   "address": "202 & 216 Gorham Rd",
+   "address": "101, 202 & 216 Gorham Rd",
    "when": "Sat, Nov 14 · afternoon (Coach Rupp will confirm the time)",
    "note": "Pick up where the morning crew leaves off. Selah stays on from the morning to lead. If we don't finish, we'll come back Sunday.",
    "athletes": [
