@@ -73,6 +73,7 @@ main .wrap{padding-block:28px 56px;display:flex;flex-direction:column;gap:28px}
 .issue-head h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,6vw,46px);line-height:1;margin:0;text-wrap:balance}
 .draft{background:var(--gold);color:var(--gold-ink);border-radius:8px;padding:10px 14px;font-size:15px}
 .draft b{font-weight:700}
+u{text-decoration-thickness:2px;text-underline-offset:3px}
 mark{background:var(--gold);color:var(--gold-ink);padding:0 4px;border-radius:3px}
 .prose p{margin:0 0 14px;max-width:65ch}
 .prose p:last-child{margin-bottom:0}
@@ -288,10 +289,11 @@ function inl(s){
   let t=esc(s);
   t=t.replace(/\[\[(.+?)\]\]/g,'<mark>$1</mark>');
   t=t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  t=t.replace(/__(.+?)__/g,'<u>$1</u>');
   t=t.replace(/\[([^\]]+)\]\((https:\/\/[^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
   return t;
 }
-function plain(s){return String(s).replace(/\[\[(.+?)\]\]/g,'[$1]').replace(/\*\*(.+?)\*\*/g,'$1').replace(/\[([^\]]+)\]\((https:\/\/[^)\s]+)\)/g,'$1: $2')}
+function plain(s){return String(s).replace(/\[\[(.+?)\]\]/g,'[$1]').replace(/__(.+?)__/g,'$1').replace(/\*\*(.+?)\*\*/g,'$1').replace(/\[([^\]]+)\]\((https:\/\/[^)\s]+)\)/g,'$1: $2')}
 
 function renderIssue(is){
   let h=`<div class="issue-head"><div class="kicker">${esc(is.kicker)}</div><h2>${inl(is.title)}</h2></div>`;

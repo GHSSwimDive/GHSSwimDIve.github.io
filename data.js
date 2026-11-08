@@ -139,8 +139,8 @@ window.NEWSLETTER = {
     {
      "h": "Yard signs & team store",
      "body": [
-      "To give the boys time to order, I'll submit the yard sign order on **Monday, November 16**. We expect signs to arrive faster than last season. If your family would like one, the ordering link is still available in the store.",
-      "The team store is also open for fans! Click through the options, since many items come in more than one design. We've worked to keep prices reasonable and hope everyone finds something they'll enjoy wearing to support Goshen Swim & Dive!"
+      "To give the boys time to order, I'll submit the [[yard sign]] order on **Monday, November 16**. We expect signs to arrive faster than last season. __If your family would like one, the ordering link is still available in the store.__",
+      "The [[team store]] is also open for fans! Click through the options, since many items come in more than one design. We've worked to keep prices reasonable and hope everyone finds something they'll enjoy wearing to support Goshen Swim & Dive!"
      ]
     }
    ],
