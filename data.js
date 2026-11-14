@@ -66,6 +66,7 @@ window.NEWSLETTER = {
     }
    ],
    "shoutTitle": "Teammate shout-outs",
+   "shoutNote": "Girls team shout-outs from the previous week. The boys will join in starting with this week's survey!",
    "shouts": [
     {
      "who": "Ava",
