@@ -35,14 +35,27 @@ window.NEWSLETTER = {
    "id": "2026-11-16",
    "draft": "Draft: not live yet. Tell Claude when to publish.",
    "season": "2026-27",
-   "kicker": "Week of Nov 16, 2026 · Boys Week 2",
-   "title": "Control the controllables",
+   "kicker": "Week of Nov 16, 2026",
+   "title": "Picture Week!",
    "intro": [
-    "Welcome, boys, and congratulations on finishing your first week! The girls and boys trained separately at the start of the week so each group could work on what they needed.",
-    "The **girls** spent a day focused on the **IM**, along with some endurance work. The **boys** worked on body position drills and wrote their **season goals** on Friday."
+    "Welcome, boys and boys' families, to **The Weekly**! This newsletter is becoming our go-to spot for athletes and parents. Each week you'll find a recap of the week before, a preview of what's coming up, the practice schedule and the latest team news.",
+    "I try to keep this the most up-to-date place for all team information. When something changes, I'll also post updates on **Parent Square** and **Final Forms**."
    ],
    "stats": [],
    "sections": [
+    {
+     "h": "Week one recap",
+     "body": [
+      "Congratulations, boys, on finishing your first week! The girls and boys trained separately at the start of the week so each group could work on what they needed.",
+      "The **girls** spent a day focused on the **IM**, along with some endurance work. The **boys** worked on body position drills and wrote their **season goals** on Friday."
+     ]
+    },
+    {
+     "h": "Coaching staff",
+     "body": [
+      "Our whole staff is back from last season! Joining me on deck are **Coach Alexa Arkenberg**, **Coach Caleb Cripe**, **Coach Joey Garbrick**, **Coach Rick Hetler** and **Coach Greg Vandiver** (diving)."
+     ]
+    },
     {
      "h": "Our team contract",
      "body": [
@@ -167,8 +180,14 @@ window.NEWSLETTER = {
      "date": "Nov 16",
      "items": [
       {
+       "time": "3:45 PM",
+       "what": "Team meeting",
+       "where": "Middle bleachers",
+       "tag": "event"
+      },
+      {
        "time": "3:45–6:00 PM",
-       "what": "Practice",
+       "what": "Practice (after the meeting)",
        "where": "Pool",
        "tag": "pool"
       }
@@ -323,7 +342,13 @@ window.NEWSLETTER = {
       "style": "sorry",
       "text": "**A note about the schedule:** I made our original calendar before this fundraiser was planned, and when we were able to hold it changed that plan, so the **Red/Gray meet is moving to a new date**, which hasn't been set yet. I sincerely apologize for the three changes we've had this season. This is highly unusual."
      }
-    ]
+    ],
+    "countdownTo": "2026-11-21"
+   },
+   "banner": {
+    "kicker": "Monday, Nov 16",
+    "h": "Team meeting · 3:45 PM",
+    "text": "We start the week with a **team meeting in the middle bleachers**. All swimmers and divers, be there at **3:45 PM**!"
    }
   },
   {

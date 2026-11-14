@@ -192,6 +192,11 @@ main #sitealert{padding-block:16px 0}
 .ft-pays{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .ft-pays li{background:var(--red-soft);color:var(--red-ink);border-radius:999px;padding:5px 12px;font-size:15px;font-weight:600}
 .ft-close{font-weight:600}
+.ft-count{align-self:flex-start;margin-top:8px;background:#FFE58A;color:#3D2E00;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:20px;padding:4px 12px;border-radius:999px}
+.big-banner{background:var(--red);color:#fff;border-radius:16px;padding:20px 20px 18px;display:flex;flex-direction:column;gap:4px;box-shadow:0 6px 0 #7A0C1F;transform:rotate(-1deg);margin:4px 2px 6px}
+.bb-kicker{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:15px;opacity:.9}
+.big-banner b{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(32px,8vw,48px);line-height:1}
+.big-banner p{margin:6px 0 0;font-size:18px;max-width:none}
 .ft-note{background:#FFF3C4;color:#3D2E00;border-radius:8px;padding:10px 12px}
 .ft-note.help{background:var(--blue-soft);color:var(--fg);border-left:4px solid var(--blue-ink)}
 .sc-block{display:flex;flex-direction:column;gap:8px}
@@ -319,10 +324,11 @@ function renderIssue(is){
   let h=`<div class="issue-head"><div class="kicker">${esc(is.kicker)}</div><h2>${inl(is.title)}</h2></div>`;
   if(is.draft) h+=`<div class="draft"><b>Draft.</b> ${inl(is.draft)}</div>`;
   h+=`<div class="prose">${is.intro.map(p=>`<p>${inl(p)}</p>`).join("")}</div>`;
+  if(is.banner){const bn=is.banner;h+=`<div class="big-banner">${bn.kicker?`<span class="bb-kicker">${esc(bn.kicker)}</span>`:""}<b>${esc(bn.h)}</b>${bn.text?`<p>${inl(bn.text)}</p>`:""}</div>`}
   if(is.stats.length) h+=`<div class="stats">${is.stats.map(s=>`<div class="stat"><b>${esc(s.n)}</b><span>${inl(s.l)}</span></div>`).join("")}</div>`;
   is.sections.forEach(s=>{h+=`<section><h3>${esc(s.h)}</h3><div class="prose">${s.body.map(p=>`<p>${inl(p)}</p>`).join("")}</div></section>`});
   const ft=is.feature;
-  if(ft) h+=`<section class="feature"><div class="ft-head"><span class="ft-kicker">${esc(ft.kicker||"")}</span><b>${esc(ft.h)}</b>${ft.when?`<span class="ft-when">${inl(ft.when)}</span>`:""}</div><div class="ft-body">
+  if(ft) h+=`<section class="feature"><div class="ft-head"><span class="ft-kicker">${esc(ft.kicker||"")}</span><b>${esc(ft.h)}</b>${ft.when?`<span class="ft-when">${inl(ft.when)}</span>`:""}${(()=>{if(!ft.countdownTo)return "";const t=new Date(ft.countdownTo+"T00:00:00"),n=new Date(new Date().toDateString()),dd=Math.round((t-n)/864e5);return dd>1?`<span class="ft-count">Only ${dd} days to go!</span>`:dd===1?`<span class="ft-count">Tomorrow!</span>`:dd===0?`<span class="ft-count">Today!</span>`:""})()}</div><div class="ft-body">
     ${ft.intro?`<p>${inl(ft.intro)}</p>`:""}${ft.how?`<h4>How it works</h4><ol class="ft-how">${ft.how.map(x=>`<li>${inl(x)}</li>`).join("")}</ol>`:""}
     ${ft.note?`<p class="ft-note">${inl(ft.note)}</p>`:""}
     ${(ft.notes||[]).map(n=>`<p class="ft-note ${esc(n.style||"")}">${inl(n.text)}</p>`).join("")}
