@@ -67,7 +67,7 @@ window.NEWSLETTER = {
     {
      "h": "Season priorities",
      "body": [
-      "Here's what we're focused on in the pool this season, for both GHS and the Goshen Rays:"
+      "Here's what we're focused on in the pool this season, for both swimmers and divers."
      ],
      "priorities": [
       "Streamline every wall",
