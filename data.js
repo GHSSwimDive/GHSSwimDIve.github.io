@@ -23,7 +23,8 @@ window.NEWSLETTER = {
  "updated": "Fri, Nov 13",
  "crews": [],
  "upcoming": [
-  "**Nov 20–22:** the Gorham Road houses and Canal Street. Crews will be posted later next week.",
+  "**Sat, Nov 21** (after the Swim-A-Thon and team food): the whole team rakes **3 Gorham Woods houses**.",
+  "**Canal Street:** a later weekend, to be scheduled.",
   "**Nov 27–29** (after Saturday's meet): any Gorham Road leftovers, plus Coach Caleb's family's house in Middlebury."
  ],
  "change": "No leaf raking this Saturday, Nov 14. The Gorham Road houses move to a later weekend."
@@ -32,7 +33,6 @@ window.NEWSLETTER = {
  "issues": [
   {
    "id": "2026-11-16",
-   "draft": "Draft for Laura: the highlighted spots still need your info. Check the schedule, then tell Claude to publish.",
    "season": "2026-27",
    "kicker": "Week of Nov 16, 2026 · Boys Week 2",
    "title": "Control the controllables",
@@ -152,9 +152,8 @@ window.NEWSLETTER = {
      "h": "Coming up",
      "items": [
       "**Mon, Nov 16:** yard sign order goes in.",
-      "**Thu, Nov 19:** Picture Day. [[Time and what to wear/bring]]",
-      "**Sat, Nov 21:** Swim-A-Thon, 7:00–10:00 AM during practice. Share your 99Pledges link!",
-      "**Nov 20–22:** leaf raking at the Gorham Road houses and Canal Street. Crews coming soon.",
+      "**Thu, Nov 19:** Picture Day! Hopefully our team suits and/or shirts are here by then. If not, we'll let everyone know the plan.",
+      "**Sat, Nov 21:** Swim-A-Thon, 7:00–10:00 AM, then food and leaf raking at Gorham Woods for 3 families. No Red/Gray meet this year.",
       "**Tue, Nov 24:** first meet, home vs. Rochester, 6:00 PM.",
       "**Thu, Nov 26:** Thanksgiving, no practice. **Fri, Nov 27:** skills & drills, 2:00–4:30 PM.",
       "**Sat, Nov 28:** meet @ South Bend Riley, 8:00 AM."
@@ -216,8 +215,8 @@ window.NEWSLETTER = {
       },
       {
        "time": "3:45–6:00 PM",
-       "what": "Practice · Picture Day",
-       "where": "Pool · [[picture time]]",
+       "what": "Practice · Picture Day!",
+       "where": "Pool",
        "tag": "pool"
       }
      ]
@@ -249,6 +248,12 @@ window.NEWSLETTER = {
        "what": "Swim-A-Thon",
        "where": "Pool · during practice",
        "tag": "event"
+      },
+      {
+       "time": "After",
+       "what": "Team food, then leaf raking",
+       "where": "Gorham Woods · 3 houses, whole team",
+       "tag": "event"
       }
      ]
     }
@@ -270,9 +275,10 @@ window.NEWSLETTER = {
     "h": "Swim-A-Thon",
     "when": "**Saturday, Nov 21 · 7:00–10:00 AM** during practice",
     "how": [
-     "Each athlete has their own **99Pledges** page. The girls were emailed their link, and you can find any swimmer or diver from the team page.",
-     "Share your link with family, friends and neighbors, and ask them to support you. [[Per-lap pledges, flat donations, or both?]]",
-     "On Saturday, athletes [[swim as many laps as they can during practice]].",
+     "**Before the event:** athletes ask family, friends and community members to sponsor them by sharing their own **99Pledges** page. The girls were emailed their link, and you can find any athlete from the team page.",
+     "**Two ways to give:** supporters can donate a **flat amount** or pledge an amount **for each lap** the swimmer completes.",
+     "**On Saturday:** swimmers and divers challenge themselves to complete **as many laps or dives as they can** within a set time, taking breaks as needed.",
+     "**Then food and leaf raking:** after the Swim-A-Thon we'll have time to eat, then head to **Gorham Woods to rake leaves for 3 families**. With everyone working, it won't take long, and it also goes toward team fees.",
      "Every dollar raised helps the whole team, and **the more we raise, the lower I can make team fees.**"
     ],
     "why": [
@@ -305,7 +311,9 @@ window.NEWSLETTER = {
      "label": "Donate on 99Pledges",
      "url": "https://app.99pledges.com/fund/ghsswimdiv1?home_v2=true"
     },
-    "close": "Thank you for supporting Goshen High School Swim & Dive and investing in our athletes. Go RedHawks!"
+    "close": "Thank you for supporting Goshen High School Swim & Dive and investing in our athletes. Go RedHawks!",
+    "intro": "A Swim-A-Thon is a fundraiser where swimmers swim laps to support their team. It's a fun team challenge right before our first meet!",
+    "note": "Heads up: we will **not** have our Red/Gray meet on this day. Sorry!"
    }
   },
   {
