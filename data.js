@@ -33,6 +33,7 @@ window.NEWSLETTER = {
  "issues": [
   {
    "id": "2026-11-16",
+   "draft": "Draft: not live yet. Tell Claude when to publish.",
    "season": "2026-27",
    "kicker": "Week of Nov 16, 2026 · Boys Week 2",
    "title": "Control the controllables",
