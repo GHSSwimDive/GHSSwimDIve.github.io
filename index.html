@@ -187,6 +187,7 @@ main #sitealert{padding-block:16px 0}
 .sc-stat{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:140px}
 .sc-stat b{white-space:nowrap;font-family:var(--display);font-weight:800;font-size:44px;line-height:1;color:#fff;background:var(--red);padding:6px 12px 4px;border-radius:8px;text-transform:uppercase;letter-spacing:.02em;font-variant-numeric:tabular-nums}
 .sc-stat span{font-size:14px;color:var(--fg);font-weight:600;line-height:1.3;margin-top:6px;max-width:150px}
+.sc-tip.nostat{grid-template-columns:1fr}
 .sc-body h4{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px;font-size:19px;color:var(--blue-ink)}
 .sc-body p{margin:0 0 8px}
 .sc-body ul{margin:0;padding-left:20px}
@@ -306,7 +307,7 @@ function renderIssue(is){
   if(is.surveyCorner){const sc=is.surveyCorner;
     h+=`<section class="sc"><h3>${esc(sc.title||"Survey Corner")}</h3>${sc.intro?`<p class="sc-intro">${inl(sc.intro)}</p>`:""}
     ${(sc.blocks||[]).map(b=>`<div class="sc-block"><p class="slabel">${esc(b.h)}</p><ul class="sc-chips">${b.items.map(x=>`<li${x.n>1?' class="top"':""}>${esc(x.t||x)}${x.n>1?` <b>×${x.n}</b>`:""}</li>`).join("")}</ul></div>`).join("")}
-    ${sc.tip?`<div class="sc-tip"><div class="sc-stat"><b>${esc(sc.tip.stat)}</b><span>${inl(sc.tip.statLabel)}</span></div><div class="sc-body"><h4>${esc(sc.tip.h)}</h4>${sc.tip.body.map(p=>`<p>${inl(p)}</p>`).join("")}${sc.tip.list?`<ul>${sc.tip.list.map(p=>`<li>${inl(p)}</li>`).join("")}</ul>`:""}</div></div>`:""}</section>`}
+    ${sc.tip?`<div class="sc-tip${sc.tip.stat?"":" nostat"}">${sc.tip.stat?`<div class="sc-stat"><b>${esc(sc.tip.stat)}</b><span>${inl(sc.tip.statLabel)}</span></div>`:""}<div class="sc-body"><h4>${esc(sc.tip.h)}</h4>${sc.tip.body.map(p=>`<p>${inl(p)}</p>`).join("")}${sc.tip.list?`<ul>${sc.tip.list.map(p=>`<li>${inl(p)}</li>`).join("")}</ul>`:""}</div></div>`:""}</section>`}
   if(is.shoutGroups) h+=`<section><h3>Shout-outs</h3>${is.shoutGroups.map(g=>`<div class="sgroup"><p class="slabel">${esc(g.label)}</p><ul class="snames ${g.style}">${g.names.map(n=>`<li>${esc(n)}</li>`).join("")}</ul></div>`).join("")}</section>`;
   if(is.shouts.length) h+=`<section><h3>${esc(is.shoutTitle||"Shout-outs")}</h3><ul class="shouts">${is.shouts.map(s=>`<li><span class="who">${inl(s.who)}</span><span class="why">${inl(s.why)}</span></li>`).join("")}</ul></section>`;
   (is.callouts||[]).forEach(c=>{h+=`<div class="callout"><h4>${esc(c.h)}</h4>${c.items.map(i=>`<p>${inl(i)}</p>`).join("")}</div>`});
@@ -327,7 +328,7 @@ function issueText(is){
   is.intro.forEach(p=>L.push(plain(p),""));
   if(is.stats.length){is.stats.forEach(s=>L.push(`• ${s.n} – ${plain(s.l)}`));L.push("")}
   is.sections.forEach(s=>{L.push(s.h.toUpperCase());s.body.forEach(p=>L.push(plain(p),""))});
-  if(is.surveyCorner){const sc=is.surveyCorner;L.push((sc.title||"Survey Corner").toUpperCase());if(sc.intro)L.push(plain(sc.intro));(sc.blocks||[]).forEach(b=>{L.push(b.h+": "+b.items.map(x=>(x.t||x)+(x.n>1?" ×"+x.n:"")).join(", "))});if(sc.tip){L.push(sc.tip.h.toUpperCase()+" ("+sc.tip.stat+" "+plain(sc.tip.statLabel)+")");sc.tip.body.forEach(p=>L.push(plain(p)));(sc.tip.list||[]).forEach(p=>L.push("• "+plain(p)))}L.push("")}
+  if(is.surveyCorner){const sc=is.surveyCorner;L.push((sc.title||"Survey Corner").toUpperCase());if(sc.intro)L.push(plain(sc.intro));(sc.blocks||[]).forEach(b=>{L.push(b.h+": "+b.items.map(x=>(x.t||x)+(x.n>1?" ×"+x.n:"")).join(", "))});if(sc.tip){L.push(sc.tip.h.toUpperCase()+(sc.tip.stat?" ("+sc.tip.stat+" "+plain(sc.tip.statLabel)+")":""));sc.tip.body.forEach(p=>L.push(plain(p)));(sc.tip.list||[]).forEach(p=>L.push("• "+plain(p)))}L.push("")}
   if(is.shoutGroups){L.push("SHOUT-OUTS");is.shoutGroups.forEach(g=>{L.push(g.label);L.push("   "+g.names.join(", "))});L.push("")}
   if(is.shouts.length){L.push((is.shoutTitle||"Shout-outs").toUpperCase());is.shouts.forEach(s=>L.push(`• ${plain(s.who)} – ${plain(s.why)}`));L.push("")}
   (is.callouts||[]).forEach(c=>{L.push(c.h.toUpperCase());c.items.forEach(i=>L.push("• "+plain(i)));L.push("")});

@@ -31,6 +31,242 @@ window.NEWSLETTER = {
  "workerApi": "https://script.google.com/macros/s/AKfycbw4O038bKHbrOf7jVuoG1xJKRNbRgHLvJfHO1ib_bhji-evfAPRPaZYySJULLCC2nYyvw/exec",
  "issues": [
   {
+   "id": "2026-11-16",
+   "draft": "Draft for Laura: the highlighted spots still need your info. Check the schedule, then tell Claude to publish.",
+   "season": "2026-27",
+   "kicker": "Week of Nov 16, 2026 · Boys Week 2",
+   "title": "Control the controllables",
+   "intro": [
+    "Welcome, boys, and congratulations on finishing your first week! The girls and boys trained separately at the start of the week so each group could work on what they needed.",
+    "The **girls** spent a day focused on the **IM**, along with some endurance work. The **boys** worked on body position drills and wrote their **season goals** on Friday."
+   ],
+   "stats": [],
+   "sections": [
+    {
+     "h": "Our team contract",
+     "body": [
+      "This season, every athlete was asked to sign a **team contract**. Our big focus is **controlling the controllables**: the things each of us is in charge of every day.",
+      "**Attitude, effort and attendance** are ours to control. So is our **integrity**: doing the right thing, owning our choices, and being someone teammates can count on.",
+      "**Phones:** cell phones go in **Phone Jail** during practice, including dryland, until a coach dismisses us. Phones are **not allowed in the locker room at all**, for everyone's safety. Parents, thank you for helping us reinforce this at home!"
+     ]
+    }
+   ],
+   "shoutTitle": "Teammate shout-outs",
+   "shouts": [
+    {
+     "who": "Ava",
+     "why": "\"An absolute BEAST at underwaters and kicking!\" Teammates are super proud of her."
+    },
+    {
+     "who": "Evy",
+     "why": "Working super hard. Called out by three different teammates!"
+    },
+    {
+     "who": "Lauren",
+     "why": "For being so positive."
+    },
+    {
+     "who": "Natalie",
+     "why": "For being da GOAT."
+    },
+    {
+     "who": "Sophie",
+     "why": "Back in the pool, and always helps teammates keep track of what lap we're on."
+    },
+    {
+     "who": "Melany",
+     "why": "New this year and genuinely doing really well."
+    },
+    {
+     "who": "Selah",
+     "why": "For helping a teammate get her dives back."
+    },
+    {
+     "who": "Naomi",
+     "why": "Shout-out from a teammate!"
+    },
+    {
+     "who": "Renee",
+     "why": "Shout-out from a teammate!"
+    },
+    {
+     "who": "Cris & Jasmine",
+     "why": "Shout-out from a teammate!"
+    }
+   ],
+   "surveyCorner": {
+    "title": "Survey Corner",
+    "intro": "Thanks to the **19 of you** who filled out last week's survey! Here's what you told us.",
+    "blocks": [
+     {
+      "h": "Your favorite movies of all time",
+      "items": [
+       "10 Things I Hate About You",
+       "Mamma Mia!",
+       "The Perks of Being a Wallflower",
+       {
+        "t": "The Book of Life",
+        "n": 2
+       },
+       "Now You See Me",
+       "How to Lose a Guy in 10 Days",
+       "La La Land",
+       "Interstellar",
+       "Shrek",
+       "Love Untangled",
+       "The Maze Runner",
+       "Twilight",
+       "Cars",
+       "Coraline",
+       "Beautiful Boy",
+       "Happy Gilmore 2",
+       "Spider-Man: Across the Spider-Verse",
+       "Inside Out",
+       "Haikyuu!!",
+       "Free Guy"
+      ]
+     }
+    ],
+    "tip": {
+     "h": "Fuel the work",
+     "body": [
+      "You're in the pool for over two hours after school, and your body needs fuel to train hard and recover. Think of food as part of training."
+     ],
+     "list": [
+      "**Eat lunch, every day.** Practice starts at 3:45, so skipping lunch means swimming on empty.",
+      "**Snack before practice.** About 30–60 minutes before, grab something with carbs, like a banana, a granola bar, crackers or half a PB&J.",
+      "**Refuel after.** Within an hour after practice, pair protein with carbs, like chocolate milk, a turkey sandwich, yogurt and fruit, or dinner.",
+      "**Bring a water bottle and drink it.** You sweat in the pool even if you don't notice.",
+      "**Morning practice?** Eat something small before you leave, like toast or a banana, then have a real breakfast after."
+     ]
+    }
+   },
+   "callouts": [
+    {
+     "h": "Help at our first home meet",
+     "items": [
+      "Our first meet is **Tuesday, Nov 24 at home vs. Rochester**, and we need parent timers and concession stand help. Sign up on the **Meet Workers** tab. No experience needed!"
+     ]
+    },
+    {
+     "h": "Coming up",
+     "items": [
+      "**Mon, Nov 16:** yard sign order goes in.",
+      "**Thu, Nov 19:** Picture Day. [[Time and what to wear/bring]]",
+      "**Sat, Nov 21:** Swim-A-Thon, 7:00–10:00 AM during practice. Share your 99Pledges link!",
+      "**Nov 20–22:** leaf raking at the Gorham Road houses and Canal Street. Crews coming soon.",
+      "**Tue, Nov 24:** first meet, home vs. Rochester, 6:00 PM.",
+      "**Thu, Nov 26:** Thanksgiving, no practice. **Fri, Nov 27:** skills & drills, 2:00–4:30 PM.",
+      "**Sat, Nov 28:** meet @ South Bend Riley, 8:00 AM."
+     ]
+    }
+   ],
+   "schedule": [
+    {
+     "dow": "Mon",
+     "date": "Nov 16",
+     "items": [
+      {
+       "time": "3:45–6:00 PM",
+       "what": "Practice",
+       "where": "Pool",
+       "tag": "pool"
+      }
+     ]
+    },
+    {
+     "dow": "Tue",
+     "date": "Nov 17",
+     "items": [
+      {
+       "time": "6:00–7:00 AM",
+       "what": "Weights (optional)",
+       "where": "GHS weight room · Interra Gym entrance",
+       "tag": "weights"
+      },
+      {
+       "time": "3:45–6:00 PM",
+       "what": "Practice",
+       "where": "Pool",
+       "tag": "pool"
+      }
+     ]
+    },
+    {
+     "dow": "Wed",
+     "date": "Nov 18",
+     "items": [
+      {
+       "time": "3:45–6:00 PM",
+       "what": "Practice",
+       "where": "Pool",
+       "tag": "pool"
+      }
+     ]
+    },
+    {
+     "dow": "Thu",
+     "date": "Nov 19",
+     "items": [
+      {
+       "time": "6:00–7:00 AM",
+       "what": "Weights (optional)",
+       "where": "GHS weight room · Interra Gym entrance",
+       "tag": "weights"
+      },
+      {
+       "time": "3:45–6:00 PM",
+       "what": "Practice · Picture Day",
+       "where": "Pool · [[picture time]]",
+       "tag": "pool"
+      }
+     ]
+    },
+    {
+     "dow": "Fri",
+     "date": "Nov 20",
+     "items": [
+      {
+       "time": "6:00–7:30 AM",
+       "what": "Swimmers",
+       "where": "Pool",
+       "tag": "pool"
+      },
+      {
+       "time": "3:45–5:30 PM",
+       "what": "Divers",
+       "where": "Pool",
+       "tag": "dive"
+      }
+     ]
+    },
+    {
+     "dow": "Sat",
+     "date": "Nov 21",
+     "items": [
+      {
+       "time": "7:00–10:00 AM",
+       "what": "Swim-A-Thon",
+       "where": "Pool · during practice",
+       "tag": "event"
+      }
+     ]
+    }
+   ],
+   "survey": [
+    {
+     "label": "Athlete Survey",
+     "url": "https://docs.google.com/forms/d/e/1FAIpQLSfwUjbymA53gMh5pSZhjlFdXwPZswmK3v-Eipzl9iIYaFpezw/viewform"
+    }
+   ],
+   "links": [
+    {
+     "label": "Swim-A-Thon pledges",
+     "url": "https://app.99pledges.com/fund/ghsswimdiv1?home_v2=true"
+    }
+   ]
+  },
+  {
    "id": "2026-11-09",
    "season": "2026-27",
    "kicker": "Week of Nov 9, 2026 · Boys Week 1",
