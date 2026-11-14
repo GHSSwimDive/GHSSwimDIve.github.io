@@ -23,7 +23,7 @@ window.NEWSLETTER = {
  "updated": "Fri, Nov 13",
  "crews": [],
  "upcoming": [
-  "**Sat, Nov 21, 11:00 AM–2:30 PM** (after the Swim-A-Thon and team food): the whole team rakes **3 Gorham Woods houses**.",
+  "**Sat, Nov 21, 11:00 AM–2:30 PM** (after the Swim-A-Thon and food): the whole team rakes **3 Gorham Woods houses**.",
   "**Canal Street:** a later weekend, to be scheduled.",
   "**Nov 27–29** (after Saturday's meet): any Gorham Road leftovers, plus Coach Caleb's family's house in Middlebury."
  ],
@@ -154,7 +154,7 @@ window.NEWSLETTER = {
      "items": [
       "**Mon, Nov 16:** yard sign order goes in.",
       "**Thu, Nov 19:** Picture Day, during regular practice time! Hopefully our team suits and/or shirts are here by then. If not, we'll let everyone know the plan.",
-      "**Sat, Nov 21:** Swim-A-Thon, 7:00–10:00 AM. Then team food and leaf raking at Gorham Woods for 3 families, **11:00 AM–2:30 PM**. The Red/Gray meet is moving to a later date (to be announced).",
+      "**Sat, Nov 21:** Swim-A-Thon, 7:00–10:00 AM. Then food and leaf raking at Gorham Woods for 3 families, **11:00 AM–2:30 PM**. The Red/Gray meet is moving to a later date (to be announced).",
       "**Tue, Nov 24:** first meet, home vs. Rochester, 6:00 PM.",
       "**Thu, Nov 26:** Thanksgiving, no practice. **Fri, Nov 27:** skills & drills, 2:00–4:30 PM.",
       "**Sat, Nov 28:** meet @ South Bend Riley, 8:00 AM."
