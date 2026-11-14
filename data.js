@@ -1,113 +1,32 @@
 /* Newsletter content. Newest issue first. Updated weekly. */
 window.NEWSLETTER = {
- "quickLinks": [{"label": "Family Form", "url": "https://script.google.com/macros/s/AKfycbx2zj2MAZBCN9IS2_hAADbkijjFz7f_qNfAcU7bycoJ6QLPmQo_BTaIic40uNd3oW0-/exec?p=family"}, {"label": "Swim-A-Thon pledges", "url": "https://app.99pledges.com/fund/ghsswimdiv1?home_v2=true", "until": "2026-11-21"}, {"label": "Team store", "url": "https://sportsarama.chipply.com/goshenswimdive/?action=viewall", "style": "new"}],
+ "alert": {"h": "Two quick updates", "text": "**No leaf raking this Saturday, Nov 14.** The Gorham Road houses move to a later weekend.\n\nThe **team store closes Sunday, Nov 15 at 11:45 PM.** Get your orders in!", "until": "2026-11-15"},
+ "quickLinks": [
+ {
+  "label": "Family Form",
+  "url": "https://script.google.com/macros/s/AKfycbx2zj2MAZBCN9IS2_hAADbkijjFz7f_qNfAcU7bycoJ6QLPmQo_BTaIic40uNd3oW0-/exec?p=family"
+ },
+ {
+  "label": "Swim-A-Thon pledges",
+  "url": "https://app.99pledges.com/fund/ghsswimdiv1?home_v2=true",
+  "until": "2026-11-21"
+ },
+ {
+  "label": "Team store · closes Sun",
+  "url": "https://sportsarama.chipply.com/goshenswimdive/?action=viewall",
+  "style": "new",
+  "until": "2026-11-15"
+ }
+],
  "leafRaking": {
  "weekend": "Nov 13–15",
- "updated": "Sun, Nov 8",
- "crews": [
-  {
-   "area": "Gorham Road · Morning crew",
-   "address": "101, 202 & 216 Gorham Rd",
-   "when": "Sat, Nov 14 · meet at 9:45 AM",
-   "note": "Three houses close together on Gorham Road. Coach Rupp will split the crew between houses when you arrive. At 216, just the fenced-in area. Pile leaves along the road, and don't block or pile behind the mailboxes.",
-   "team": "2 electric leaf blowers (corded), 1–2 rakes and tarps",
-   "athletes": [
-    {
-     "name": "Andria Sarmiento",
-     "bring": "Rake",
-     "leader": true
-    },
-    {
-     "name": "Jeanpierre Vela",
-     "bring": "Rake, Leaf blower",
-     "leader": true,
-     "when": "Leaves by 11:30 for the Rays meet"
-    },
-    {
-     "name": "Ava Durnell",
-     "bring": "Rake"
-    },
-    {
-     "name": "Joseph Wyse-Fisher",
-     "bring": "Rake, Tarp"
-    },
-    {
-     "name": "Julian Uribe-Angel",
-     "bring": "Leaf blower, Tarp"
-    },
-    {
-     "name": "Mauro Sanchez-Perez",
-     "bring": "None (can help)"
-    },
-    {
-     "name": "Megan Lagunas",
-     "bring": "Rake, Leaf blower"
-    },
-    {
-     "name": "Melany Quiroz Juarez",
-     "bring": "Leaf blower"
-    },
-    {
-     "name": "Natalie Gaytan",
-     "bring": "Work gloves"
-    },
-    {
-     "name": "Selah Miller",
-     "bring": "Rake, Leaf blower, Tarp, Leaf bags, Work gloves"
-    }
-   ]
-  },
-  {
-   "area": "Gorham Road · Afternoon crew",
-   "address": "101, 202 & 216 Gorham Rd",
-   "when": "Sat, Nov 14 · afternoon (Coach Rupp will confirm the time)",
-   "note": "Pick up where the morning crew leaves off. Selah stays on from the morning to lead. If we don't finish, we'll come back Sunday.",
-   "athletes": [
-    {
-     "name": "Selah Miller",
-     "bring": "Rake, Leaf blower, Tarp, Leaf bags, Work gloves",
-     "leader": true
-    },
-    {
-     "name": "Kellan Snapp",
-     "bring": "Rake, Leaf blower, Leaf bags, Work gloves (own equipment)"
-    },
-    {
-     "name": "Renee Welling",
-     "bring": "Rake"
-    },
-    {
-     "name": "Susanna Stutzman",
-     "bring": "Rake, Leaf blower, Tarp, Leaf bags"
-    }
-   ]
-  },
-  {
-   "area": "Flexible",
-   "address": "Gorham Rd",
-   "when": "Sat, Nov 14 · time to be confirmed",
-   "note": "You said your schedule varies. Coach Rupp will let you know which shift to join.",
-   "athletes": [
-    {
-     "name": "Evelyn Post",
-     "bring": "Rake, Tarp"
-    },
-    {
-     "name": "Frida Vela",
-     "bring": "Rake, Leaf blower, Tarp"
-    },
-    {
-     "name": "Jasmine Cowells Hernandez",
-     "bring": "Rake, Work gloves"
-    }
-   ]
-  }
- ],
+ "updated": "Fri, Nov 13",
+ "crews": [],
  "upcoming": [
-  "**Nov 20–22:** Canal Street, plus any Gorham Road houses we don't finish.",
+  "**Nov 20–22:** the Gorham Road houses and Canal Street. Crews will be posted later next week.",
   "**Nov 27–29** (after Saturday's meet): any Gorham Road leftovers, plus Coach Caleb's family's house in Middlebury."
  ],
- "notes": "Swimming in the Rays meet this weekend? No problem, just skip this one."
+ "change": "No leaf raking this Saturday, Nov 14. The Gorham Road houses move to a later weekend."
 },
  "workerApi": "https://script.google.com/macros/s/AKfycbw4O038bKHbrOf7jVuoG1xJKRNbRgHLvJfHO1ib_bhji-evfAPRPaZYySJULLCC2nYyvw/exec",
  "issues": [

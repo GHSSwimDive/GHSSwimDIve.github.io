@@ -486,7 +486,7 @@ function todayISO(){const t=new Date();return t.getFullYear()+"-"+String(t.getMo
 function renderAlert(){
   const box=document.getElementById("sitealert"),a=NL.alert;
   if(!a||(a.until&&todayISO()>a.until)){box.hidden=true;return}
-  box.innerHTML=`<div class="site-alert" role="alert"><b>${esc(a.h)}</b><p>${inl(a.text)}</p>${a.link?`<a class="btn primary" href="${esc(a.link)}">${esc(a.linkLabel||"Details")}</a>`:""}</div>`;
+  box.innerHTML=`<div class="site-alert" role="alert"><b>${esc(a.h)}</b>${String(a.text).split(/\n\n+/).map(p=>`<p>${inl(p)}</p>`).join("")}${a.link?`<a class="btn primary" href="${esc(a.link)}">${esc(a.linkLabel||"Details")}</a>`:""}</div>`;
   box.hidden=false;
 }
 function renderQuickLinks(){
@@ -503,8 +503,8 @@ function renderQuickLinks(){
 function renderLeaf(){
   const L=NL.leafRaking;
   if(!L) return `<div class="issue-head"><div class="kicker">Leaf raking</div><h2>No crews scheduled right now</h2></div>`;
-  let h=`<div class="issue-head"><div class="kicker">Leaf raking · ${esc(L.weekend)}${L.updated?" · updated "+esc(L.updated):""}</div><h2>Where to go this weekend</h2></div>
-  <div class="prose"><p>Here's each crew, where they're raking, and what each athlete is bringing. Leaf raking is optional, and athletes who help earn credit toward their team fees. Questions or changes? Contact Coach Rupp.</p></div>`;
+  let h=`<div class="issue-head"><div class="kicker">Leaf raking · ${esc(L.weekend)}${L.updated?" · updated "+esc(L.updated):""}</div><h2>${L.crews.length?"Where to go this weekend":"No crews this weekend"}</h2></div>
+  ${L.crews.length?`<div class="prose"><p>Here's each crew, where they're raking, and what each athlete is bringing. Leaf raking is optional, and athletes who help earn credit toward their team fees. Questions or changes? Contact Coach Rupp.</p></div>`:""}`;
   if(L.change) h+=`<div class="leaf-change">${esc(L.change)}</div>`;
   if(L.notes) h+=`<p class="muted" style="margin:0">${inl(L.notes)}</p>`;
   h+=`<div class="days">${L.crews.map(c=>{const perWhen=c.athletes.some(a=>a.when);return `<div class="leaf-crew"><div class="leaf-head"><b>${esc(c.area)}</b><span>${esc(c.address)} · ${esc(c.when)}</span></div>${c.note?`<div class="leaf-note">${esc(c.note)}</div>`:""}${c.team?`<div class="leaf-team"><b>Team equipment coming:</b> ${esc(c.team)}</div>`:""}
