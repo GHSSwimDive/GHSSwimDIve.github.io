@@ -154,7 +154,7 @@ window.NEWSLETTER = {
      "items": [
       "**Mon, Nov 16:** yard sign order goes in.",
       "**Thu, Nov 19:** Picture Day, during regular practice time! Hopefully our team suits and/or shirts are here by then. If not, we'll let everyone know the plan.",
-      "**Sat, Nov 21:** Swim-A-Thon, 7:00–10:00 AM. Then team food and leaf raking at Gorham Woods for 3 families, **11:00 AM–2:30 PM**. No Red/Gray meet this year.",
+      "**Sat, Nov 21:** Swim-A-Thon, 7:00–10:00 AM. Then team food and leaf raking at Gorham Woods for 3 families, **11:00 AM–2:30 PM**. The Red/Gray meet is moving to a later date (to be announced).",
       "**Tue, Nov 24:** first meet, home vs. Rochester, 6:00 PM.",
       "**Thu, Nov 26:** Thanksgiving, no practice. **Fri, Nov 27:** skills & drills, 2:00–4:30 PM.",
       "**Sat, Nov 28:** meet @ South Bend Riley, 8:00 AM."
@@ -252,7 +252,7 @@ window.NEWSLETTER = {
       },
       {
        "time": "11:00 AM–2:30 PM",
-       "what": "Leaf raking (team food first)",
+       "what": "Leaf raking (food first)",
        "where": "Gorham Woods · 3 houses, whole team",
        "tag": "event"
       }
@@ -321,7 +321,7 @@ window.NEWSLETTER = {
      },
      {
       "style": "sorry",
-      "text": "**A note about the schedule:** I made our original calendar before this fundraiser was planned, and when we were able to hold it changed that plan, so there's **no Red/Gray meet** this year. I sincerely apologize for the three changes we've had this season. This is highly unusual."
+      "text": "**A note about the schedule:** I made our original calendar before this fundraiser was planned, and when we were able to hold it changed that plan, so the **Red/Gray meet is moving to a new date**, which hasn't been set yet. I sincerely apologize for the three changes we've had this season. This is highly unusual."
      }
     ]
    }

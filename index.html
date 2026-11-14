@@ -317,6 +317,10 @@ function plain(s){return String(s).replace(/\[\[(.+?)\]\]/g,'[$1]').replace(/__(
 
 function renderIssue(is){
   let h=`<div class="issue-head"><div class="kicker">${esc(is.kicker)}</div><h2>${inl(is.title)}</h2></div>`;
+  if(is.draft) h+=`<div class="draft"><b>Draft.</b> ${inl(is.draft)}</div>`;
+  h+=`<div class="prose">${is.intro.map(p=>`<p>${inl(p)}</p>`).join("")}</div>`;
+  if(is.stats.length) h+=`<div class="stats">${is.stats.map(s=>`<div class="stat"><b>${esc(s.n)}</b><span>${inl(s.l)}</span></div>`).join("")}</div>`;
+  is.sections.forEach(s=>{h+=`<section><h3>${esc(s.h)}</h3><div class="prose">${s.body.map(p=>`<p>${inl(p)}</p>`).join("")}</div></section>`});
   const ft=is.feature;
   if(ft) h+=`<section class="feature"><div class="ft-head"><span class="ft-kicker">${esc(ft.kicker||"")}</span><b>${esc(ft.h)}</b>${ft.when?`<span class="ft-when">${inl(ft.when)}</span>`:""}</div><div class="ft-body">
     ${ft.intro?`<p>${inl(ft.intro)}</p>`:""}${ft.how?`<h4>How it works</h4><ol class="ft-how">${ft.how.map(x=>`<li>${inl(x)}</li>`).join("")}</ol>`:""}
@@ -326,10 +330,6 @@ function renderIssue(is){
     ${ft.pays?`<h4>${esc(ft.paysTitle||"Your donations help pay for")}</h4><ul class="ft-pays">${ft.pays.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}
     ${ft.button?`<div class="btns"><a class="btn primary" href="${esc(ft.button.url)}" target="_blank" rel="noopener">${esc(ft.button.label)} ↗</a></div>`:""}
     ${ft.close?`<p class="ft-close">${inl(ft.close)}</p>`:""}</div></section>`;
-  if(is.draft) h+=`<div class="draft"><b>Draft.</b> ${inl(is.draft)}</div>`;
-  h+=`<div class="prose">${is.intro.map(p=>`<p>${inl(p)}</p>`).join("")}</div>`;
-  if(is.stats.length) h+=`<div class="stats">${is.stats.map(s=>`<div class="stat"><b>${esc(s.n)}</b><span>${inl(s.l)}</span></div>`).join("")}</div>`;
-  is.sections.forEach(s=>{h+=`<section><h3>${esc(s.h)}</h3><div class="prose">${s.body.map(p=>`<p>${inl(p)}</p>`).join("")}</div></section>`});
   if(is.surveyCorner){const sc=is.surveyCorner;
     h+=`<section class="sc"><h3>${esc(sc.title||"Survey Corner")}</h3>${sc.intro?`<p class="sc-intro">${inl(sc.intro)}</p>`:""}
     ${(sc.blocks||[]).map(b=>`<div class="sc-block"><p class="slabel">${esc(b.h)}</p><ul class="sc-chips">${b.items.map(x=>`<li${x.n>1?' class="top"':""}>${esc(x.t||x)}${x.n>1?` <b>×${x.n}</b>`:""}</li>`).join("")}</ul></div>`).join("")}
