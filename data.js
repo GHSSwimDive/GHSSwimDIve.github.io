@@ -276,8 +276,8 @@ window.NEWSLETTER = {
     "when": "**Saturday, Nov 21 · 7:00–10:00 AM** during practice",
     "how": [
      "**Before the event:** athletes ask family, friends and community members to sponsor them by sharing their own **99Pledges** page. The girls were emailed their link, and you can find any athlete from the team page.",
-     "**Two ways to give:** supporters can donate a **flat amount** or pledge an amount **for each lap** the swimmer completes.",
-     "**On Saturday:** swimmers and divers challenge themselves to complete **as many laps or dives as they can** within a set time, taking breaks as needed.",
+     "**Two ways to give:** supporters can donate a **flat amount** or pledge an amount **for each lap** the swimmer completes. Pay by **card on the 99Pledges website**, or with **cash or a check** made out to **Goshen High School**.",
+     "**On Saturday:** swimmers will swim **as many laps as they can** during practice. They'll be split into teams to see which team can go the farthest! Divers will have their own set of challenges off the board.",
      "**Then food and leaf raking:** after the Swim-A-Thon we'll have time to eat, then head to **Gorham Woods to rake leaves for 3 families from 11:00 AM to 2:30 PM**. With everyone working, it won't take long, and it also goes toward team fees.",
      "Every dollar raised helps the whole team, and **the more we raise, the lower I can make team fees.**"
     ],
@@ -313,7 +313,16 @@ window.NEWSLETTER = {
     },
     "close": "Thank you for supporting Goshen High School Swim & Dive and investing in our athletes. Go RedHawks!",
     "intro": "A Swim-A-Thon is a fundraiser where swimmers swim laps to support their team. It's a fun team challenge right before our first meet!",
-    "note": "Heads up: we will **not** have our Red/Gray meet on this day. Sorry!"
+    "notes": [
+     {
+      "style": "help",
+      "text": "**Parents, come count laps!** We originally planned to have parents help at the Red/Gray meet this day. If you're available and want to help count laps Saturday morning, let me know! It's usually a lot of fun."
+     },
+     {
+      "style": "sorry",
+      "text": "**A note about the schedule:** I made our original calendar before this fundraiser was planned, and when we were able to hold it changed that plan, so there's **no Red/Gray meet** this year. I sincerely apologize for the three changes we've had this season. This is highly unusual."
+     }
+    ]
    }
   },
   {
