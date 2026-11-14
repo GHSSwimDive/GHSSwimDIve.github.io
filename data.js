@@ -55,11 +55,12 @@ window.NEWSLETTER = {
    "shouts": [
     {
      "who": "Ava",
-     "why": "\"An absolute BEAST at underwaters and kicking!\" Teammates are super proud of her."
+     "why": "\"An absolute BEAST at underwaters and kicking!\" \"Super proud of her!\""
     },
     {
      "who": "Evy",
-     "why": "Working super hard. Called out by three different teammates!"
+     "why": "Working super hard.",
+     "n": 3
     },
     {
      "who": "Lauren",
@@ -83,20 +84,19 @@ window.NEWSLETTER = {
     },
     {
      "who": "Naomi",
-     "why": "Shout-out from a teammate!"
+     "why": "\"You're doing great!\""
     },
     {
      "who": "Renee",
-     "why": "Shout-out from a teammate!"
+     "why": "Nice dives!"
     },
     {
      "who": "Cris & Jasmine",
-     "why": "Shout-out from a teammate!"
+     "why": "\"Keep it up, you're doing great!\""
     }
    ],
    "surveyCorner": {
     "title": "Survey Corner",
-    "intro": "Thanks to the **19 of you** who filled out last week's survey! Here's what you told us.",
     "blocks": [
      {
       "h": "Your favorite movies of all time",
@@ -264,7 +264,49 @@ window.NEWSLETTER = {
      "label": "Swim-A-Thon pledges",
      "url": "https://app.99pledges.com/fund/ghsswimdiv1?home_v2=true"
     }
-   ]
+   ],
+   "feature": {
+    "kicker": "Fundraiser",
+    "h": "Swim-A-Thon",
+    "when": "**Saturday, Nov 21 · 7:00–10:00 AM** during practice",
+    "how": [
+     "Each athlete has their own **99Pledges** page. The girls were emailed their link, and you can find any swimmer or diver from the team page.",
+     "Share your link with family, friends and neighbors, and ask them to support you. [[Per-lap pledges, flat donations, or both?]]",
+     "On Saturday, athletes [[swim as many laps as they can during practice]].",
+     "Every dollar raised helps the whole team, and **the more we raise, the lower I can make team fees.**"
+    ],
+    "why": [
+     "The Goshen High School Swim & Dive program is about more than swimming laps and competing at meets. It's about building confidence, developing strong work habits, learning teamwork, and creating memories our athletes will carry with them long after high school.",
+     "Our swimmers and divers put in countless hours of hard work and dedication throughout the season. This year's Swim-A-Thon helps pay for new training equipment, team uniforms and other essentials, improving the experience for every athlete, from first-year swimmers and divers to those competing at the championship level.",
+     "We're incredibly grateful for the support of our families, friends, alumni and the Goshen community. **Every donation, no matter the amount, makes a difference.**"
+    ],
+    "paysTitle": "Your donations help pay for",
+    "pays": [
+     "Fins",
+     "Paddles",
+     "Pull buoys",
+     "Equipment bags",
+     "Training aids",
+     "Mini trampoline",
+     "Diving harness",
+     "Timing system",
+     "Pace clock",
+     "Sound system",
+     "Video equipment",
+     "Locks",
+     "Team caps",
+     "Team shirts",
+     "Practice gear",
+     "Team dinners",
+     "Sectional meal",
+     "Winter break training activities"
+    ],
+    "button": {
+     "label": "Donate on 99Pledges",
+     "url": "https://app.99pledges.com/fund/ghsswimdiv1?home_v2=true"
+    },
+    "close": "Thank you for supporting Goshen High School Swim & Dive and investing in our athletes. Go RedHawks!"
+   }
   },
   {
    "id": "2026-11-09",

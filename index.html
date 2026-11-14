@@ -89,7 +89,9 @@ section h3::after{content:"";flex:1;height:2px;background:var(--line)}
 
 /* Shout-outs */
 .shouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;list-style:none;padding:0;margin:0}
-.shouts li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.shouts li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0;position:relative}
+.shouts li.multi{padding-right:56px}
+.shout-n{position:absolute;top:10px;right:10px;background:var(--red);color:#fff;font-family:var(--display);font-weight:800;font-size:18px;line-height:1;padding:5px 8px 4px;border-radius:8px}
 .shouts .who{font-weight:700}
 .sgroup{display:flex;flex-direction:column;gap:8px}
 .sgroup+.sgroup{margin-top:14px}
@@ -177,6 +179,19 @@ main #sitealert{padding-block:16px 0}
 .ig:hover span{text-decoration:underline}
 .sc{display:flex;flex-direction:column;gap:12px}
 .sc-intro{margin:0;max-width:65ch}
+.sc .slabel{font-size:22px;color:var(--red-ink)}
+.feature{border:2px solid var(--red);border-radius:14px;overflow:hidden;background:var(--surface);gap:0}
+.ft-head{background:var(--red);color:#fff;padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.ft-kicker{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:14px;opacity:.9}
+.ft-head b{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(28px,6vw,38px);line-height:1}
+.ft-when{font-size:16px;font-weight:600;margin-top:4px}
+.ft-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px}
+.ft-body h4{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:19px;color:var(--red-ink);margin:6px 0 0}
+.ft-body p{margin:0;max-width:65ch}
+.ft-how{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.ft-pays{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.ft-pays li{background:var(--red-soft);color:var(--red-ink);border-radius:999px;padding:5px 12px;font-size:15px;font-weight:600}
+.ft-close{font-weight:600}
 .sc-block{display:flex;flex-direction:column;gap:8px}
 .sc-chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .sc-chips li{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:15px;font-weight:500}
@@ -300,6 +315,13 @@ function plain(s){return String(s).replace(/\[\[(.+?)\]\]/g,'[$1]').replace(/__(
 
 function renderIssue(is){
   let h=`<div class="issue-head"><div class="kicker">${esc(is.kicker)}</div><h2>${inl(is.title)}</h2></div>`;
+  const ft=is.feature;
+  if(ft) h+=`<section class="feature"><div class="ft-head"><span class="ft-kicker">${esc(ft.kicker||"")}</span><b>${esc(ft.h)}</b>${ft.when?`<span class="ft-when">${inl(ft.when)}</span>`:""}</div><div class="ft-body">
+    ${ft.how?`<h4>How it works</h4><ol class="ft-how">${ft.how.map(x=>`<li>${inl(x)}</li>`).join("")}</ol>`:""}
+    ${ft.why?`<h4>Why it matters</h4>${ft.why.map(p=>`<p>${inl(p)}</p>`).join("")}`:""}
+    ${ft.pays?`<h4>${esc(ft.paysTitle||"Your donations help pay for")}</h4><ul class="ft-pays">${ft.pays.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}
+    ${ft.button?`<div class="btns"><a class="btn primary" href="${esc(ft.button.url)}" target="_blank" rel="noopener">${esc(ft.button.label)} ↗</a></div>`:""}
+    ${ft.close?`<p class="ft-close">${inl(ft.close)}</p>`:""}</div></section>`;
   if(is.draft) h+=`<div class="draft"><b>Draft.</b> ${inl(is.draft)}</div>`;
   h+=`<div class="prose">${is.intro.map(p=>`<p>${inl(p)}</p>`).join("")}</div>`;
   if(is.stats.length) h+=`<div class="stats">${is.stats.map(s=>`<div class="stat"><b>${esc(s.n)}</b><span>${inl(s.l)}</span></div>`).join("")}</div>`;
@@ -309,7 +331,7 @@ function renderIssue(is){
     ${(sc.blocks||[]).map(b=>`<div class="sc-block"><p class="slabel">${esc(b.h)}</p><ul class="sc-chips">${b.items.map(x=>`<li${x.n>1?' class="top"':""}>${esc(x.t||x)}${x.n>1?` <b>×${x.n}</b>`:""}</li>`).join("")}</ul></div>`).join("")}
     ${sc.tip?`<div class="sc-tip${sc.tip.stat?"":" nostat"}">${sc.tip.stat?`<div class="sc-stat"><b>${esc(sc.tip.stat)}</b><span>${inl(sc.tip.statLabel)}</span></div>`:""}<div class="sc-body"><h4>${esc(sc.tip.h)}</h4>${sc.tip.body.map(p=>`<p>${inl(p)}</p>`).join("")}${sc.tip.list?`<ul>${sc.tip.list.map(p=>`<li>${inl(p)}</li>`).join("")}</ul>`:""}</div></div>`:""}</section>`}
   if(is.shoutGroups) h+=`<section><h3>Shout-outs</h3>${is.shoutGroups.map(g=>`<div class="sgroup"><p class="slabel">${esc(g.label)}</p><ul class="snames ${g.style}">${g.names.map(n=>`<li>${esc(n)}</li>`).join("")}</ul></div>`).join("")}</section>`;
-  if(is.shouts.length) h+=`<section><h3>${esc(is.shoutTitle||"Shout-outs")}</h3><ul class="shouts">${is.shouts.map(s=>`<li><span class="who">${inl(s.who)}</span><span class="why">${inl(s.why)}</span></li>`).join("")}</ul></section>`;
+  if(is.shouts.length) h+=`<section><h3>${esc(is.shoutTitle||"Shout-outs")}</h3><ul class="shouts">${is.shouts.map(s=>`<li${s.n>1?' class="multi"':""}>${s.n>1?`<span class="shout-n">×${s.n}</span>`:""}<span class="who">${inl(s.who)}</span><span class="why">${inl(s.why)}</span></li>`).join("")}</ul></section>`;
   (is.callouts||[]).forEach(c=>{h+=`<div class="callout"><h4>${esc(c.h)}</h4>${c.items.map(i=>`<p>${inl(i)}</p>`).join("")}</div>`});
   if(is.schedule.length){
     h+=`<section><h3>Weekly schedule</h3><div class="days">${is.schedule.map(d=>`
