@@ -44,10 +44,10 @@ window.NEWSLETTER = {
    "stats": [],
    "sections": [
     {
-     "h": "Week one recap",
+     "h": "Week recap",
      "body": [
       "Congratulations, boys, on finishing your first week! The girls and boys trained separately at the start of the week so each group could work on what they needed.",
-      "The **girls** spent a day focused on the **IM**, along with some endurance work. The **boys** worked on body position drills and wrote their **season goals** on Friday."
+      "The **girls** worked on **starts, the IM and turns** while continuing to improve on their form. The **boys** worked on body position drills and wrote their **season goals** on Friday."
      ]
     },
     {
@@ -61,7 +61,20 @@ window.NEWSLETTER = {
      "body": [
       "This season, every athlete was asked to sign a **team contract**. Our big focus is **controlling the controllables**: the things each of us is in charge of every day.",
       "**Attitude, effort and attendance** are ours to control. So is our **integrity**: doing the right thing, owning our choices, and being someone teammates can count on.",
-      "**Phones:** cell phones go in **Phone Jail** during practice, including dryland, until a coach dismisses us. Phones are **not allowed in the locker room at all**, for everyone's safety. Parents, thank you for helping us reinforce this at home!"
+      "**Phones:** cell phones go in **Phone Jail** during practice, including dryland, until a coach dismisses us. Phones are **not allowed in the locker room at all**, for everyone's safety. Parents, thank you for helping us reinforce this policy."
+     ]
+    },
+    {
+     "h": "Season priorities",
+     "body": [
+      "Here's what we're focused on in the pool this season, for both GHS and the Goshen Rays:"
+     ],
+     "priorities": [
+      "Streamline every wall",
+      "Underwaters",
+      "Win the wall",
+      "Use the whole body",
+      "Technique under fatigue"
      ]
     }
    ],

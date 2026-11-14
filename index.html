@@ -90,6 +90,10 @@ section h3::after{content:"";flex:1;height:2px;background:var(--line)}
 /* Shout-outs */
 .shouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;list-style:none;padding:0;margin:0}
 .shouts li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0;position:relative}
+.prio{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.prio li{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 14px 8px 10px}
+.prio-n{flex:0 0 auto;width:42px;height:38px;display:grid;place-items:center;background:var(--red);color:#fff;font-family:var(--display);font-weight:800;font-size:24px;transform:skewX(-12deg);border-radius:4px;box-shadow:3px 0 0 #1F8A99}
+.prio-t{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.03em;font-size:clamp(20px,5vw,26px);line-height:1.05}
 .shout-note{margin:-2px 0 10px;color:var(--muted);font-style:italic}
 .shouts li.multi{padding-right:56px}
 .shout-n{position:absolute;top:10px;right:10px;background:var(--red);color:#fff;font-family:var(--display);font-weight:800;font-size:18px;line-height:1;padding:5px 8px 4px;border-radius:8px}
@@ -327,7 +331,7 @@ function renderIssue(is){
   h+=`<div class="prose">${is.intro.map(p=>`<p>${inl(p)}</p>`).join("")}</div>`;
   if(is.banner){const bn=is.banner;h+=`<div class="big-banner">${bn.kicker?`<span class="bb-kicker">${esc(bn.kicker)}</span>`:""}<b>${esc(bn.h)}</b>${bn.text?`<p>${inl(bn.text)}</p>`:""}</div>`}
   if(is.stats.length) h+=`<div class="stats">${is.stats.map(s=>`<div class="stat"><b>${esc(s.n)}</b><span>${inl(s.l)}</span></div>`).join("")}</div>`;
-  is.sections.forEach(s=>{h+=`<section><h3>${esc(s.h)}</h3><div class="prose">${s.body.map(p=>`<p>${inl(p)}</p>`).join("")}</div></section>`});
+  is.sections.forEach(s=>{h+=`<section><h3>${esc(s.h)}</h3><div class="prose">${s.body.map(p=>`<p>${inl(p)}</p>`).join("")}</div>${s.priorities?`<ol class="prio">${s.priorities.map((x,k)=>`<li><span class="prio-n">${k+1}</span><span class="prio-t">${esc(x)}</span></li>`).join("")}</ol>`:""}</section>`});
   const ft=is.feature;
   if(ft) h+=`<section class="feature"><div class="ft-head"><span class="ft-kicker">${esc(ft.kicker||"")}</span><b>${esc(ft.h)}</b>${ft.when?`<span class="ft-when">${inl(ft.when)}</span>`:""}${(()=>{if(!ft.countdownTo)return "";const t=new Date(ft.countdownTo+"T00:00:00"),n=new Date(new Date().toDateString()),dd=Math.round((t-n)/864e5);return dd>1?`<span class="ft-count">Only ${dd} days to go!</span>`:dd===1?`<span class="ft-count">Tomorrow!</span>`:dd===0?`<span class="ft-count">Today!</span>`:""})()}</div><div class="ft-body">
     ${ft.intro?`<p>${inl(ft.intro)}</p>`:""}${ft.how?`<h4>How it works</h4><ol class="ft-how">${ft.how.map(x=>`<li>${inl(x)}</li>`).join("")}</ol>`:""}
@@ -360,7 +364,7 @@ function issueText(is){
   const L=[is.kicker.toUpperCase(),plain(is.title),""];
   is.intro.forEach(p=>L.push(plain(p),""));
   if(is.stats.length){is.stats.forEach(s=>L.push(`• ${s.n} – ${plain(s.l)}`));L.push("")}
-  is.sections.forEach(s=>{L.push(s.h.toUpperCase());s.body.forEach(p=>L.push(plain(p),""))});
+  is.sections.forEach(s=>{L.push(s.h.toUpperCase());s.body.forEach(p=>L.push(plain(p),""));(s.priorities||[]).forEach((x,k)=>L.push((k+1)+". "+x));if(s.priorities)L.push("")});
   if(is.surveyCorner){const sc=is.surveyCorner;L.push((sc.title||"Survey Corner").toUpperCase());if(sc.intro)L.push(plain(sc.intro));(sc.blocks||[]).forEach(b=>{L.push(b.h+": "+b.items.map(x=>(x.t||x)+(x.n>1?" ×"+x.n:"")).join(", "))});if(sc.tip){L.push(sc.tip.h.toUpperCase()+(sc.tip.stat?" ("+sc.tip.stat+" "+plain(sc.tip.statLabel)+")":""));sc.tip.body.forEach(p=>L.push(plain(p)));(sc.tip.list||[]).forEach(p=>L.push("• "+plain(p)))}L.push("")}
   if(is.shoutGroups){L.push("SHOUT-OUTS");is.shoutGroups.forEach(g=>{L.push(g.label);L.push("   "+g.names.join(", "))});L.push("")}
   if(is.shouts.length){L.push((is.shoutTitle||"Shout-outs").toUpperCase());is.shouts.forEach(s=>L.push(`• ${plain(s.who)} – ${plain(s.why)}`));L.push("")}
