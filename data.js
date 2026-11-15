@@ -47,7 +47,8 @@ window.NEWSLETTER = {
      "h": "Week recap",
      "body": [
       "Congratulations, boys, on finishing your first week! The girls and boys trained separately at the start of the week so each group could work on what they needed.",
-      "The **girls** worked on **starts, the IM and turns** while continuing to improve on their form. The **boys** worked on body position drills and wrote their **season goals** on Friday."
+      "The **girls** worked on **starts, the IM and turns** while continuing to improve on their form. The **boys** worked on body position drills and wrote their **season goals** on Friday.",
+      "**Athletes:** remember to complete this week's **survey** before Monday's practice. Each week it has a few fun questions and a quick check-in for each of you. It only takes a few minutes! The **Athlete Survey** button is at the top of this page."
      ]
     },
     {
@@ -309,7 +310,7 @@ window.NEWSLETTER = {
     "h": "Swim-A-Thon",
     "when": "**Saturday, Nov 21 · 7:00–10:00 AM** during practice",
     "how": [
-     "**Before the event:** athletes ask family, friends and community members to sponsor them by sharing their own **99Pledges** page. The girls were emailed their link, and you can find any athlete from the team page.",
+     "**Before the event:** athletes ask family, friends and community members to sponsor them by sharing their own **99Pledges** page. The athletes were emailed their link, and you can find any athlete from the team page.",
      "**Two ways to give:** supporters can donate a **flat amount** or pledge an amount **for each lap** the swimmer completes. Pay by **card on the 99Pledges website**, or with **cash or a check** made out to **Goshen High School**.",
      "**On Saturday:** swimmers will swim **as many laps as they can** during practice. They'll be split into teams to see which team can go the farthest! Divers will have their own set of challenges off the board.",
      "**Then food and leaf raking:** after the Swim-A-Thon we'll have time to eat, then head to **Gorham Woods to rake leaves for 3 families from 11:00 AM to 2:30 PM**. With everyone working, it won't take long, and it also goes toward team fees.",
