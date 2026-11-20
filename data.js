@@ -49,10 +49,9 @@ window.NEWSLETTER = {
    ]
   },
   {
-   "area": "Blosser / Unternahrer (2nd visit)",
+   "area": "Blosser / Unternahrer",
    "address": "101 Gorham Rd",
    "when": "Sat, Nov 21 · 11:30 AM–2:30 PM",
-   "note": "Second visit. Finish the yard we started Nov 7.",
    "team": "Corded electric blowers, rakes and tarps",
    "athletes": [
     {
