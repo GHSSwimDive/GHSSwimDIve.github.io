@@ -21,12 +21,12 @@ window.NEWSLETTER = {
  "leafRaking": {
  "weekend": "Nov 20–22",
  "updated": "Fri, Nov 20",
- "notes": "We start around **12:00** after the Swim-A-Thon and hope to be done by **2:30**. The Joe Hauflaire crew stops on Canal St first, then everyone ends up in Gorham Woods.",
+ "notes": "We start around **11:30** after the Swim-A-Thon and hope to be done by **2:30**. The Joe Hauflaire crew stops on Canal St first, then everyone ends up in Gorham Woods.",
  "crews": [
   {
    "area": "Stop 1: Joe Hauflaire",
    "address": "107 Canal St",
-   "when": "Sat, Nov 21 · 12:00 PM, then Gorham Woods",
+   "when": "Sat, Nov 21 · 11:30 AM, then Gorham Woods",
    "note": "Small yard with lots of leaves by the river. Move leaves to the front by the road. Morgan drops off Alec and Luvan.",
    "athletes": [
     {
@@ -51,7 +51,7 @@ window.NEWSLETTER = {
   {
    "area": "Blosser / Unternahrer (2nd visit)",
    "address": "101 Gorham Rd",
-   "when": "Sat, Nov 21 · 12:00–2:30 PM",
+   "when": "Sat, Nov 21 · 11:30 AM–2:30 PM",
    "note": "Second visit. Finish the yard we started Nov 7.",
    "team": "Corded electric blowers, rakes and tarps",
    "athletes": [
@@ -102,7 +102,7 @@ window.NEWSLETTER = {
   {
    "area": "Toth (202) & Griffith (216)",
    "address": "202 & 216 Gorham Rd",
-   "when": "Sat, Nov 21 · 12:00–2:30 PM",
+   "when": "Sat, Nov 21 · 11:30 AM–2:30 PM",
    "note": "Finish both yards, then help at 101. At 202: piles by the road, not behind the mailbox (both sides of the driveway are OK). At 216: only the fenced-in area; pull leaves to the road and don't block the mailbox.",
    "team": "Corded electric blowers, rakes and tarps",
    "athletes": [
@@ -139,17 +139,6 @@ window.NEWSLETTER = {
     {
      "name": "Susanna Stutzman",
      "bring": "Rake, Leaf blower, Tarp, Leaf bags"
-    }
-   ]
-  },
-  {
-   "area": "Gorham Woods: go where needed",
-   "address": "Check in at 202 Gorham Rd",
-   "when": "Sat, Nov 21 · 12:00–2:30 PM",
-   "athletes": [
-    {
-     "name": "Frida Vela",
-     "bring": "Rake, Leaf blower, Tarp"
     },
     {
      "name": "Jasmine Cowells Hernandez",
