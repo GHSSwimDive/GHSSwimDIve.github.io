@@ -19,15 +19,156 @@ window.NEWSLETTER = {
  }
 ],
  "leafRaking": {
- "weekend": "Nov 13–15",
- "updated": "Fri, Nov 13",
- "crews": [],
- "upcoming": [
-  "**Sat, Nov 21, 11:00 AM–2:30 PM** (after the Swim-A-Thon and food): the whole team rakes **3 Gorham Woods houses**.",
-  "**Canal Street:** a later weekend, to be scheduled.",
-  "**Nov 27–29** (after Saturday's meet): any Gorham Road leftovers, plus Coach Caleb's family's house in Middlebury."
+ "weekend": "Nov 20–22",
+ "updated": "Fri, Nov 20",
+ "notes": "We start around **12:00** after the Swim-A-Thon and hope to be done by **2:30**. The Joe Hauflaire crew stops on Canal St first, then everyone ends up in Gorham Woods.",
+ "crews": [
+  {
+   "area": "Stop 1: Joe Hauflaire",
+   "address": "107 Canal St",
+   "when": "Sat, Nov 21 · 12:00 PM, then Gorham Woods",
+   "note": "Small yard with lots of leaves by the river. Move leaves to the front by the road. Morgan drops off Alec and Luvan.",
+   "athletes": [
+    {
+     "name": "Liam Post",
+     "bring": "Rake, Leaf blower, Tarp, Leaf bags, Work gloves, Truck/trailer",
+     "leader": true
+    },
+    {
+     "name": "Caleb Gal",
+     "bring": "Rake"
+    },
+    {
+     "name": "Alec Davis",
+     "bring": "—"
+    },
+    {
+     "name": "Luvan Rodriguez",
+     "bring": "—"
+    }
+   ]
+  },
+  {
+   "area": "Blosser / Unternahrer (2nd visit)",
+   "address": "101 Gorham Rd",
+   "when": "Sat, Nov 21 · 12:00–2:30 PM",
+   "note": "Second visit. Finish the yard we started Nov 7.",
+   "team": "Corded electric blowers, rakes and tarps",
+   "athletes": [
+    {
+     "name": "Jessica Perez",
+     "bring": "Leaf blower, Work gloves",
+     "leader": true
+    },
+    {
+     "name": "Angel Palmar",
+     "bring": "—",
+     "leader": true
+    },
+    {
+     "name": "Arek (AJ) Gamble",
+     "bring": "Rake, Leaf blower, Tarp"
+    },
+    {
+     "name": "Evy Post",
+     "bring": "Rake, Tarp"
+    },
+    {
+     "name": "Kellan Snapp",
+     "bring": "Rake, Leaf blower, Leaf bags, Work gloves"
+    },
+    {
+     "name": "Lauren Wohlford",
+     "bring": "Rake, Work gloves"
+    },
+    {
+     "name": "Naomi Gaytan",
+     "bring": "None (can help)"
+    },
+    {
+     "name": "Rebeca Palmar",
+     "bring": "None (can help)"
+    },
+    {
+     "name": "Renee Welling",
+     "bring": "Rake"
+    },
+    {
+     "name": "Sophie Chavoyo-López",
+     "bring": "None (can help)"
+    }
+   ]
+  },
+  {
+   "area": "Toth (202) & Griffith (216)",
+   "address": "202 & 216 Gorham Rd",
+   "when": "Sat, Nov 21 · 12:00–2:30 PM",
+   "note": "Finish both yards, then help at 101. At 202: piles by the road, not behind the mailbox (both sides of the driveway are OK). At 216: only the fenced-in area; pull leaves to the road and don't block the mailbox.",
+   "team": "Corded electric blowers, rakes and tarps",
+   "athletes": [
+    {
+     "name": "JP Vela",
+     "bring": "Rake, Leaf blower",
+     "leader": true
+    },
+    {
+     "name": "Morgan Weddell",
+     "bring": "Rake, Leaf blower, Tarp",
+     "leader": true
+    },
+    {
+     "name": "Ava Durnell",
+     "bring": "Rake"
+    },
+    {
+     "name": "Miles Wyse-Fisher",
+     "bring": "Rake, Tarp"
+    },
+    {
+     "name": "Julian Uribe-Angel",
+     "bring": "Leaf blower, Tarp"
+    },
+    {
+     "name": "Megan Lagunas",
+     "bring": "Rake, Leaf blower"
+    },
+    {
+     "name": "Selah Miller",
+     "bring": "Rake, Leaf blower, Tarp, Leaf bags, Work gloves"
+    },
+    {
+     "name": "Susanna Stutzman",
+     "bring": "Rake, Leaf blower, Tarp, Leaf bags"
+    }
+   ]
+  },
+  {
+   "area": "Gorham Woods: go where needed",
+   "address": "Check in at 202 Gorham Rd",
+   "when": "Sat, Nov 21 · 12:00–2:30 PM",
+   "athletes": [
+    {
+     "name": "Frida Vela",
+     "bring": "Rake, Leaf blower, Tarp"
+    },
+    {
+     "name": "Jasmine Cowells Hernandez",
+     "bring": "Rake, Work gloves"
+    },
+    {
+     "name": "Melany Quiroz Juarez",
+     "bring": "Leaf blower"
+    },
+    {
+     "name": "Natalie Gaytan",
+     "bring": "Work gloves"
+    }
+   ]
+  }
  ],
- "change": "No leaf raking this Saturday, Nov 14. The Gorham Road houses move to a later weekend."
+ "upcoming": [
+  "**Nov 27–29** (after Saturday's meet): any Gorham Road leftovers, plus Coach Caleb's family's house in Middlebury."
+ ]
 },
  "workerApi": "https://script.google.com/macros/s/AKfycbw4O038bKHbrOf7jVuoG1xJKRNbRgHLvJfHO1ib_bhji-evfAPRPaZYySJULLCC2nYyvw/exec",
  "issues": [
