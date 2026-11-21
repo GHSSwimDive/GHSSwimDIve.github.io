@@ -225,6 +225,8 @@ main #sitealert{padding-block:16px 0}
 .res-tbl th,.res-tbl td{border:0;border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
 .res-tbl th{background:var(--gray-soft);font-family:var(--display);text-transform:uppercase;letter-spacing:.05em;font-size:14px}
 .res-tbl tr.first td{font-weight:700}
+.res-sub{display:block;font-size:13px;color:var(--muted);font-weight:400;white-space:nowrap}
+.res-tbl td:last-child{white-space:nowrap}
 .res-tbl td:last-child,.res-tbl th:last-child{text-align:right}
 .ft-count{align-self:flex-start;margin-top:8px;background:#FFE58A;color:#3D2E00;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:20px;padding:4px 12px;border-radius:999px}
 .big-banner{background:var(--red);color:#fff;border-radius:16px;padding:20px 20px 18px;display:flex;flex-direction:column;gap:4px;box-shadow:0 6px 0 #7A0C1F;transform:rotate(-1deg);margin:4px 2px 6px}
@@ -366,14 +368,15 @@ function renderResults(R){
   places.forEach((p,k)=>{const px=x(p.miles),anchor=p.anchor||(p.miles>=120?"end":p.miles<=10?"start":"middle");svg+=`<line x1="${px}" x2="${px}" y1="${k%2?66:28}" y2="84" class="rm-pin"/><circle cx="${px}" cy="91" r="4" class="rm-city"/><text x="${anchor==="end"?px+4:px}" y="${k%2?62:24}" class="rm-lbl" text-anchor="${anchor}">${esc(p.name)}</text><text x="${anchor==="end"?px+4:px}" y="${k%2?62:24}" dy="-13" class="rm-mi" text-anchor="${anchor}">${p.miles} mi</text>`});
   svg+=`<text x="${X0}" y="78" class="rm-ax" text-anchor="start">Goshen</text></svg>`;
   const td=v=>(v==null||v==="")?"":inl(String(v));
+  const tdd=v=>{if(v==null||v==="")return "";const p=String(v).split(" · ");return inl(p[0])+(p.length>1?`<small class="res-sub">${p.slice(1).map(inl).join(" · ")}</small>`:"")};
   let h=`<section class="res"><div class="res-head"><span class="ft-kicker">${esc(R.kicker||"Results")}</span><b>${esc(R.title||"Swim-A-Thon Results")}</b></div><div class="res-body">`;
   if(R.intro) h+=`<p>${inl(R.intro)}</p>`;
   h+=`<div class="res-total"><span class="rt-n">${yd?yd.toLocaleString()+" yards":inl("[[team total yards]]")}</span><span class="rt-l">swum by the whole team${yd?` · about <b>${mi.toFixed(1)} miles</b>`:""}</span></div>`;
   h+=`<div class="tablewrap">${svg}</div>`;
   h+=`<p class="res-cap">${yd?(reached.length?`That's farther than Goshen to <b>${reached.map(esc).join(", ")}</b>${next?`, and ${Math.round((mi/next.miles)*100)}% of the way to ${esc(next.name)}`:""}!`:`That's ${Math.round((mi/(next?next.miles:1))*100)}% of the way to ${esc(next?next.name:"")}!`):"Distances from Goshen are straight-line (as the crow flies, or the swimmer swims)."}</p>`;
   if(R.overall) h+=`<div class="res-champ"><span class="rc-k">Overall distance winner</span><b>${td(R.overall.name)}</b><span>${td(R.overall.distance)}</span></div>`;
-  if(R.teams&&R.teams.length) h+=`<h4>Team standings</h4><div class="tablewrap"><table class="res-tbl"><thead><tr><th>Place</th><th>Team</th><th>Distance</th></tr></thead><tbody>${R.teams.map(t=>`<tr${t.place==1?' class="first"':""}><td>${td(t.place)}</td><td>${td(t.name)}</td><td>${td(t.distance)}</td></tr>`).join("")}</tbody></table></div>`;
-  if(R.groups&&R.groups.length) h+=`<h4>Training group winners</h4><div class="tablewrap"><table class="res-tbl"><thead><tr><th>Group</th><th>Winner</th><th>Distance</th></tr></thead><tbody>${R.groups.map(g=>`<tr><td>${td(g.group)}</td><td>${td(g.winner)}</td><td>${td(g.distance)}</td></tr>`).join("")}</tbody></table></div>`;
+  if(R.teams&&R.teams.length) h+=`<h4>Team standings</h4><div class="tablewrap"><table class="res-tbl"><thead><tr><th>Place</th><th>Team</th><th>Distance</th></tr></thead><tbody>${R.teams.map(t=>`<tr${t.place==1?' class="first"':""}><td>${td(t.place)}</td><td>${td(t.name)}</td><td>${tdd(t.distance)}</td></tr>`).join("")}</tbody></table></div>`;
+  if(R.groups&&R.groups.length) h+=`<h4>Training group winners</h4><div class="tablewrap"><table class="res-tbl"><thead><tr><th>Group</th><th>Winner</th><th>Distance</th></tr></thead><tbody>${R.groups.map(g=>`<tr><td>${td(g.group)}</td><td>${td(g.winner)}</td><td>${tdd(g.distance)}</td></tr>`).join("")}</tbody></table></div>`;
   if(R.note) h+=`<p class="res-cap">${inl(R.note)}</p>`;
   return h+`</div></section>`;
 }

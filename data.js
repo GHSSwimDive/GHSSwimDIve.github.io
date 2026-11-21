@@ -477,7 +477,7 @@ window.NEWSLETTER = {
     "kicker": "Sat, Nov 21",
     "title": "Swim-A-Thon Results",
     "intro": "[[One or two sentences on how the day went.]]",
-    "totalYards": null,
+    "totalYards": 182775,
     "places": [
      {
       "name": "South Bend",
@@ -498,38 +498,69 @@ window.NEWSLETTER = {
      }
     ],
     "overall": {
-     "name": "[[Overall winner]]",
-     "distance": "[[distance]]"
+     "name": "JP Vela",
+     "distance": "358 laps · 8,950 yards (over 5 miles!)"
     },
     "teams": [
      {
       "place": 1,
-      "name": "[[Team name]]",
-      "distance": "[[distance]]"
+      "name": "White",
+      "distance": "276.2 avg laps · 34,525 yds"
      },
      {
       "place": 2,
-      "name": "[[Team name]]",
-      "distance": "[[distance]]"
+      "name": "Blue",
+      "distance": "250.7 avg laps · 43,875 yds"
      },
      {
       "place": 3,
-      "name": "[[Team name]]",
-      "distance": "[[distance]]"
+      "name": "Red",
+      "distance": "231.3 avg laps · 40,475 yds"
+     },
+     {
+      "place": 4,
+      "name": "Gray",
+      "distance": "215.7 avg laps · 32,350 yds"
+     },
+     {
+      "place": 5,
+      "name": "Black",
+      "distance": "210.3 avg laps · 31,550 yds"
      }
     ],
     "groups": [
      {
-      "group": "[[Group]]",
-      "winner": "[[Winner]]",
-      "distance": "[[distance]]"
+      "group": "Ledecky",
+      "winner": "JP Vela",
+      "distance": "358 laps · 8,950 yds"
+     },
+     {
+      "group": "Manuel",
+      "winner": "Santi Gutierrez Soler",
+      "distance": "330 laps · 8,250 yds"
+     },
+     {
+      "group": "Phelps",
+      "winner": "Mauro Sanchez-Perez",
+      "distance": "274 laps · 6,850 yds"
+     },
+     {
+      "group": "King",
+      "winner": "Caleb Gal",
+      "distance": "258 laps · 6,450 yds"
+     },
+     {
+      "group": "Dressel",
+      "winner": "Jasmine Cowells Hernandez",
+      "distance": "152 laps · 3,800 yds"
      },
      {
       "group": "Louganis (divers)",
-      "winner": "[[Winner]]",
-      "distance": "[[dives/distance]]"
+      "winner": "Julian Uribe-Angel",
+      "distance": "161 dives"
      }
-    ]
+    ],
+    "note": "Team places are based on **average laps per swimmer**, so teams with fewer swimmers aren't penalized. Blue swam the most total laps (1,755). One lap = 25 yards. Our divers added **457 dives** on top of all those laps!"
    }
   },
   {
