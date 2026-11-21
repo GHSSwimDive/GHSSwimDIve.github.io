@@ -316,7 +316,7 @@ window.NEWSLETTER = {
         "n": 1
        }
       ],
-      "answer": "**The answer: forward!** Just like freestyle, you travel **head first** in backstroke. You're just face-up. Your arms push water toward your feet, so the water pushes you the other way, toward your head. The catch: it's the only stroke where you **can't see where you're going**. That's why the backstroke flags hang 5 yards from each wall. Know how many strokes you take from the flags to the wall, and you'll never hit your head. 16 of you got it right!"
+      "answer": "**The answer: forward!** Just like freestyle, you travel **head first** in backstroke. You're just face-up. Your arms push water toward your feet, so the water pushes you the other way, toward your head. **Fun fact:** it's the only stroke where you **can't see where you're going**. That's why the backstroke flags hang 5 yards from each wall. Know how many strokes you take from the flags to the wall, and you'll never hit your head. 16 of you got it right!"
      }
     ],
     "tip": {
