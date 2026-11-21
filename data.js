@@ -1,5 +1,6 @@
 /* Newsletter content. Newest issue first. Updated weekly. */
 window.NEWSLETTER = {
+ "swimathon": {"title": "Swim-A-Thon 2026", "date": "Saturday, Nov 21", "totalYards": 182775, "teams": [{"name": "White", "swimmers": [{"name": "Santi", "laps": 330}, {"name": "AJ", "laps": 330}, {"name": "Ava", "laps": 257}, {"name": "Natalie", "laps": 240}, {"name": "Maeven", "laps": 224}], "divers": [{"name": "Renee", "dives": 101}], "totalLaps": 1381, "avg": 276.2, "yards": 34525, "place": 1}, {"name": "Blue", "swimmers": [{"name": "Luvan", "laps": 338}, {"name": "Angel", "laps": 288}, {"name": "Mauro", "laps": 274}, {"name": "Evy", "laps": 264}, {"name": "Caleb", "laps": 258}, {"name": "Susanna", "laps": 257}, {"name": "Miles", "laps": 76}], "divers": [{"name": "Selah", "dives": 105}], "totalLaps": 1755, "avg": 250.7, "yards": 43875, "place": 2}, {"name": "Red", "swimmers": [{"name": "JP", "laps": 358}, {"name": "Lauren", "laps": 342}, {"name": "Megan", "laps": 259}, {"name": "Kellan", "laps": 232}, {"name": "Solomon", "laps": 178}, {"name": "Rebeca", "laps": 128}, {"name": "Val", "laps": 122}], "divers": [], "totalLaps": 1619, "avg": 231.3, "yards": 40475, "place": 3}, {"name": "Gray", "swimmers": [{"name": "Liam", "laps": 352}, {"name": "Naomi", "laps": 272}, {"name": "Morgan", "laps": 261}, {"name": "Julian D.", "laps": 179}, {"name": "Melany", "laps": 144}, {"name": "Jessica", "laps": 86}], "divers": [{"name": "Julian U-A", "dives": 161}], "totalLaps": 1294, "avg": 215.7, "yards": 32350, "place": 4}, {"name": "Black", "swimmers": [{"name": "Milo", "laps": 260}, {"name": "Sophie", "laps": 238}, {"name": "Christian", "laps": 232}, {"name": "Alec", "laps": 232}, {"name": "Jasmine", "laps": 152}, {"name": "Yareck", "laps": 148}], "divers": [{"name": "Andria", "dives": 90}], "totalLaps": 1262, "avg": 210.3, "yards": 31550, "place": 5}], "swimmers": [{"name": "JP", "group": "Ledecky", "team": "Red", "laps": 358, "yards": 8950}, {"name": "Liam", "group": "Ledecky", "team": "Gray", "laps": 352, "yards": 8800}, {"name": "Lauren", "group": "Ledecky", "team": "Red", "laps": 342, "yards": 8550}, {"name": "Luvan", "group": "Ledecky", "team": "Blue", "laps": 338, "yards": 8450}, {"name": "Santi", "group": "Manuel", "team": "White", "laps": 330, "yards": 8250}, {"name": "AJ", "group": "Ledecky", "team": "White", "laps": 330, "yards": 8250}, {"name": "Angel", "group": "Manuel", "team": "Blue", "laps": 288, "yards": 7200}, {"name": "Mauro", "group": "Phelps", "team": "Blue", "laps": 274, "yards": 6850}, {"name": "Naomi", "group": "Phelps", "team": "Gray", "laps": 272, "yards": 6800}, {"name": "Evy", "group": "Phelps", "team": "Blue", "laps": 264, "yards": 6600}, {"name": "Morgan", "group": "Manuel", "team": "Gray", "laps": 261, "yards": 6525}, {"name": "Milo", "group": "Ledecky", "team": "Black", "laps": 260, "yards": 6500}, {"name": "Megan", "group": "Manuel", "team": "Red", "laps": 259, "yards": 6475}, {"name": "Caleb", "group": "King", "team": "Blue", "laps": 258, "yards": 6450}, {"name": "Ava", "group": "Manuel", "team": "White", "laps": 257, "yards": 6425}, {"name": "Susanna", "group": "King", "team": "Blue", "laps": 257, "yards": 6425}, {"name": "Natalie", "group": "Phelps", "team": "White", "laps": 240, "yards": 6000}, {"name": "Sophie", "group": "Phelps", "team": "Black", "laps": 238, "yards": 5950}, {"name": "Christian", "group": "Manuel", "team": "Black", "laps": 232, "yards": 5800}, {"name": "Kellan", "group": "Phelps", "team": "Red", "laps": 232, "yards": 5800}, {"name": "Alec", "group": "King", "team": "Black", "laps": 232, "yards": 5800}, {"name": "Maeven", "group": "King", "team": "White", "laps": 224, "yards": 5600}, {"name": "Julian D.", "group": "King", "team": "Gray", "laps": 179, "yards": 4475}, {"name": "Solomon", "group": "King", "team": "Red", "laps": 178, "yards": 4450}, {"name": "Jasmine", "group": "Dressel", "team": "Black", "laps": 152, "yards": 3800}, {"name": "Yareck", "group": "Phelps", "team": "Black", "laps": 148, "yards": 3700}, {"name": "Melany", "group": "Dressel", "team": "Gray", "laps": 144, "yards": 3600}, {"name": "Rebeca", "group": "King", "team": "Red", "laps": 128, "yards": 3200}, {"name": "Val", "group": "Dressel", "team": "Red", "laps": 122, "yards": 3050}, {"name": "Jessica", "group": "King", "team": "Gray", "laps": 86, "yards": 2150}, {"name": "Miles", "group": "Dressel", "team": "Blue", "laps": 76, "yards": 1900}], "divers": [{"name": "Julian U-A", "team": "Gray", "dives": 161}, {"name": "Selah", "team": "Blue", "dives": 105}, {"name": "Renee", "team": "White", "dives": 101}, {"name": "Andria", "team": "Black", "dives": 90}], "groups": [{"group": "Ledecky", "swimmers": [{"name": "JP", "team": "Red", "laps": 358, "yards": 8950}, {"name": "Liam", "team": "Gray", "laps": 352, "yards": 8800}, {"name": "Lauren", "team": "Red", "laps": 342, "yards": 8550}, {"name": "Luvan", "team": "Blue", "laps": 338, "yards": 8450}, {"name": "AJ", "team": "White", "laps": 330, "yards": 8250}, {"name": "Milo", "team": "Black", "laps": 260, "yards": 6500}]}, {"group": "Manuel", "swimmers": [{"name": "Santi", "team": "White", "laps": 330, "yards": 8250}, {"name": "Angel", "team": "Blue", "laps": 288, "yards": 7200}, {"name": "Morgan", "team": "Gray", "laps": 261, "yards": 6525}, {"name": "Megan", "team": "Red", "laps": 259, "yards": 6475}, {"name": "Ava", "team": "White", "laps": 257, "yards": 6425}, {"name": "Christian", "team": "Black", "laps": 232, "yards": 5800}]}, {"group": "Phelps", "swimmers": [{"name": "Mauro", "team": "Blue", "laps": 274, "yards": 6850}, {"name": "Naomi", "team": "Gray", "laps": 272, "yards": 6800}, {"name": "Evy", "team": "Blue", "laps": 264, "yards": 6600}, {"name": "Natalie", "team": "White", "laps": 240, "yards": 6000}, {"name": "Sophie", "team": "Black", "laps": 238, "yards": 5950}, {"name": "Kellan", "team": "Red", "laps": 232, "yards": 5800}, {"name": "Yareck", "team": "Black", "laps": 148, "yards": 3700}]}, {"group": "King", "swimmers": [{"name": "Caleb", "team": "Blue", "laps": 258, "yards": 6450}, {"name": "Susanna", "team": "Blue", "laps": 257, "yards": 6425}, {"name": "Alec", "team": "Black", "laps": 232, "yards": 5800}, {"name": "Maeven", "team": "White", "laps": 224, "yards": 5600}, {"name": "Julian D.", "team": "Gray", "laps": 179, "yards": 4475}, {"name": "Solomon", "team": "Red", "laps": 178, "yards": 4450}, {"name": "Rebeca", "team": "Red", "laps": 128, "yards": 3200}, {"name": "Jessica", "team": "Gray", "laps": 86, "yards": 2150}]}, {"group": "Dressel", "swimmers": [{"name": "Jasmine", "team": "Black", "laps": 152, "yards": 3800}, {"name": "Melany", "team": "Gray", "laps": 144, "yards": 3600}, {"name": "Val", "team": "Red", "laps": 122, "yards": 3050}, {"name": "Miles", "team": "Blue", "laps": 76, "yards": 1900}]}, {"group": "Louganis (divers)", "divers": [{"name": "Julian U-A", "team": "Gray", "dives": 161}, {"name": "Selah", "team": "Blue", "dives": 105}, {"name": "Renee", "team": "White", "dives": 101}, {"name": "Andria", "team": "Black", "dives": 90}]}], "note": "One lap = 25 yards. Team places are based on average laps per swimmer, so teams with fewer swimmers aren't penalized."},
  "alert": {"h": "Two quick updates", "text": "**No leaf raking this Saturday, Nov 14.** The Gorham Road houses move to a later weekend.\n\nThe **team store closes Sunday, Nov 15 at 11:45 PM.** Get your orders in!", "until": "2026-11-15"},
  "quickLinks": [
  {
@@ -182,15 +183,15 @@ window.NEWSLETTER = {
     {
      "h": "First meet: Tuesday vs. Rochester",
      "body": [
-      "**Home meet · Tuesday, Nov 24 · 6:00 PM** at the GCS Aquatic Center. Athletes report at [[report time]] to help set up and warm up.",
+      "**Home meet · Tuesday, Nov 24 · 6:00 PM** at the GCS Aquatic Center. **Athletes, arrive by 4:00 PM** to help finish setting up for the meet, and bring a snack to eat before warm-ups.",
       "**Athletes, bring:** team suit, cap, goggles (plus a spare pair), towel, team shirt, a water bottle and a snack. Eat a real meal 2 to 3 hours before warm-ups.",
-      "**Parents:** we still need **timers and concession help**. Sign up on the **Meet Workers** tab. Workers get in free, and no experience is needed for timing. New to swim meets? The **Meet Guide** tab explains how a meet works, from diving to the event order."
+      "**Parents:** we still need help! For Tuesday we still need **3 timers, 1 concession stand helper, 1 computer timer and 1 computer scorer**. Sign up on the **Meet Workers** tab. Workers get in free, and no experience is needed for timing. New to swim meets? The **Meet Guide** tab explains how a meet works, from diving to the event order."
      ]
     },
     {
      "h": "Saturday: @ South Bend Riley",
      "body": [
-      "**Saturday, Nov 28 · meet starts 8:00 AM.** Saturday away meets leave from and return to the Aquatic Center. [[Bus departure time and return time.]]"
+      "**Saturday, Nov 28 · meet starts 8:00 AM.** We'll **leave from the Aquatic Center at 7:00 AM**, so please be there a few minutes early."
      ]
     }
    ],
@@ -263,7 +264,7 @@ window.NEWSLETTER = {
      "n": 2
     },
     {
-     "who": "Julian",
+     "who": "Julian D.",
      "why": "Consistently dropped time on the test sets!"
     },
     {
@@ -396,8 +397,8 @@ window.NEWSLETTER = {
        "tag": "weights"
       },
       {
-       "time": "[[report time]]",
-       "what": "Athletes report",
+       "time": "4:00 PM",
+       "what": "Athletes arrive · help set up, bring a snack",
        "where": "Aquatic Center",
        "tag": "home"
       },
@@ -414,7 +415,7 @@ window.NEWSLETTER = {
      "date": "Nov 25",
      "items": [
       {
-       "time": "[[Wednesday practice time?]]",
+       "time": "8:00–11:00 AM",
        "what": "Practice",
        "where": "Pool",
        "tag": "pool"
@@ -452,8 +453,8 @@ window.NEWSLETTER = {
      "meet": true,
      "items": [
       {
-       "time": "[[bus time]]",
-       "what": "Bus leaves",
+       "time": "7:00 AM",
+       "what": "Leave for the meet",
        "where": "Aquatic Center",
        "tag": "away"
       },
@@ -499,69 +500,44 @@ window.NEWSLETTER = {
      }
     ],
     "overall": {
-     "name": "JP Vela",
+     "name": "JP",
      "distance": "358 laps · 8,950 yards (over 5 miles!)"
     },
-    "teams": [
-     {
-      "place": 1,
-      "name": "White",
-      "distance": "276.2 avg laps · 34,525 yds"
-     },
-     {
-      "place": 2,
-      "name": "Blue",
-      "distance": "250.7 avg laps · 43,875 yds"
-     },
-     {
-      "place": 3,
-      "name": "Red",
-      "distance": "231.3 avg laps · 40,475 yds"
-     },
-     {
-      "place": 4,
-      "name": "Gray",
-      "distance": "215.7 avg laps · 32,350 yds"
-     },
-     {
-      "place": 5,
-      "name": "Black",
-      "distance": "210.3 avg laps · 31,550 yds"
-     }
-    ],
     "groups": [
      {
       "group": "Ledecky",
-      "winner": "JP Vela",
+      "winner": "JP",
       "distance": "358 laps · 8,950 yds"
      },
      {
       "group": "Manuel",
-      "winner": "Santi Gutierrez Soler",
+      "winner": "Santi",
       "distance": "330 laps · 8,250 yds"
      },
      {
       "group": "Phelps",
-      "winner": "Mauro Sanchez-Perez",
+      "winner": "Mauro",
       "distance": "274 laps · 6,850 yds"
      },
      {
       "group": "King",
-      "winner": "Caleb Gal",
+      "winner": "Caleb",
       "distance": "258 laps · 6,450 yds"
      },
      {
       "group": "Dressel",
-      "winner": "Jasmine Cowells Hernandez",
+      "winner": "Jasmine",
       "distance": "152 laps · 3,800 yds"
      },
      {
       "group": "Louganis (divers)",
-      "winner": "Julian Uribe-Angel",
+      "winner": "Julian U-A",
       "distance": "161 dives"
      }
     ],
-    "note": "Team places are based on **average laps per swimmer**, so teams with fewer swimmers aren't penalized. Blue swam the most total laps (1,755). One lap = 25 yards. Our divers added **457 dives** on top of all those laps!"
+    "note": "Team places are based on **average laps per swimmer**, so teams with fewer swimmers aren't penalized. Blue swam the most total laps (1,755). One lap = 25 yards. Our divers added **457 dives** on top of all those laps!",
+    "teamCards": true,
+    "fullLink": true
    }
   },
   {

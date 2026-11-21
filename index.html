@@ -218,6 +218,25 @@ main #sitealert{padding-block:16px 0}
 .rm-mi{fill:var(--muted);font-size:11px;font-family:var(--body)}
 .rm-us{fill:var(--red-ink);font-size:13px;font-weight:800;font-family:var(--body)}
 .res-cap{color:var(--muted);font-size:15px}
+.tm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.tm{border-radius:12px;overflow:hidden;border:2px solid var(--tc);background:var(--surface)}
+.tm-h{background:var(--tc);color:var(--tt);padding:8px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.tm-h b{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:22px;letter-spacing:.03em}
+.tm-place{font-family:var(--display);font-weight:800;font-size:15px;background:var(--surface);color:var(--fg);border-radius:999px;padding:2px 10px}
+.tm-sum{padding:6px 12px;font-size:14px;color:var(--muted);border-bottom:1px solid var(--line)}
+.tm ul{list-style:none;margin:0;padding:6px 12px 10px;display:flex;flex-direction:column;gap:2px;font-size:15px}
+.tm li{display:flex;justify-content:space-between;gap:8px}
+.tm li span:last-child{color:var(--muted);font-variant-numeric:tabular-nums}
+.tm.Red{--tc:#B3122E;--tt:#fff}.tm.Gray{--tc:#6B7682;--tt:#fff}.tm.White{--tc:#D7DCE1;--tt:#1C2126}.tm.Blue{--tc:#1F5FAD;--tt:#fff}.tm.Black{--tc:#1C2126;--tt:#fff}
+.tdot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle;border:1px solid var(--line)}
+.tdot.Red{background:#B3122E}.tdot.Gray{background:#6B7682}.tdot.White{background:#fff}.tdot.Blue{background:#1F5FAD}.tdot.Black{background:#1C2126}
+.sat-tbl{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.sat-tbl th,.sat-tbl td{border:0;border-bottom:1px solid var(--line);padding:7px 5px;text-align:left;white-space:nowrap}
+.sat-tbl th{background:var(--gray-soft);font-family:var(--display);text-transform:uppercase;letter-spacing:.05em;font-size:13px;position:sticky;top:0}
+.sat-tbl td.num,.sat-tbl th.num{text-align:right}
+.sat-tbl tr.top td{font-weight:700}
+.grp{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.grp-h{background:var(--gray-soft);padding:8px 12px;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:20px;letter-spacing:.03em}
 .rmap-wrap{border-radius:10px;overflow:hidden;border:1px solid var(--line)}
 .res-rmap{display:block;width:100%;height:auto}
 .rmap-water{fill:#CFE3F5}
@@ -338,6 +357,7 @@ main .qlwrap{padding-block:16px 0;display:flex;flex-direction:row;flex-wrap:wrap
     <button class="tab" id="tab-guide" type="button">Meet Guide</button>
     <button class="tab" id="tab-workers" type="button">Meet Workers</button>
     <button class="tab" id="tab-leaf" type="button" hidden>Leaf Raking</button>
+    <button class="tab" id="tab-swimathon" type="button" hidden>Swim-A-Thon</button>
     <span class="spacer"></span>
     <label for="issue-pick">Issue</label>
     <select id="issue-pick"></select>
@@ -384,6 +404,31 @@ function radiusMap(mi){
     g+=`<line x1="0" y1="0" x2="${(mi*Math.cos(a)).toFixed(1)}" y2="${(mi*Math.sin(a)).toFixed(1)}" class="rmap-rad"/><text x="${lx}" y="${ly}" class="rmap-rl" transform="rotate(${(a*180/Math.PI).toFixed(1)} ${lx} ${ly})">${mi.toFixed(1)} miles</text>`;}
   return g+`</svg>`;
 }
+function teamCards(teams){
+  return `<div class="tm-grid">${teams.map(t=>`<div class="tm ${esc(t.name)}"><div class="tm-h"><b>${esc(t.name)}</b><span class="tm-place">${["","1st","2nd","3rd","4th","5th"][t.place]||t.place} place</span></div>
+   <div class="tm-sum">${t.avg} avg laps · ${t.yards.toLocaleString()} yds total</div>
+   <ul>${t.swimmers.slice().sort((a,b)=>b.laps-a.laps).map(m=>`<li><span>${esc(m.name)}</span><span>${m.laps} laps</span></li>`).join("")}${(t.divers||[]).map(m=>`<li><span>${esc(m.name)} (diver)</span><span>${m.dives} dives</span></li>`).join("")}</ul></div>`).join("")}</div>`;
+}
+const rankOf=(arr,key,v)=>1+arr.filter(x=>x[key]>v).length;
+function renderSwimathon(){
+  const S=NL.swimathon; if(!S) return `<div class="issue-head"><h2>No results yet</h2></div>`;
+  const mi=S.totalYards/1760;
+  let h=`<div class="issue-head"><div class="kicker">${esc(S.date)}</div><h2>${esc(S.title)} results</h2></div>
+  <div class="res-total"><span class="rt-n">${S.totalYards.toLocaleString()} yards</span><span class="rt-l">swum by the whole team · about <b>${mi.toFixed(1)} miles</b>, plus <b>${S.divers.reduce((a,x)=>a+x.dives,0)} dives</b></span></div>
+  <section><h3>Team standings</h3>${teamCards(S.teams)}</section>
+  <section><h3>Full results</h3><div class="tablewrap"><table class="sat-tbl"><thead><tr><th class="num">#</th><th>Swimmer</th><th>Group</th><th>Team</th><th class="num">Laps</th><th class="num">Yards</th></tr></thead><tbody>
+  ${S.swimmers.map((x,k)=>`<tr${rankOf(S.swimmers,"laps",x.laps)<=3?' class="top"':""}><td class="num">${rankOf(S.swimmers,"laps",x.laps)}</td><td>${esc(x.name)}</td><td>${esc(x.group)}</td><td><span class="tdot ${esc(x.team)}"></span>${esc(x.team)}</td><td class="num">${x.laps}</td><td class="num">${x.yards.toLocaleString()}</td></tr>`).join("")}
+  </tbody></table></div>
+  <div class="tablewrap" style="margin-top:12px"><table class="sat-tbl"><thead><tr><th class="num">#</th><th>Diver</th><th>Team</th><th class="num">Dives</th></tr></thead><tbody>
+  ${S.divers.map((x,k)=>`<tr${k===0?' class="top"':""}><td class="num">${k+1}</td><td>${esc(x.name)}</td><td><span class="tdot ${esc(x.team)}"></span>${esc(x.team)}</td><td class="num">${x.dives}</td></tr>`).join("")}
+  </tbody></table></div></section>
+  <section><h3>Rankings by training group</h3><div class="days">${S.groups.map(g=>`<div class="grp"><div class="grp-h">${esc(g.group)}</div><div class="tablewrap"><table class="sat-tbl"><tbody>
+   ${(g.swimmers||[]).map((x,k)=>{const r=rankOf(g.swimmers,"laps",x.laps);return `<tr${r===1?' class="top"':""}><td class="num">${r}</td><td>${esc(x.name)}${r===1?" 🏆":""}</td><td><span class="tdot ${esc(x.team)}"></span>${esc(x.team)}</td><td class="num">${x.laps} laps</td><td class="num">${x.yards.toLocaleString()} yds</td></tr>`}).join("")}
+   ${(g.divers||[]).map((x,k)=>`<tr${k===0?' class="top"':""}><td class="num">${k+1}</td><td>${esc(x.name)}${k===0?" 🏆":""}</td><td><span class="tdot ${esc(x.team)}"></span>${esc(x.team)}</td><td class="num">${x.dives} dives</td><td></td></tr>`).join("")}
+  </tbody></table></div></div>`).join("")}</div></section>
+  <p class="res-cap">${inl(S.note||"")}</p>`;
+  return h;
+}
 function renderResults(R){
   const yd=Number(R.totalYards)||0, mi=yd/1760, MAX=130, X0=24, X1=396, x=m=>X0+(Math.min(m,MAX)/MAX)*(X1-X0);
   const places=R.places||[];
@@ -404,9 +449,12 @@ function renderResults(R){
   if(R.map&&yd) h+=`<p class="res-cap">Swim ${mi.toFixed(1)} miles straight out from Goshen in any direction and you'd reach ${reached.length?`<b>${reached.map(esc).join(", ").replace("Chicago / Grand Rapids","Chicago and Grand Rapids")}</b>`:"the edge of the circle"}${next?`, and get ${Math.round((mi/next.miles)*100)}% of the way to ${esc(next.name)}`:""}!</p>`;
   else h+=`<p class="res-cap">${yd?(reached.length?`That's farther than Goshen to <b>${reached.map(esc).join(", ")}</b>${next?`, and ${Math.round((mi/next.miles)*100)}% of the way to ${esc(next.name)}`:""}!`:`That's ${Math.round((mi/(next?next.miles:1))*100)}% of the way to ${esc(next?next.name:"")}!`):"Distances are measured straight out from Goshen."}</p>`;
   if(R.overall) h+=`<div class="res-champ"><span class="rc-k">Overall distance winner</span><b>${td(R.overall.name)}</b><span>${td(R.overall.distance)}</span></div>`;
+  const SAT=NL.swimathon;
+  if(R.teamCards&&SAT) h+=`<h4>Team standings</h4>${teamCards(SAT.teams)}`;
   if(R.teams&&R.teams.length) h+=`<h4>Team standings</h4><div class="tablewrap"><table class="res-tbl"><thead><tr><th>Place</th><th>Team</th><th>Distance</th></tr></thead><tbody>${R.teams.map(t=>`<tr${t.place==1?' class="first"':""}><td>${td(t.place)}</td><td>${td(t.name)}</td><td>${tdd(t.distance)}</td></tr>`).join("")}</tbody></table></div>`;
   if(R.groups&&R.groups.length) h+=`<h4>Training group winners</h4><div class="tablewrap"><table class="res-tbl"><thead><tr><th>Group</th><th>Winner</th><th>Distance</th></tr></thead><tbody>${R.groups.map(g=>`<tr><td>${td(g.group)}</td><td>${td(g.winner)}</td><td>${tdd(g.distance)}</td></tr>`).join("")}</tbody></table></div>`;
   if(R.note) h+=`<p class="res-cap">${inl(R.note)}</p>`;
+  if(R.fullLink&&SAT) h+=`<div class="btns"><a class="btn primary" href="#swimathon">See everyone's laps & group rankings</a></div>`;
   return h+`</div></section>`;
 }
 function renderIssue(is){
@@ -642,12 +690,14 @@ pick.innerHTML=ISSUES.map((is,i)=>`<option value="${is.id}">${esc(is.kicker)}${i
 
 function route(){
   const h=decodeURIComponent(location.hash.slice(1));
-  const guide=h==="guide", season=h==="season", workers=h==="workers", leaf=h==="leaf";
+  const guide=h==="guide", season=h==="season", workers=h==="workers", leaf=h==="leaf", sat=h==="swimathon";
+  document.getElementById("tab-swimathon").setAttribute("aria-current",sat);
   document.getElementById("tab-leaf").setAttribute("aria-current",leaf);
   document.getElementById("tab-guide").setAttribute("aria-current",guide);
   document.getElementById("tab-season").setAttribute("aria-current",season);
   document.getElementById("tab-workers").setAttribute("aria-current",workers);
-  document.getElementById("tab-issue").setAttribute("aria-current",!guide&&!season&&!workers&&!leaf);
+  document.getElementById("tab-issue").setAttribute("aria-current",!guide&&!season&&!workers&&!leaf&&!sat);
+  if(sat){view.innerHTML=(NL.swimathon&&(PREVIEW||NL.swimathon.public))?renderSwimathon():`<div class="issue-head"><h2>Results coming soon</h2></div>`;return}
   if(leaf){view.innerHTML=renderLeaf();return}
   if(workers){WK.msg=null;if(WK.jobs&&!WK.error)paintWorkers();else loadJobs();return}
   if(guide){view.innerHTML=GUIDE;return}
@@ -667,6 +717,8 @@ document.getElementById("tab-guide").onclick=()=>go("guide");
 document.getElementById("tab-season").onclick=()=>go("season");
 document.getElementById("tab-workers").onclick=()=>go("workers");
 document.getElementById("tab-leaf").onclick=()=>go("leaf");
+document.getElementById("tab-swimathon").onclick=()=>go("swimathon");
+document.getElementById("tab-swimathon").hidden=!(NL.swimathon&&(PREVIEW||NL.swimathon.public));
 document.getElementById("tab-leaf").hidden=!NL.leafRaking;
 renderQuickLinks();
 document.getElementById("tab-issue").onclick=()=>go("issue-"+pick.value);
