@@ -191,7 +191,8 @@ window.NEWSLETTER = {
     {
      "h": "Saturday: @ South Bend Riley",
      "body": [
-      "**Saturday, Nov 28 · meet starts 8:00 AM.** We'll **leave from the Aquatic Center at 7:00 AM**, so please be there a few minutes early."
+      "**Saturday, Nov 28 · meet starts 8:00 AM.** We'll **leave from the Aquatic Center at 7:00 AM**, so please be there a few minutes early.",
+      "**Want Subway for Saturday?** Fill out the **Subway order** form by **Tuesday, Nov 24 at 10:00 AM** to get on the list. The red **Subway order** button is at the top of this page. No form, no sandwich!"
      ]
     }
    ],
@@ -397,6 +398,12 @@ window.NEWSLETTER = {
        "tag": "weights"
       },
       {
+       "time": "10:00 AM",
+       "what": "Subway order form due",
+       "where": "For Saturday’s meet",
+       "tag": "event"
+      },
+      {
        "time": "4:00 PM",
        "what": "Athletes arrive · help set up, bring a snack",
        "where": "Aquatic Center",
@@ -471,6 +478,11 @@ window.NEWSLETTER = {
     {
      "label": "Athlete Survey",
      "url": "https://docs.google.com/forms/d/e/1FAIpQLSe02MrhNaMJcCjiPdEx9f4C14WdnGPQE_VM45EgdilwB1b52Q/viewform"
+    },
+    {
+     "label": "Subway order (due Tue 10 AM)",
+     "url": "https://docs.google.com/forms/d/e/1FAIpQLSde3FY4yNFcu1zDKAbpUC5TlJrY6Uzml3HtNYhd43RxbAIOuw/viewform",
+     "until": "2026-11-24"
     }
    ],
    "links": [],
@@ -537,7 +549,9 @@ window.NEWSLETTER = {
     ],
     "note": "Team places are based on **average laps per swimmer**, so teams with fewer swimmers aren't penalized. Blue swam the most total laps (1,755). One lap = 25 yards. Our divers added **457 dives** on top of all those laps!",
     "teamCards": true,
-    "fullLink": true
+    "fullLink": true,
+    "image": "swimathon-2026.jpg",
+    "imageAlt": "Goshen High School Swim & Dive Team Swim-A-Thon, November 21, 2026"
    }
   },
   {

@@ -218,6 +218,7 @@ main #sitealert{padding-block:16px 0}
 .rm-mi{fill:var(--muted);font-size:11px;font-family:var(--body)}
 .rm-us{fill:var(--red-ink);font-size:13px;font-weight:800;font-family:var(--body)}
 .res-cap{color:var(--muted);font-size:15px}
+.res-img{display:block;width:100%;height:auto;border-radius:10px}
 .tm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
 .tm{border-radius:12px;overflow:hidden;border:2px solid var(--tc);background:var(--surface)}
 .tm-h{background:var(--tc);color:var(--tt);padding:8px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px}
@@ -443,6 +444,7 @@ function renderResults(R){
   const td=v=>(v==null||v==="")?"":inl(String(v));
   const tdd=v=>{if(v==null||v==="")return "";const p=String(v).split(" · ");return inl(p[0])+(p.length>1?`<small class="res-sub">${p.slice(1).map(inl).join(" · ")}</small>`:"")};
   let h=`<section class="res"><div class="res-head"><span class="ft-kicker">${esc(R.kicker||"Results")}</span><b>${esc(R.title||"Swim-A-Thon Results")}</b></div><div class="res-body">`;
+  if(R.image) h+=`<img class="res-img" src="${esc(R.image)}" alt="${esc(R.imageAlt||"")}" loading="lazy">`;
   if(R.intro) h+=`<p>${inl(R.intro)}</p>`;
   h+=`<div class="res-total"><span class="rt-n">${yd?yd.toLocaleString()+" yards":inl("[[team total yards]]")}</span><span class="rt-l">swum by the whole team${yd?` · about <b>${mi.toFixed(1)} miles</b>`:""}</span></div>`;
   h+=R.map?`<div class="rmap-wrap">${radiusMap(mi)}</div>`:`<div class="tablewrap">${svg}</div>`;
@@ -667,7 +669,7 @@ function renderQuickLinks(){
   const links=(NL.quickLinks||[]).filter(l=>!l.until||todayISO()<=l.until).filter(l=>l.url!=="#leaf"||NL.leafRaking);
   /* This week's athlete survey goes first, from the newest issue, so the link changes on its own each week. */
   const cur=(typeof ISSUES!=="undefined"&&ISSUES[0])||null;
-  ((cur&&cur.survey)||[]).filter(x=>x.url).slice().reverse().forEach(x=>links.unshift({label:x.label,url:x.url,style:"survey"}));
+  ((cur&&cur.survey)||[]).filter(x=>x.url&&(!x.until||todayISO()<=x.until)).slice().reverse().forEach(x=>links.unshift({label:x.label,url:x.url,style:"survey"}));
   if(!links.length){box.hidden=true;return}
   box.innerHTML=links.map(l=>{const ext=/^https?:/.test(l.url)||/\.pdf$/.test(l.url);return `<a class="ql${l.style==="new"?" new":""}${l.style==="survey"?" survey":""}" href="${esc(l.url)}"${ext?' target="_blank" rel="noopener"':""}>${l.style==="new"?'<span class="newtag">NEW</span>':""}${esc(l.label)}${ext?" ↗":""}</a>`}).join("");
   box.hidden=false;
