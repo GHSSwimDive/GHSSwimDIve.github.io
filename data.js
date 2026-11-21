@@ -478,6 +478,7 @@ window.NEWSLETTER = {
     "title": "Swim-A-Thon Results",
     "intro": "[[One or two sentences on how the day went.]]",
     "totalYards": 182775,
+    "map": true,
     "places": [
      {
       "name": "South Bend",

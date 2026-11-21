@@ -218,6 +218,20 @@ main #sitealert{padding-block:16px 0}
 .rm-mi{fill:var(--muted);font-size:11px;font-family:var(--body)}
 .rm-us{fill:var(--red-ink);font-size:13px;font-weight:800;font-family:var(--body)}
 .res-cap{color:var(--muted);font-size:15px}
+.rmap-wrap{border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.res-rmap{display:block;width:100%;height:auto}
+.rmap-water{fill:#CFE3F5}
+.rmap-land{fill:#F7F4EE;stroke:#A9B2BB;stroke-width:.6;stroke-linejoin:round}
+.rmap-lake{fill:#3F6F9C;font-size:7px;font-style:italic;font-family:var(--body)}
+.rmap-ring{fill:rgba(179,18,46,.14);stroke:#B3122E;stroke-width:1.6;stroke-dasharray:4 3}
+.rmap-rad{stroke:#B3122E;stroke-width:1}
+.rmap-rl{fill:#8E0E24;font-size:7.5px;font-weight:800;font-family:var(--body)}
+.rmap-city{fill:#5B6570}
+.rmap-city.in{fill:#B3122E}
+.rmap-cl{fill:#2A3138;font-size:6px;font-family:var(--body)}
+.rmap-cl.big{font-size:8px;font-weight:800}
+.rmap-cl.home{fill:#8E0E24}
+.rmap-star{fill:#B3122E;stroke:#fff;stroke-width:.8}
 .res-champ{background:#FFE58A;color:#3D2E00;border-radius:12px;padding:12px 16px;display:flex;flex-direction:column;gap:2px}
 .rc-k{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:13px}
 .res-champ b{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.05;text-transform:uppercase}
@@ -356,6 +370,20 @@ function inl(s){
 }
 function plain(s){return String(s).replace(/\[\[(.+?)\]\]/g,'[$1]').replace(/__(.+?)__/g,'$1').replace(/\*\*(.+?)\*\*/g,'$1').replace(/\[([^\]]+)\]\((https:\/\/[^)\s]+)\)/g,'$1: $2')}
 
+const BASEMAP={"Illinois":"M-249 -64L-153 -63L-102 -63L-104 -50L-96 -34L-87 -9L-88 154L-93 167L-87 182L-86 194L-93 204L-94 213L-104 228L-110 229L-108 237L-112 241L-115 257L-113 262L-120 271L-115 284L-137 290L-139 297L-134 306L-140 312L-159 301L-165 302L-173 314L-171 318L-179 317L-191 298L-186 293L-191 280L-191 269L-207 254L-213 256L-219 247L-234 233L-234 222L-225 204L-226 198L-221 189L-229 184L-240 181L-246 188L-250 184L-253 161L-270 146L-286 128L-293 107L-293 93L-289 83L-288 71L-274 63L-272 53L-265 46L-265 34L-273 24L-270 12L-249 8L-233 -1L-232 -11L-225 -16L-223 -29L-224 -38L-236 -44L-237 -52L-249 -64Z","Indiana":"M-8 -12L53 -12L53 -8L53 75L53 171L49 175L53 193L44 194L34 200L21 197L21 211L13 217L9 225L0 229L-5 246L-11 251L-22 244L-24 236L-36 245L-35 253L-46 255L-50 248L-63 255L-67 262L-80 252L-87 254L-91 250L-96 254L-109 255L-113 262L-115 257L-112 241L-108 237L-110 229L-104 228L-94 213L-93 204L-86 194L-87 182L-93 167L-88 154L-87 -9L-82 -4L-66 -4L-51 -12L-8 -12Z","Kentucky":"M100 195L112 204L120 199L139 204L145 198L152 195L155 207L161 209L168 218L166 239L172 253L181 263L183 271L193 279L200 280L180 298L161 309L161 314L153 318L153 325L143 327L140 335L112 345L111 346L67 345L28 343L18 343L-39 341L-104 342L-116 339L-115 352L-179 351L-185 352L-183 343L-175 346L-171 318L-173 314L-165 302L-159 301L-140 312L-134 306L-139 297L-137 290L-115 284L-120 271L-113 262L-109 255L-96 254L-91 250L-87 254L-80 252L-67 262L-63 255L-50 248L-46 255L-35 253L-36 245L-24 236L-22 244L-11 251L-5 246L0 229L9 225L13 217L21 211L21 197L34 200L44 194L53 193L49 175L53 171L72 171L83 186L84 192L100 195Z","Michigan":"M123 -10L53 -8L53 -12L-8 -12L-51 -12L-41 -21L-34 -37L-27 -46L-22 -60L-19 -79L-21 -99L-36 -139L-31 -154L-34 -173L-23 -191L-20 -207L-22 -215L-13 -218L-12 -230L1 -233L11 -245L11 -220L16 -219L23 -232L23 -253L27 -258L42 -262L37 -276L46 -289L58 -290L71 -282L84 -280L90 -271L100 -270L116 -261L121 -261L130 -246L123 -238L130 -228L133 -216L129 -191L119 -184L116 -171L104 -166L97 -151L100 -144L112 -139L122 -148L133 -165L151 -172L160 -167L165 -157L170 -128L171 -114L177 -96L172 -71L163 -68L163 -77L157 -74L151 -53L140 -45L137 -29L124 -16L123 -10Z","Ohio":"M275 -27L275 65L267 69L271 77L271 87L264 104L259 129L239 152L232 155L227 150L221 160L215 160L208 173L210 181L204 187L197 177L187 193L189 204L183 208L181 217L168 218L161 209L155 207L152 195L145 198L139 204L120 199L112 204L100 195L84 192L83 186L72 171L53 171L53 75L53 -8L123 -10L143 -1L150 5L155 -1L167 10L174 14L198 5L212 7L227 -6L250 -19L275 -27Z","Wisconsin":"M-237 -345L-227 -341L-222 -329L-168 -315L-146 -305L-140 -307L-117 -300L-111 -291L-101 -283L-101 -271L-106 -262L-94 -260L-99 -250L-91 -243L-93 -235L-103 -233L-111 -217L-114 -206L-108 -204L-100 -212L-92 -225L-81 -230L-73 -248L-62 -252L-63 -243L-70 -234L-85 -205L-89 -190L-88 -178L-94 -174L-98 -159L-97 -146L-101 -137L-108 -115L-106 -98L-100 -83L-102 -63L-153 -63L-249 -64L-252 -73L-271 -81L-275 -92L-276 -107L-270 -116L-278 -123L-278 -133L-281 -141L-280 -152L-290 -167L-298 -169L-313 -181L-315 -190L-331 -198L-336 -205L-347 -207L-361 -219L-357 -245L-358 -256L-352 -267L-359 -276L-365 -276L-364 -286L-352 -301L-337 -307L-334 -311L-334 -352L-324 -357L-320 -354L-308 -354L-272 -365L-259 -372L-254 -367L-261 -358L-244 -346L-237 -345Z"};
+const MAPCITIES=[["Chicago", -92.9, -20.5, 1], ["Grand Rapids", 8.6, -95.5, 1], ["Indianapolis", -16.7, 125.5, 1], ["South Bend", -21.6, -6.5, 0], ["Fort Wayne", 36.0, 34.8, 0], ["Kalamazoo", 12.8, -49.1, 0], ["Lansing", 66.2, -79.6, 0], ["Toledo", 118.8, -4.9, 0], ["Lafayette", -53.9, 80.6, 0]];
+function radiusMap(mi){
+  let g=`<svg class="res-rmap" viewBox="-150 -140 310 285" role="img" aria-label="Map of a ${mi.toFixed(1)}-mile circle around Goshen">`;
+  g+=`<rect x="-150" y="-140" width="310" height="285" class="rmap-water"/>`;
+  Object.values(BASEMAP).forEach(d=>{g+=`<path d="${d}" class="rmap-land"/>`});
+  g+=`<text x="-62" y="-92" class="rmap-lake" text-anchor="middle">Lake</text><text x="-62" y="-83" class="rmap-lake" text-anchor="middle">Michigan</text>`;
+  if(mi) g+=`<circle cx="0" cy="0" r="${mi}" class="rmap-ring"/>`;
+  MAPCITIES.forEach(([n,x,y,big])=>{const inside=Math.hypot(x,y)<=mi;g+=`<circle cx="${x}" cy="${y}" r="${big?3.2:2.2}" class="rmap-city${inside?" in":""}"/><text x="${x+(x>100?-5:5)}" y="${y+(big?-4:3.5)}" class="rmap-cl${big?" big":""}" text-anchor="${x>100?"end":"start"}">${n}</text>`});
+  g+=`<path d="M0 -6 L1.8 -1.9 6 -1.9 2.6 0.8 3.9 5 0 2.5 -3.9 5 -2.6 0.8 -6 -1.9 -1.8 -1.9Z" class="rmap-star"/><text x="0" y="13" class="rmap-cl big home" text-anchor="middle">Goshen</text>`;
+  if(mi){const a=-0.35,lx=(mi*0.55*Math.cos(a)+4).toFixed(1),ly=(mi*0.55*Math.sin(a)-3).toFixed(1);
+    g+=`<line x1="0" y1="0" x2="${(mi*Math.cos(a)).toFixed(1)}" y2="${(mi*Math.sin(a)).toFixed(1)}" class="rmap-rad"/><text x="${lx}" y="${ly}" class="rmap-rl" transform="rotate(${(a*180/Math.PI).toFixed(1)} ${lx} ${ly})">${mi.toFixed(1)} miles</text>`;}
+  return g+`</svg>`;
+}
 function renderResults(R){
   const yd=Number(R.totalYards)||0, mi=yd/1760, MAX=130, X0=24, X1=396, x=m=>X0+(Math.min(m,MAX)/MAX)*(X1-X0);
   const places=R.places||[];
@@ -372,8 +400,9 @@ function renderResults(R){
   let h=`<section class="res"><div class="res-head"><span class="ft-kicker">${esc(R.kicker||"Results")}</span><b>${esc(R.title||"Swim-A-Thon Results")}</b></div><div class="res-body">`;
   if(R.intro) h+=`<p>${inl(R.intro)}</p>`;
   h+=`<div class="res-total"><span class="rt-n">${yd?yd.toLocaleString()+" yards":inl("[[team total yards]]")}</span><span class="rt-l">swum by the whole team${yd?` · about <b>${mi.toFixed(1)} miles</b>`:""}</span></div>`;
-  h+=`<div class="tablewrap">${svg}</div>`;
-  h+=`<p class="res-cap">${yd?(reached.length?`That's farther than Goshen to <b>${reached.map(esc).join(", ")}</b>${next?`, and ${Math.round((mi/next.miles)*100)}% of the way to ${esc(next.name)}`:""}!`:`That's ${Math.round((mi/(next?next.miles:1))*100)}% of the way to ${esc(next?next.name:"")}!`):"Distances from Goshen are straight-line (as the crow flies, or the swimmer swims)."}</p>`;
+  h+=R.map?`<div class="rmap-wrap">${radiusMap(mi)}</div>`:`<div class="tablewrap">${svg}</div>`;
+  if(R.map&&yd) h+=`<p class="res-cap">Swim ${mi.toFixed(1)} miles straight out from Goshen in any direction and you'd reach ${reached.length?`<b>${reached.map(esc).join(", ").replace("Chicago / Grand Rapids","Chicago and Grand Rapids")}</b>`:"the edge of the circle"}${next?`, and get ${Math.round((mi/next.miles)*100)}% of the way to ${esc(next.name)}`:""}!</p>`;
+  else h+=`<p class="res-cap">${yd?(reached.length?`That's farther than Goshen to <b>${reached.map(esc).join(", ")}</b>${next?`, and ${Math.round((mi/next.miles)*100)}% of the way to ${esc(next.name)}`:""}!`:`That's ${Math.round((mi/(next?next.miles:1))*100)}% of the way to ${esc(next?next.name:"")}!`):"Distances are measured straight out from Goshen."}</p>`;
   if(R.overall) h+=`<div class="res-champ"><span class="rc-k">Overall distance winner</span><b>${td(R.overall.name)}</b><span>${td(R.overall.distance)}</span></div>`;
   if(R.teams&&R.teams.length) h+=`<h4>Team standings</h4><div class="tablewrap"><table class="res-tbl"><thead><tr><th>Place</th><th>Team</th><th>Distance</th></tr></thead><tbody>${R.teams.map(t=>`<tr${t.place==1?' class="first"':""}><td>${td(t.place)}</td><td>${td(t.name)}</td><td>${tdd(t.distance)}</td></tr>`).join("")}</tbody></table></div>`;
   if(R.groups&&R.groups.length) h+=`<h4>Training group winners</h4><div class="tablewrap"><table class="res-tbl"><thead><tr><th>Group</th><th>Winner</th><th>Distance</th></tr></thead><tbody>${R.groups.map(g=>`<tr><td>${td(g.group)}</td><td>${td(g.winner)}</td><td>${tdd(g.distance)}</td></tr>`).join("")}</tbody></table></div>`;
