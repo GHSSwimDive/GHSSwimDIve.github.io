@@ -472,7 +472,65 @@ window.NEWSLETTER = {
      "url": "https://docs.google.com/forms/d/e/1FAIpQLSe02MrhNaMJcCjiPdEx9f4C14WdnGPQE_VM45EgdilwB1b52Q/viewform"
     }
    ],
-   "links": []
+   "links": [],
+   "results": {
+    "kicker": "Sat, Nov 21",
+    "title": "Swim-A-Thon Results",
+    "intro": "[[One or two sentences on how the day went.]]",
+    "totalYards": null,
+    "places": [
+     {
+      "name": "South Bend",
+      "miles": 22.5
+     },
+     {
+      "name": "Fort Wayne",
+      "miles": 50.1
+     },
+     {
+      "name": "Chicago / Grand Rapids",
+      "miles": 95,
+      "anchor": "end"
+     },
+     {
+      "name": "Indianapolis",
+      "miles": 126.5
+     }
+    ],
+    "overall": {
+     "name": "[[Overall winner]]",
+     "distance": "[[distance]]"
+    },
+    "teams": [
+     {
+      "place": 1,
+      "name": "[[Team name]]",
+      "distance": "[[distance]]"
+     },
+     {
+      "place": 2,
+      "name": "[[Team name]]",
+      "distance": "[[distance]]"
+     },
+     {
+      "place": 3,
+      "name": "[[Team name]]",
+      "distance": "[[distance]]"
+     }
+    ],
+    "groups": [
+     {
+      "group": "[[Group]]",
+      "winner": "[[Winner]]",
+      "distance": "[[distance]]"
+     },
+     {
+      "group": "Louganis (divers)",
+      "winner": "[[Winner]]",
+      "distance": "[[dives/distance]]"
+     }
+    ]
+   }
   },
   {
    "id": "2026-11-16",
