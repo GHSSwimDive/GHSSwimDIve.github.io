@@ -161,6 +161,320 @@ window.NEWSLETTER = {
  "workerApi": "https://script.google.com/macros/s/AKfycbw4O038bKHbrOf7jVuoG1xJKRNbRgHLvJfHO1ib_bhji-evfAPRPaZYySJULLCC2nYyvw/exec",
  "issues": [
   {
+   "id": "2026-11-23",
+   "draft": "Draft: not live yet. Tell Claude when to publish.",
+   "season": "2026-27",
+   "kicker": "Week of Nov 23, 2026",
+   "title": "Meet Week!",
+   "intro": [
+    "What a Saturday! [[Swim-A-Thon recap: how it went, total laps/yards, money raised so far, any standout efforts or funny moments.]] [[Leaf raking recap: houses finished, thank-yous.]]",
+    "This week is a big one: our **first meet of the season is Tuesday at home vs. Rochester**, then we take Thursday off for Thanksgiving and head to **South Bend Riley on Saturday**."
+   ],
+   "stats": [],
+   "sections": [
+    {
+     "h": "Week recap",
+     "body": [
+      "[[What the girls and boys worked on in practice this week.]]",
+      "**Athletes:** remember to complete this week's **survey** before Monday's practice. It's quick, with a few fun questions and a check-in. The **Athlete Survey** button is at the top of this page."
+     ]
+    },
+    {
+     "h": "First meet: Tuesday vs. Rochester",
+     "body": [
+      "**Home meet · Tuesday, Nov 24 · 6:00 PM** at the GCS Aquatic Center. Athletes report at [[report time]] to help set up and warm up.",
+      "**Athletes, bring:** team suit, cap, goggles (plus a spare pair), towel, team shirt, a water bottle and a snack. Eat a real meal 2 to 3 hours before warm-ups.",
+      "**Parents:** we still need **timers and concession help**. Sign up on the **Meet Workers** tab. Workers get in free, and no experience is needed for timing. New to swim meets? The **Meet Guide** tab explains how a meet works, from diving to the event order."
+     ]
+    },
+    {
+     "h": "Saturday: @ South Bend Riley",
+     "body": [
+      "**Saturday, Nov 28 · meet starts 8:00 AM.** Saturday away meets leave from and return to the Aquatic Center. [[Bus departure time and return time.]]"
+     ]
+    }
+   ],
+   "shoutTitle": "Teammate shout-outs",
+   "shoutNote": "From this week's survey, girls and boys!",
+   "shouts": [
+    {
+     "who": "Evy",
+     "why": "Always cheering teammates on and making practice more fun.",
+     "n": 4
+    },
+    {
+     "who": "Selah",
+     "why": "\"Always positive\" and helps teammates stay positive too.",
+     "n": 3
+    },
+    {
+     "who": "Rebeca",
+     "why": "Encouraging in sets, helping keep track of laps, and funny!",
+     "n": 3
+    },
+    {
+     "who": "Megan",
+     "why": "Made practice better on kick test set day.",
+     "n": 3
+    },
+    {
+     "who": "Susanna",
+     "why": "Positive, keeps teammates on their toes, and shared flip turn pointers.",
+     "n": 3
+    },
+    {
+     "who": "Lauren",
+     "why": "Makes teammates laugh after a tough practice.",
+     "n": 2
+    },
+    {
+     "who": "Morgan",
+     "why": "\"Motivated me to work harder during hard sets.\"",
+     "n": 2
+    },
+    {
+     "who": "Santi",
+     "why": "Raises everyone's morale. \"Such the GOAT.\"",
+     "n": 2
+    },
+    {
+     "who": "AJ",
+     "why": "Talks through swim times with teammates.",
+     "n": 2
+    },
+    {
+     "who": "Luvan",
+     "why": "Keeps teammates positive and makes practice fun.",
+     "n": 2
+    },
+    {
+     "who": "Milo",
+     "why": "Helps teammates laugh before a really hard set.",
+     "n": 2
+    },
+    {
+     "who": "Christian",
+     "why": "Encouraged a teammate to finish the kick set.",
+     "n": 2
+    },
+    {
+     "who": "Sophie",
+     "why": "Keeps a teammate's energy up.",
+     "n": 2
+    },
+    {
+     "who": "Julian",
+     "why": "Consistently dropped time on the test sets!"
+    },
+    {
+     "who": "Liam",
+     "why": "Helps the new swimmers know when to leave, and is impressed with how well all the new guys are doing."
+    },
+    {
+     "who": "Frida",
+     "why": "Helped a teammate stay on pace."
+    },
+    {
+     "who": "Andria",
+     "why": "Keeps teammates positive."
+    },
+    {
+     "who": "Natalie",
+     "why": "Always cheering teammates on."
+    },
+    {
+     "who": "Melany",
+     "why": "\"My GOAT.\""
+    },
+    {
+     "who": "Jasmine",
+     "why": "\"Kept me going.\""
+    },
+    {
+     "who": "Mauro",
+     "why": "Shout-out from a teammate!"
+    },
+    {
+     "who": "Lauren, Evy & Ava",
+     "why": "Came out to support teammates in the school play!"
+    }
+   ],
+   "surveyCorner": {
+    "title": "Survey Corner",
+    "blocks": [
+     {
+      "h": "Pop quiz: in backstroke, do you move forward or backward?",
+      "items": [
+       {
+        "t": "Forward: 16",
+        "n": 1
+       },
+       {
+        "t": "Backward: 15",
+        "n": 1
+       }
+      ]
+     },
+     {
+      "h": "Is it OK to pee in the pool?",
+      "items": [
+       "No: 28",
+       "Yes: 3 (we need to talk 😂)"
+      ]
+     },
+     {
+      "h": "Your Swim-A-Thon goals",
+      "items": [
+       "400 laps",
+       "350 laps",
+       "300 laps",
+       "250",
+       "200",
+       "100 laps",
+       "60",
+       "7,000 yards",
+       "4 miles",
+       "Be a beast",
+       "Swim the most laps",
+       "Stop as little as possible",
+       "Do as many as I can without passing out",
+       "Just have fun"
+      ]
+     }
+    ],
+    "tip": {
+     "h": "First meet checklist",
+     "body": [
+      "Your first meet is Tuesday! A little planning makes meet day a lot less stressful."
+     ],
+     "list": [
+      "**Pack your bag the night before:** suit, cap, goggles plus a spare, towel, team shirt, water bottle and a snack.",
+      "**Eat a real meal** 2 to 3 hours before warm-ups, and bring a light snack for between events.",
+      "**Hydrate all day.** Bring your water bottle to school and keep sipping.",
+      "**Know your events.** Check the heat sheet and listen for your event to be called.",
+      "**Cheer for your teammates!** The loudest team on deck is usually the fastest."
+     ]
+    }
+   },
+   "callouts": [
+    {
+     "h": "Coming up",
+     "items": [
+      "**Tue, Nov 24:** first meet, home vs. Rochester, 6:00 PM.",
+      "**Thu, Nov 26:** Thanksgiving, no practice. Enjoy time with your families!",
+      "**Fri, Nov 27:** skills & drills, 2:00–4:30 PM.",
+      "**Sat, Nov 28:** meet @ South Bend Riley, 8:00 AM.",
+      "**Nov 27–29:** leaf raking for any Gorham Road leftovers, plus Coach Caleb's family's house in Middlebury.",
+      "**Tue, Dec 1:** meet @ Concord, 5:00 PM. **Thu, Dec 3:** Northridge / Plymouth @ Plymouth, 5:30 PM.",
+      "**Sat, Dec 5:** RedHawk Invite (home)."
+     ]
+    }
+   ],
+   "schedule": [
+    {
+     "dow": "Mon",
+     "date": "Nov 23",
+     "items": [
+      {
+       "time": "3:45–6:00 PM",
+       "what": "Practice",
+       "where": "Pool",
+       "tag": "pool"
+      }
+     ]
+    },
+    {
+     "dow": "Tue",
+     "date": "Nov 24",
+     "flag": "Home meet",
+     "meet": true,
+     "items": [
+      {
+       "time": "6:00–7:00 AM",
+       "what": "Weights (optional)",
+       "where": "GHS weight room · Interra Gym entrance",
+       "tag": "weights"
+      },
+      {
+       "time": "[[report time]]",
+       "what": "Athletes report",
+       "where": "Aquatic Center",
+       "tag": "home"
+      },
+      {
+       "time": "6:00 PM",
+       "what": "Meet vs. Rochester",
+       "where": "Aquatic Center",
+       "tag": "home"
+      }
+     ]
+    },
+    {
+     "dow": "Wed",
+     "date": "Nov 25",
+     "items": [
+      {
+       "time": "[[Wednesday practice time?]]",
+       "what": "Practice",
+       "where": "Pool",
+       "tag": "pool"
+      }
+     ]
+    },
+    {
+     "dow": "Thu",
+     "date": "Nov 26",
+     "items": [
+      {
+       "time": "No practice",
+       "what": "Happy Thanksgiving!",
+       "where": "",
+       "tag": "off"
+      }
+     ]
+    },
+    {
+     "dow": "Fri",
+     "date": "Nov 27",
+     "items": [
+      {
+       "time": "2:00–4:30 PM",
+       "what": "Skills & drills",
+       "where": "Pool",
+       "tag": "pool"
+      }
+     ]
+    },
+    {
+     "dow": "Sat",
+     "date": "Nov 28",
+     "flag": "Away meet",
+     "meet": true,
+     "items": [
+      {
+       "time": "[[bus time]]",
+       "what": "Bus leaves",
+       "where": "Aquatic Center",
+       "tag": "away"
+      },
+      {
+       "time": "8:00 AM",
+       "what": "Meet @ South Bend Riley",
+       "where": "South Bend Riley HS",
+       "tag": "away"
+      }
+     ]
+    }
+   ],
+   "survey": [
+    {
+     "label": "Athlete Survey",
+     "url": "https://docs.google.com/forms/d/e/1FAIpQLSe02MrhNaMJcCjiPdEx9f4C14WdnGPQE_VM45EgdilwB1b52Q/viewform"
+    }
+   ],
+   "links": []
+  },
+  {
    "id": "2026-11-16",
    "season": "2026-27",
    "kicker": "Week of Nov 16, 2026",
