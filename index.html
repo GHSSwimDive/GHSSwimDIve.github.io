@@ -229,6 +229,7 @@ main #sitealert{padding-block:16px 0}
 .todo p{margin:6px 0 0}
 .sc-ans{margin:10px 0 18px;background:#FFF6D6;border:2px solid #E0A800;border-radius:12px;padding:12px 14px;font-size:17px}
 .jump-wrap{margin:4px 0 14px}
+.alert-line{background:#FFF4F5;border:2px solid #B3122E;border-left-width:8px;border-radius:10px;padding:10px 14px;color:#8E0E24;font-size:17px}
 .jump{display:inline-block;background:#fff;border:2px solid #B3122E;color:#B3122E!important;font-weight:800;text-decoration:none;padding:10px 16px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.15)}
 #sched{scroll-margin-top:70px}
 .res-img{display:block;width:100%;height:auto;border-radius:10px}
@@ -478,7 +479,7 @@ function renderIssue(is){
   let h=`<div class="issue-head"><div class="kicker">${esc(is.kicker)}</div><h2>${inl(is.title)}</h2></div>`;
   if(is.draft) h+=`<div class="draft"><b>Draft.</b> ${inl(is.draft)}</div>`;
   if(is.schedule&&is.schedule.length) h+=`<p class="jump-wrap"><a href="#" class="jump" data-jump="sched">📅 See this week's schedule ↓</a></p>`;
-  h+=`<div class="prose">${is.intro.map(p=>`<p>${inl(p)}</p>`).join("")}</div>`;
+  h+=`<div class="prose">${is.intro.map(p=>typeof p==="object"?`<p class="alert-line">${inl(p.alert)}</p>`:`<p>${inl(p)}</p>`).join("")}</div>`;
   if(is.results) h+=renderResults(is.results);
   if(is.stats.length) h+=`<div class="stats">${is.stats.map(s=>`<div class="stat"><b>${esc(s.n)}</b><span>${inl(s.l)}</span></div>`).join("")}</div>`;
   is.sections.forEach(s=>{h+=`<section${s.style?` class="sec-${esc(s.style)}"`:""}><h3>${esc(s.h)}</h3><div class="prose">${s.img?`<img class="sec-img" src="${esc(s.img)}" alt="${esc(s.imgAlt||"")}">`:""}${s.body.map(p=>typeof p==="object"?`<div class="todo"><p class="todo-h">${esc(p.h)}</p><ul>${p.list.map(x=>`<li>${inl(x)}</li>`).join("")}</ul>${p.foot?`<p>${inl(p.foot)}</p>`:""}</div>`:`<p>${inl(p)}</p>`).join("")}</div>${s.priorities?`<ol class="prio">${s.priorities.map((x,k)=>`<li><span class="prio-n">${k+1}</span><span class="prio-t">${esc(x)}</span></li>`).join("")}</ol>`:""}</section>`});
@@ -513,7 +514,7 @@ function renderIssue(is){
 
 function issueText(is){
   const L=[is.kicker.toUpperCase(),plain(is.title),""];
-  is.intro.forEach(p=>L.push(plain(p),""));
+  is.intro.forEach(p=>L.push(plain(typeof p==="object"?p.alert:p),""));
   if(is.results){const R=is.results;L.push((R.title||"Swim-A-Thon Results").toUpperCase());if(R.totalYards)L.push("Team total: "+Number(R.totalYards).toLocaleString()+" yards (about "+(R.totalYards/1760).toFixed(1)+" miles)");if(R.overall)L.push("Overall winner: "+plain(R.overall.name)+" – "+plain(R.overall.distance));(R.teams||[]).forEach(t=>L.push(plain(String(t.place))+". "+plain(t.name)+" – "+plain(t.distance)));(R.groups||[]).forEach(g=>L.push(plain(g.group)+": "+plain(g.winner)+" – "+plain(g.distance)));L.push("")}
   if(is.stats.length){is.stats.forEach(s=>L.push(`• ${s.n} – ${plain(s.l)}`));L.push("")}
   is.sections.forEach(s=>{L.push(s.h.toUpperCase());s.body.forEach(p=>{if(typeof p==="object"){L.push(p.h.toUpperCase());p.list.forEach(x=>L.push("• "+plain(x)));if(p.foot)L.push(plain(p.foot));L.push("")}else L.push(plain(p),"")});(s.priorities||[]).forEach((x,k)=>L.push((k+1)+". "+x));if(s.priorities)L.push("")});
