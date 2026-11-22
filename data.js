@@ -168,6 +168,9 @@ window.NEWSLETTER = {
    "kicker": "Week of Nov 23, 2026",
    "title": "Meet Week!",
    "intro": [
+    {
+     "hype": "🎉 LOTS to cover this week with the **Swim-A-Thon**, **leaf raking** and our **first swim meet** coming up!"
+    },
     "What a Saturday! Between the **Swim-A-Thon** in the morning and **leaf raking** in the afternoon, the team put in a full day of work. The recap and results are below.",
     "This week is a big one: our **first meet of the season is Tuesday at home vs. Rochester**, then we take Thursday off for Thanksgiving and head to **South Bend Riley on Saturday**.",
     {
@@ -180,6 +183,7 @@ window.NEWSLETTER = {
      "h": "Week recap",
      "body": [
       "This week we moved into our **training groups**, which let us spread out and get a little more focused in practice based on each group's needs. We ended the week at skills and drills, working on **turns and starts** to get ready for this week's meets.",
+      "**Coach Alexa did the math:** the girls are about **a quarter of the way through their season** already!",
       "**Leaf raking:** after a quick pizza lunch, **22 teammates** headed out to **4 different locations** to rake leaves. With so much help and such nice weather, we were done before 1:30 PM, and the kids got to enjoy the rest of the afternoon and rest up.",
       {
        "h": "Athletes: you have 2 surveys to complete this week!",
@@ -197,7 +201,7 @@ window.NEWSLETTER = {
       "Our first meet is **Tuesday against Rochester**! We're using this night to introduce our **Goshen Rays** club team, and we want them to come and enjoy watching the high schoolers swim. I'm excited for these young athletes to be here in support of their teammates.",
       "This meet will be a little different from our regular meets because it's **non-conference**. That means we aren't required to have a long warm-up after diving before the swimming events start. I've contacted Rochester's coach about the timeline. Our goal is a **full warm-up before diving**, then a **short warm-up after diving** before swimming starts. Once I hear back and have a better idea of the timeline, I'll give the official word. **Diving is scheduled to start at 6:00 PM.**",
       "**Home meet · Tuesday, Nov 24 · 6:00 PM** at the GCS Aquatic Center. **Athletes, arrive by 4:00 PM** to help finish setting up for the meet, and bring a snack to eat before warm-ups.",
-      "**Athletes, bring:** team suit, cap, goggles (plus a spare pair), towel, team shirt, a water bottle and a snack. Eat a real meal 2 to 3 hours before warm-ups.",
+      "**Athletes, bring:** team suit, cap, goggles (plus a spare pair), towel, team shirt, a water bottle and a **full snack**, like a sandwich (or 2) plus fruit or veggies, to eat 2 to 3 hours before warm-ups so you're fueled up for the meet.",
       "**Parents:** we still need help! For Tuesday we still need **3 timers**. There's also 1 open spot in the concession stand if you'd like to help. Sign up on the **Meet Workers** tab. Workers get in free, and no experience is needed for timing. New to swim meets? The **Meet Guide** tab explains how a meet works, from diving to the event order."
      ],
      "style": "hot",
@@ -216,7 +220,8 @@ window.NEWSLETTER = {
      "body": [
       "Every athlete has their own **app** they can open on their phone or computer (or both). It shows their locker and locker combination, equipment bag number, personal attendance and the goals they wrote for the season. It also shows their **team fees**.",
       "This year's team fees are **$135 for the girls** and **$115 for the boys**. Athletes who helped with leaf raking or at the swim meet last weekend will see their new total, based on what they earned. Everything is in one place and easy to check every day!"
-     ]
+     ],
+     "style": "fees"
     }
    ],
    "shoutTitle": "Teammate shout-outs",
@@ -349,7 +354,7 @@ window.NEWSLETTER = {
      ],
      "list": [
       "**Pack your bag the night before:** suit, cap, goggles plus a spare, towel, team shirt, water bottle and a snack.",
-      "**Eat a real meal** 2 to 3 hours before warm-ups, and bring a light snack for between events.",
+      "**Bring a full snack**, like a sandwich (or 2) plus fruit or veggies, and eat it 2 to 3 hours before warm-ups so you're fueled up for the meet.",
       "**Hydrate all day.** Bring your water bottle to school and keep sipping.",
       "**Know your events.** Check the heat sheet and listen for your event to be called.",
       "**Cheer for your teammates!** The loudest team on deck is usually the fastest."
