@@ -227,7 +227,10 @@ main #sitealert{padding-block:16px 0}
 .todo ul{margin:0;padding-left:20px}
 .todo li{font-weight:700;margin:4px 0}
 .todo p{margin:6px 0 0}
-.sc-ans{margin:8px 0 0;background:#E8F1FB;border-left:4px solid #1F5FAD;border-radius:8px;padding:10px 12px}
+.sc-ans{margin:10px 0 18px;background:#FFF6D6;border:2px solid #E0A800;border-radius:12px;padding:12px 14px;font-size:17px}
+.jump-wrap{margin:4px 0 14px}
+.jump{display:inline-block;background:#fff;border:2px solid #B3122E;color:#B3122E!important;font-weight:800;text-decoration:none;padding:10px 16px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+#sched{scroll-margin-top:70px}
 .res-img{display:block;width:100%;height:auto;border-radius:10px}
 .tm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
 .tm{border-radius:12px;overflow:hidden;border:2px solid var(--tc);background:var(--surface)}
@@ -470,9 +473,11 @@ function renderResults(R){
   if(R.fullLink&&SAT) h+=`<div class="btns"><a class="btn primary" href="#swimathon">See everyone's laps & group rankings</a></div>`;
   return h+`</div></section>`;
 }
+document.addEventListener("click",e=>{const a=e.target.closest("[data-jump]");if(!a)return;e.preventDefault();const t=document.getElementById(a.dataset.jump);if(t)t.scrollIntoView({behavior:"smooth"})});
 function renderIssue(is){
   let h=`<div class="issue-head"><div class="kicker">${esc(is.kicker)}</div><h2>${inl(is.title)}</h2></div>`;
   if(is.draft) h+=`<div class="draft"><b>Draft.</b> ${inl(is.draft)}</div>`;
+  if(is.schedule&&is.schedule.length) h+=`<p class="jump-wrap"><a href="#" class="jump" data-jump="sched">📅 See this week's schedule ↓</a></p>`;
   h+=`<div class="prose">${is.intro.map(p=>`<p>${inl(p)}</p>`).join("")}</div>`;
   if(is.results) h+=renderResults(is.results);
   if(is.stats.length) h+=`<div class="stats">${is.stats.map(s=>`<div class="stat"><b>${esc(s.n)}</b><span>${inl(s.l)}</span></div>`).join("")}</div>`;
@@ -495,7 +500,7 @@ function renderIssue(is){
   if(is.shouts.length) h+=`<section><h3>${esc(is.shoutTitle||"Shout-outs")}</h3>${is.shoutNote?`<p class="shout-note">${inl(is.shoutNote)}</p>`:""}<ul class="shouts">${is.shouts.map(s=>`<li${s.n>1?' class="multi"':""}>${s.n>1?`<span class="shout-n">×${s.n}</span>`:""}<span class="who">${inl(s.who)}</span><span class="why">${inl(s.why)}</span></li>`).join("")}</ul></section>`;
   (is.callouts||[]).forEach(c=>{h+=`<div class="callout"><h4>${esc(c.h)}</h4>${c.items.map(i=>`<p>${inl(i)}</p>`).join("")}</div>`});
   if(is.schedule.length){
-    h+=`<section><h3>Weekly schedule</h3><div class="days">${is.schedule.map(d=>`
+    h+=`<section id="sched"><h3>Weekly schedule</h3><div class="days">${is.schedule.map(d=>`
       <div class="day${d.meet?" meet":""}"><div class="d"><span class="dow">${esc(d.dow)}</span>${d.date?`<span class="dt">${esc(d.date)}</span>`:""}${d.flag?`<span class="flag">${esc(d.flag)}</span>`:""}</div>
       <ul class="items">${d.items.map(it=>`<li class="item"><div class="row"><span class="time">${inl(it.time)}</span><span class="what">${inl(it.what)}</span><span class="chip c-${it.tag}">${esc(TAGS[it.tag]||it.tag)}</span></div><div class="muted" style="font-size:15px">${inl(it.where||"")}</div>${it.notes?`<ul class="notes">${it.notes.map(n=>`<li>${inl(n)}</li>`).join("")}</ul>`:""}</li>`).join("")}</ul></div>`).join("")}</div></section>`;
   }
