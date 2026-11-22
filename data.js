@@ -210,6 +210,13 @@ window.NEWSLETTER = {
       "**Saturday, Nov 28 · meet starts 8:00 AM.** We'll **leave from the Aquatic Center at 7:00 AM**, so please be there a few minutes early. **Parents coming to watch:** Riley High School is at **1902 Fellows St, South Bend**. Park in the north lot off Fellows St and use the pool entrance on that side (Door 20).",
       "**Want Subway for Saturday?** Fill out the **Subway order** form by **Tuesday, Nov 24 at 10:00 AM** to get on the list. The red **Subway order** button is at the top of this page. No form, no sandwich!"
      ]
+    },
+    {
+     "h": "Team fees",
+     "body": [
+      "Every athlete has their own **app** they can open on their phone or computer (or both). It shows their locker and locker combination, equipment bag number, personal attendance and the goals they wrote for the season. It also shows their **team fees**.",
+      "This year's team fees are **$135 for the girls** and **$115 for the boys**. Athletes who helped with leaf raking or at the swim meet last weekend will see their new total, based on what they earned. Everything is in one place and easy to check every day!"
+     ]
     }
    ],
    "shoutTitle": "Teammate shout-outs",
