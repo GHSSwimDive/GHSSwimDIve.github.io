@@ -178,7 +178,7 @@ window.NEWSLETTER = {
      "body": [
       "This week we moved into our **training groups**, which let us spread out and get a little more focused in practice based on each group's needs. We ended the week at skills and drills, working on **turns and starts** to get ready for this week's meets.",
       "**Leaf raking:** after a quick pizza lunch, **22 teammates** headed out to **4 different locations** to rake leaves. With so much help and such nice weather, we were done before 1:30 PM, and the kids got to enjoy the rest of the afternoon and rest up.",
-      "**Athletes:** remember to complete this week's **survey** before Monday's practice. It's quick, with a few fun questions and a check-in. The **Athlete Survey** button is at the top of this page."
+      {"h": "Athletes: you have 2 surveys to complete this week!", "list": ["**Weekly Athlete Survey:** due before Monday's practice. It's quick, with a few fun questions and a check-in.", "**Subway order:** due Tuesday at 10:00 AM if you want Subway at Saturday's meet. No form, no sandwich!"], "foot": "Both red buttons are at the top of this page."}
      ]
     },
     {
