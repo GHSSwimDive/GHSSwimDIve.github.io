@@ -449,7 +449,8 @@ function renderResults(R){
   if(R.intro) h+=[].concat(R.intro).map(p=>`<p>${inl(p)}</p>`).join("");
   h+=`<div class="res-total"><span class="rt-n">${yd?yd.toLocaleString()+" yards":inl("[[team total yards]]")}</span><span class="rt-l">swum by the whole team${yd?` · about <b>${mi.toFixed(1)} miles</b>`:""}</span></div>`;
   h+=R.map?`<div class="rmap-wrap">${radiusMap(mi)}</div>`:`<div class="tablewrap">${svg}</div>`;
-  if(R.map&&yd) h+=`<p class="res-cap">Swim ${mi.toFixed(1)} miles straight out from Goshen in any direction and you'd reach ${reached.length?`<b>${reached.map(esc).join(", ").replace("Chicago / Grand Rapids","Chicago and Grand Rapids")}</b>`:"the edge of the circle"}${next?`, and get ${Math.round((mi/next.miles)*100)}% of the way to ${esc(next.name)}`:""}!</p>`;
+  if(R.map&&yd&&R.mapCaption) h+=`<p class="res-cap">${inl(R.mapCaption)}</p>`;
+  else if(R.map&&yd) h+=`<p class="res-cap">Swim ${mi.toFixed(1)} miles straight out from Goshen in any direction and you'd reach ${reached.length?`<b>${reached.map(esc).join(", ").replace("Chicago / Grand Rapids","Chicago and Grand Rapids")}</b>`:"the edge of the circle"}${next?`, and get ${Math.round((mi/next.miles)*100)}% of the way to ${esc(next.name)}`:""}!</p>`;
   else h+=`<p class="res-cap">${yd?(reached.length?`That's farther than Goshen to <b>${reached.map(esc).join(", ")}</b>${next?`, and ${Math.round((mi/next.miles)*100)}% of the way to ${esc(next.name)}`:""}!`:`That's ${Math.round((mi/(next?next.miles:1))*100)}% of the way to ${esc(next?next.name:"")}!`):"Distances are measured straight out from Goshen."}</p>`;
   if(R.overall) h+=`<div class="res-champ"><span class="rc-k">Overall distance winner</span><b>${td(R.overall.name)}</b><span>${td(R.overall.distance)}</span></div>`;
   const SAT=NL.swimathon;
