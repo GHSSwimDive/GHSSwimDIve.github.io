@@ -169,7 +169,7 @@ window.NEWSLETTER = {
    "title": "Meet Week!",
    "intro": [
     "What a Saturday! Between the **Swim-A-Thon** in the morning and **leaf raking** in the afternoon, the team put in a full day of work. The recap and results are below.",
-    "This week is a big one: our **first meet of the season is Tuesday at home vs. Rochester**, then we take Thursday off for Thanksgiving and head to **South Bend Riley on Saturday**."
+    "This week is a big one: our **first meet of the season is Tuesday at home vs. Rochester**, then we take Thursday off for Thanksgiving and head to **South Bend Riley on Saturday**. **Check the schedule for practice times this week, since we are NOT in school Wednesday through Friday.**"
    ],
    "stats": [],
    "sections": [
