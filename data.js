@@ -535,7 +535,8 @@ window.NEWSLETTER = {
     "teamCards": true,
     "fullLink": true,
     "image": "swimathon-2026.jpg",
-    "imageAlt": "Goshen High School Swim & Dive Team Swim-A-Thon, November 21, 2026"
+    "imageAlt": "Goshen High School Swim & Dive Team Swim-A-Thon, November 21, 2026",
+    "mapCaption": "Swim 103.8 miles straight out from Goshen in any direction and you'd go way past **South Bend** and **Fort Wayne**. Even past **Chicago** and **Grand Rapids**, and almost make it to **Indianapolis**!"
    }
   },
   {
