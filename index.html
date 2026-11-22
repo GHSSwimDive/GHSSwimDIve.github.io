@@ -707,6 +707,7 @@ function route(){
   document.getElementById("tab-workers").setAttribute("aria-current",workers);
   document.getElementById("tab-issue").setAttribute("aria-current",!guide&&!season&&!workers&&!leaf&&!sat);
   if(sat){view.innerHTML=(NL.swimathon&&(PREVIEW||NL.swimathon.public))?renderSwimathon():`<div class="issue-head"><h2>Results coming soon</h2></div>`;return}
+  if(leaf&&!NL.leafRaking){location.replace("#");return}
   if(leaf){view.innerHTML=renderLeaf();return}
   if(workers){WK.msg=null;if(WK.jobs&&!WK.error)paintWorkers();else loadJobs();return}
   if(guide){view.innerHTML=GUIDE;return}

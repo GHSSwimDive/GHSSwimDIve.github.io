@@ -19,7 +19,7 @@ window.NEWSLETTER = {
   "until": "2026-11-15"
  }
 ],
- "leafRaking": {
+ "leafRakingArchive": {
  "weekend": "Nov 20–22",
  "updated": "Fri, Nov 20",
  "notes": "We start around **11:30** after the Swim-A-Thon and hope to be done by **2:30**. The Joe Hauflaire crew stops on Canal St first, then everyone ends up in Gorham Woods.",
@@ -186,7 +186,7 @@ window.NEWSLETTER = {
      "body": [
       "**Home meet · Tuesday, Nov 24 · 6:00 PM** at the GCS Aquatic Center. **Athletes, arrive by 4:00 PM** to help finish setting up for the meet, and bring a snack to eat before warm-ups.",
       "**Athletes, bring:** team suit, cap, goggles (plus a spare pair), towel, team shirt, a water bottle and a snack. Eat a real meal 2 to 3 hours before warm-ups.",
-      "**Parents:** we still need help! For Tuesday we still need **2 timers, 1 concession stand helper, 1 computer timer and 1 computer scorer**. Sign up on the **Meet Workers** tab. Workers get in free, and no experience is needed for timing. New to swim meets? The **Meet Guide** tab explains how a meet works, from diving to the event order."
+      "**Parents:** we still need help! For Tuesday we still need **3 timers**. There's also 1 open spot in the concession stand if you'd like to help. Sign up on the **Meet Workers** tab. Workers get in free, and no experience is needed for timing. New to swim meets? The **Meet Guide** tab explains how a meet works, from diving to the event order."
      ]
     },
     {
