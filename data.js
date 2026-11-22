@@ -212,7 +212,7 @@ window.NEWSLETTER = {
      "h": "Saturday: @ South Bend Riley",
      "body": [
       "**Saturday, Nov 28 · meet starts 8:00 AM.** We'll **leave from the Aquatic Center at 7:00 AM**, so please be there a few minutes early. **Parents coming to watch:** Riley High School is at **1902 Fellows St, South Bend**. Park in the north lot off Fellows St and use the pool entrance on that side (Door 20).",
-      "**Want Subway for Saturday?** Fill out the **Subway order** form by **Tuesday, Nov 24 at 10:00 AM** to get on the list. The red **Subway order** button is at the top of this page. No form, no sandwich!"
+      "**Athletes, want Subway for Saturday?** Fill out the **Subway order** form by **Tuesday, Nov 24 at 10:00 AM** to get on the list. The red **Subway order** button is at the top of this page. No form, no sandwich!"
      ]
     },
     {
