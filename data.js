@@ -342,7 +342,7 @@ window.NEWSLETTER = {
       "**Thu, Nov 26:** Thanksgiving, no practice. Enjoy time with your families!",
       "**Fri, Nov 27:** skills & drills, 2:00–4:30 PM.",
       "**Sat, Nov 28:** meet @ South Bend Riley, 8:00 AM.",
-      "**Nov 27–29:** leaf raking for any Gorham Road leftovers, plus Coach Caleb's family's house in Middlebury.",
+      "**Sat, Nov 28 (?):** leaf raking at Coach Caleb's family's house in Middlebury, after the meet. Still to be decided, since a lot of you are planning Friendsgiving that day!",
       "**Tue, Dec 1:** meet @ Concord, 5:00 PM. **Thu, Dec 3:** Northridge / Plymouth @ Plymouth, 5:30 PM.",
       "**Sat, Dec 5:** RedHawk Invite (home)."
      ]
