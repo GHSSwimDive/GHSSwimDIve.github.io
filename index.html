@@ -218,6 +218,19 @@ main #sitealert{padding-block:16px 0}
 .rm-mi{fill:var(--muted);font-size:11px;font-family:var(--body)}
 .rm-us{fill:var(--red-ink);font-size:13px;font-weight:800;font-family:var(--body)}
 .res-cap{color:var(--muted);font-size:15px}
+.board{border:2px solid #1F5FAD;border-radius:14px;overflow:hidden;margin:14px 0;background:#fff}
+.board .bd-h{background:#1F5FAD;color:#fff;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.board .bd-h .rc-k{color:#DCE9F8}
+.board.money{border-color:#1E7B3A}.board.money .bd-h{background:#1E7B3A}.board.money .bd-h .rc-k{color:#D6F0DE}
+.bd-big{font-size:34px;line-height:1.1;font-weight:900}
+.bd-sub{font-size:15px;opacity:.95}
+.bd-list{list-style:none;margin:0;padding:6px 10px}
+.bd-list li{display:flex;align-items:center;gap:10px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.bd-list li:last-child{border-bottom:0}
+.bd-p{flex:0 0 30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:900;background:#E9ECEF;color:#2A3138}
+.bd-p.p1{background:#F2C230;color:#4A3600}.bd-p.p2{background:#C9D1D9}.bd-p.p3{background:#D9955B;color:#3B1E05}
+.bd-n{flex:1;font-weight:800}.bd-n small{font-weight:600;color:var(--muted)}
+.bd-v{font-weight:700;white-space:nowrap;text-align:right}
 .sec-hot{background:#FFF4F5;border:2px solid #B3122E;border-top-width:6px;border-radius:14px;padding:14px 16px 6px}
 .sec-hot h3{color:#B3122E}
 .sec-img{float:right;width:110px;height:auto;margin:0 0 8px 12px}
@@ -466,6 +479,7 @@ function renderResults(R){
   else if(R.map&&yd) h+=`<p class="res-cap">Swim ${mi.toFixed(1)} miles straight out from Goshen in any direction and you'd reach ${reached.length?`<b>${reached.map(esc).join(", ").replace("Chicago / Grand Rapids","Chicago and Grand Rapids")}</b>`:"the edge of the circle"}${next?`, and get ${Math.round((mi/next.miles)*100)}% of the way to ${esc(next.name)}`:""}!</p>`;
   else h+=`<p class="res-cap">${yd?(reached.length?`That's farther than Goshen to <b>${reached.map(esc).join(", ")}</b>${next?`, and ${Math.round((mi/next.miles)*100)}% of the way to ${esc(next.name)}`:""}!`:`That's ${Math.round((mi/(next?next.miles:1))*100)}% of the way to ${esc(next?next.name:"")}!`):"Distances are measured straight out from Goshen."}</p>`;
   if(R.overall) h+=`<div class="res-champ"><span class="rc-k">Overall distance winner</span><b>${td(R.overall.name)}</b><span>${td(R.overall.distance)}</span></div>`;
+  (R.boards||[]).forEach(B=>{h+=`<div class="board${B.money?" money":""}"><div class="bd-h"><span class="rc-k">${esc(B.title)}</span>${B.big?`<b class="bd-big">${esc(B.big)}</b>`:""}${B.sub?`<span class="bd-sub">${inl(B.sub)}</span>`:""}</div><ol class="bd-list">${B.rows.map(r=>`<li><span class="bd-p p${r.place}">${esc(String(r.place))}</span><span class="bd-n">${esc(r.name)}${r.tie?` <small>(tie)</small>`:""}</span><span class="bd-v">${esc(r.val)}</span></li>`).join("")}</ol></div>`});
   const SAT=NL.swimathon;
   if(R.teamCards&&SAT) h+=`<h4>Team standings</h4>${teamCards(SAT.teams)}`;
   if(R.teams&&R.teams.length) h+=`<h4>Team standings</h4><div class="tablewrap"><table class="res-tbl"><thead><tr><th>Place</th><th>Team</th><th>Distance</th></tr></thead><tbody>${R.teams.map(t=>`<tr${t.place==1?' class="first"':""}><td>${td(t.place)}</td><td>${td(t.name)}</td><td>${tdd(t.distance)}</td></tr>`).join("")}</tbody></table></div>`;
@@ -515,7 +529,7 @@ function renderIssue(is){
 function issueText(is){
   const L=[is.kicker.toUpperCase(),plain(is.title),""];
   is.intro.forEach(p=>L.push(plain(typeof p==="object"?p.alert:p),""));
-  if(is.results){const R=is.results;L.push((R.title||"Swim-A-Thon Results").toUpperCase());if(R.totalYards)L.push("Team total: "+Number(R.totalYards).toLocaleString()+" yards (about "+(R.totalYards/1760).toFixed(1)+" miles)");if(R.overall)L.push("Overall winner: "+plain(R.overall.name)+" – "+plain(R.overall.distance));(R.teams||[]).forEach(t=>L.push(plain(String(t.place))+". "+plain(t.name)+" – "+plain(t.distance)));(R.groups||[]).forEach(g=>L.push(plain(g.group)+": "+plain(g.winner)+" – "+plain(g.distance)));L.push("")}
+  if(is.results){const R=is.results;L.push((R.title||"Swim-A-Thon Results").toUpperCase());if(R.totalYards)L.push("Team total: "+Number(R.totalYards).toLocaleString()+" yards (about "+(R.totalYards/1760).toFixed(1)+" miles)");if(R.overall)L.push("Overall winner: "+plain(R.overall.name)+" – "+plain(R.overall.distance));(R.boards||[]).forEach(B=>{L.push(B.title.toUpperCase()+(B.big?": "+B.big:""));B.rows.forEach(r=>L.push("  "+r.place+". "+r.name+(r.tie?" (tie)":"")+" – "+r.val))});(R.teams||[]).forEach(t=>L.push(plain(String(t.place))+". "+plain(t.name)+" – "+plain(t.distance)));(R.groups||[]).forEach(g=>L.push(plain(g.group)+": "+plain(g.winner)+" – "+plain(g.distance)));L.push("")}
   if(is.stats.length){is.stats.forEach(s=>L.push(`• ${s.n} – ${plain(s.l)}`));L.push("")}
   is.sections.forEach(s=>{L.push(s.h.toUpperCase());s.body.forEach(p=>{if(typeof p==="object"){L.push(p.h.toUpperCase());p.list.forEach(x=>L.push("• "+plain(x)));if(p.foot)L.push(plain(p.foot));L.push("")}else L.push(plain(p),"")});(s.priorities||[]).forEach((x,k)=>L.push((k+1)+". "+x));if(s.priorities)L.push("")});
   if(is.surveyCorner){const sc=is.surveyCorner;L.push((sc.title||"Survey Corner").toUpperCase());if(sc.intro)L.push(plain(sc.intro));(sc.blocks||[]).forEach(b=>{L.push(b.h+": "+b.items.map(x=>(x.t||x)+(x.n>1?" ×"+x.n:"")).join(", "));if(b.answer)L.push(plain(b.answer))});if(sc.tip){L.push(sc.tip.h.toUpperCase()+(sc.tip.stat?" ("+sc.tip.stat+" "+plain(sc.tip.statLabel)+")":""));sc.tip.body.forEach(p=>L.push(plain(p)));(sc.tip.list||[]).forEach(p=>L.push("• "+plain(p)))}L.push("")}

@@ -170,7 +170,9 @@ window.NEWSLETTER = {
    "intro": [
     "What a Saturday! Between the **Swim-A-Thon** in the morning and **leaf raking** in the afternoon, the team put in a full day of work. The recap and results are below.",
     "This week is a big one: our **first meet of the season is Tuesday at home vs. Rochester**, then we take Thursday off for Thanksgiving and head to **South Bend Riley on Saturday**.",
-    {"alert": "📅 **Check the schedule for practice times this week, since we are NOT in school Wednesday through Friday.**"}
+    {
+     "alert": "📅 **Check the schedule for practice times this week, since we are NOT in school Wednesday through Friday.**"
+    }
    ],
    "stats": [],
    "sections": [
@@ -549,7 +551,93 @@ window.NEWSLETTER = {
     "fullLink": true,
     "image": "swimathon-2026.jpg",
     "imageAlt": "Goshen High School Swim & Dive Team Swim-A-Thon, November 21, 2026",
-    "mapCaption": "Swim 103.8 miles straight out from Goshen in any direction and you'd go way past **South Bend** and **Fort Wayne**. Even past **Chicago** and **Grand Rapids**, and almost make it to **Indianapolis**!"
+    "mapCaption": "Swim 103.8 miles straight out from Goshen in any direction and you'd go way past **South Bend** and **Fort Wayne**. Even past **Chicago** and **Grand Rapids**, and almost make it to **Indianapolis**!",
+    "boards": [
+     {
+      "title": "Top 5 distances",
+      "sub": "Our top 5 swimmers took home small prizes on Saturday!",
+      "rows": [
+       {
+        "place": 1,
+        "name": "JP",
+        "val": "358 laps · 8,950 yds"
+       },
+       {
+        "place": 2,
+        "name": "Liam",
+        "val": "352 laps · 8,800 yds"
+       },
+       {
+        "place": 3,
+        "name": "Lauren",
+        "val": "342 laps · 8,550 yds"
+       },
+       {
+        "place": 4,
+        "name": "Luvan",
+        "val": "338 laps · 8,450 yds"
+       },
+       {
+        "place": 5,
+        "name": "Santi",
+        "val": "330 laps · 8,250 yds",
+        "tie": true
+       },
+       {
+        "place": 5,
+        "name": "AJ",
+        "val": "330 laps · 8,250 yds",
+        "tie": true
+       }
+      ]
+     },
+     {
+      "title": "Money raised",
+      "money": true,
+      "big": "$4,810.91",
+      "sub": "from **104 donations**. Thank you to every family and friend who gave! Our top fundraiser gets a prize too.",
+      "rows": [
+       {
+        "place": 1,
+        "name": "Kellan",
+        "val": "$350.00"
+       },
+       {
+        "place": 2,
+        "name": "Susanna",
+        "val": "$336.91"
+       },
+       {
+        "place": 3,
+        "name": "Caleb",
+        "val": "$335.00"
+       },
+       {
+        "place": 4,
+        "name": "Ava",
+        "val": "$305.00"
+       },
+       {
+        "place": 5,
+        "name": "Natalie",
+        "val": "$300.00",
+        "tie": true
+       },
+       {
+        "place": 5,
+        "name": "Naomi",
+        "val": "$300.00",
+        "tie": true
+       },
+       {
+        "place": 5,
+        "name": "Julian D.",
+        "val": "$300.00",
+        "tie": true
+       }
+      ]
+     }
+    ]
    }
   },
   {
