@@ -168,7 +168,7 @@ window.NEWSLETTER = {
    "kicker": "Week of Nov 23, 2026",
    "title": "Meet Week!",
    "intro": [
-    "What a Saturday! [[Swim-A-Thon recap: how it went, total laps/yards, money raised so far, any standout efforts or funny moments.]] [[Leaf raking recap: houses finished, thank-yous.]]",
+    "What a Saturday! Between the **Swim-A-Thon** in the morning and **leaf raking** in the afternoon, the team put in a full day of work. The recap and results are below.",
     "This week is a big one: our **first meet of the season is Tuesday at home vs. Rochester**, then we take Thursday off for Thanksgiving and head to **South Bend Riley on Saturday**."
    ],
    "stats": [],
@@ -176,7 +176,8 @@ window.NEWSLETTER = {
     {
      "h": "Week recap",
      "body": [
-      "[[What the girls and boys worked on in practice this week.]]",
+      "This week we moved into our **training groups**, which let us spread out and get a little more focused in practice based on each group's needs. We ended the week at skills and drills, working on **turns and starts** to get ready for this week's meets.",
+      "**Leaf raking:** after a quick pizza lunch, **22 teammates** headed out to **4 different locations** to rake leaves. With so much help and such nice weather, we were done before 1:30 PM, and the kids got to enjoy the rest of the afternoon and rest up.",
       "**Athletes:** remember to complete this week's **survey** before Monday's practice. It's quick, with a few fun questions and a check-in. The **Athlete Survey** button is at the top of this page."
      ]
     },
@@ -467,7 +468,12 @@ window.NEWSLETTER = {
    "results": {
     "kicker": "Sat, Nov 21",
     "title": "Swim-A-Thon Results",
-    "intro": "[[One or two sentences on how the day went.]]",
+    "intro": [
+     "Thank you so much to everyone who came and counted laps (the Snapps, Carmen, Anthony, Marisol and Susan), everyone who offered to help, the Wohlfords for bringing in food, our coaches who care about our kids and want every one of them to succeed, and especially everyone who swam or dove. We could not get through our season without all of your support.",
+     "We told the kids that a Swim-A-Thon is both a **mental and a physical challenge**: you're trying to swim as far as you can in a set amount of time. It's not easy, and it's definitely not always fun. **The kids did amazing!** They were divided into color-coded teams but swam with their training groups or dove off the board. Effort was consistent across the whole pool, and many of them surprised themselves with how far they got.",
+     "The results are below, and the full results are on the **Swim-A-Thon** tab at the top of the page. **JP** was the overall lap winner with **358 laps**. Team places are based on **average laps**: each team's laps added together, divided by the number of team members. That keeps it fair, so a team of 5 isn't up against a team of 7 or 8 because of absences. **White** had the highest average, while **Blue** had the most total laps (and the most members). Training group winners: **JP, Santi, Mauro, Caleb, Jasmine and Julian U-A.**",
+     "Afterward, we swapped in our competition lane lines in the competition pool, since our meets start Tuesday."
+    ],
     "totalYards": 182775,
     "map": true,
     "places": [
@@ -525,7 +531,7 @@ window.NEWSLETTER = {
       "distance": "161 dives"
      }
     ],
-    "note": "Team places are based on **average laps per swimmer**, so teams with fewer swimmers aren't penalized. Blue swam the most total laps (1,755). One lap = 25 yards. Our divers added **457 dives** on top of all those laps!",
+    "note": "One lap = 25 yards. Blue swam 1,755 total laps, and our divers added **457 dives** on top of all those laps!",
     "teamCards": true,
     "fullLink": true,
     "image": "swimathon-2026.jpg",
