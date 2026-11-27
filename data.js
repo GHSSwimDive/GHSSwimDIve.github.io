@@ -210,7 +210,7 @@ window.NEWSLETTER = {
     {
      "h": "Saturday: @ South Bend Riley",
      "body": [
-      "**Saturday, Nov 28 · meet starts 8:00 AM.** We'll **leave from the Aquatic Center at 7:00 AM**, so please be there a few minutes early. **Parents coming to watch:** Riley High School is at **1902 Fellows St, South Bend**. Park in the north lot off Fellows St and use the pool entrance on that side (Door 20).",
+      "**Saturday, Nov 28 · meet starts 9:00 AM.** We'll **leave from the Aquatic Center at 7:00 AM**, so please be there a few minutes early. **Parents coming to watch:** Riley High School is at **1902 Fellows St, South Bend**. Park in the north lot off Fellows St and use the pool entrance on that side (Door 20).",
       "**Athletes, want Subway for Saturday?** Fill out the **Subway order** form by **Tuesday, Nov 24 at 10:00 AM** to get on the list. The red **Subway order** button is at the top of this page. No form, no sandwich!"
      ]
     },
@@ -367,7 +367,7 @@ window.NEWSLETTER = {
       "**Tue, Nov 24:** first meet, home vs. Rochester, 6:00 PM.",
       "**Thu, Nov 26:** Thanksgiving, no practice. Enjoy time with your families!",
       "**Fri, Nov 27:** skills & drills, 2:00–4:30 PM.",
-      "**Sat, Nov 28:** meet @ South Bend Riley, 8:00 AM.",
+      "**Sat, Nov 28:** meet @ South Bend Riley, 9:00 AM.",
       "**Sat, Nov 28 (?):** leaf raking at Coach Caleb's family's house in Middlebury, after the meet. Still to be decided, since a lot of you are planning Friendsgiving that day!",
       "**Tue, Dec 1:** meet @ Concord, 5:00 PM. **Thu, Dec 3:** Northridge / Plymouth @ Plymouth, 5:30 PM.",
       "**Sat, Dec 5:** RedHawk Invite (home)."
@@ -468,7 +468,7 @@ window.NEWSLETTER = {
        "tag": "away"
       },
       {
-       "time": "8:00 AM",
+       "time": "9:00 AM",
        "what": "Meet @ South Bend Riley",
        "where": "South Bend Riley HS · 1902 Fellows St, South Bend",
        "tag": "away",
@@ -1266,7 +1266,7 @@ window.NEWSLETTER = {
    },
    {
     "d": "2026-11-28",
-    "t": "8:00 AM",
+    "t": "9:00 AM",
     "n": "@ South Bend Riley",
     "tag": "away"
    },
